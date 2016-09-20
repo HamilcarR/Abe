@@ -596,8 +596,6 @@ void browse_tree(Tree* tree){
 			if(iterator->prev_level != NULL){
 				assert((iterator->prev_level)->count > 0 ) ; 
 				iterator = (iterator->prev_level)->begin ; 
-				
-
 			}
 
 
@@ -606,24 +604,33 @@ void browse_tree(Tree* tree){
 
 
 		case 's' : 
-
-
+			if(iterator->next_level != NULL){
+				assert((iterator->next_level)->count>0);
+				iterator = (iterator->next_level)->begin ; 
+					}
+			
 		break;
 
 
 		case 'q' :
-
+			if(iterator->prev != NULL)
+			iterator = iterator->prev ; 
+			
 
 		break;
 
 
 		case 'd' :
+			if(iterator->next != NULL)
+			iterator = iterator->next ; 
 
+
+			
 
 		break;
 
 		default :
-
+		//	printf("unknown action %c \n " , move); 
 
 		break;
 		
@@ -634,7 +641,7 @@ void browse_tree(Tree* tree){
 
 
 	     }
-	
+	print_node(iterator);	
 	}
 
 
