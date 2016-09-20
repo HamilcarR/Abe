@@ -536,6 +536,31 @@ List * generate_all_boards(Node* node,COLOR color) {
 
 
 
+void print_node(Node* node){
+	switch(node->data_type){
+		case GAME :
+			print_board((Game*) (node->value)) ; 
+						
+		break;
+
+		case STRING : 
+		printf("%s \n" ,(char*) (node->value)); 
+
+		break;
+
+
+
+
+
+
+
+	}
+
+
+
+}
+
+
 
 
 
@@ -553,9 +578,68 @@ List * generate_all_boards(Node* node,COLOR color) {
 
 
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+static char EXIT ='e'; 
+
+
+void browse_tree(Tree* tree){
+
+	assert(tree != NULL) ;
+	
+	Node* iterator = tree->root ; 
+
+	char move = ' ' ; 
+
+	while(move != EXIT ) {
+	     scanf("%c",&move); 
+	     switch(move){
+		case 'z' : 
+			if(iterator->prev_level != NULL){
+				assert((iterator->prev_level)->count > 0 ) ; 
+				iterator = (iterator->prev_level)->begin ; 
+				
+
+			}
 
 
 
+		break;
+
+
+		case 's' : 
+
+
+		break;
+
+
+		case 'q' :
+
+
+		break;
+
+
+		case 'd' :
+
+
+		break;
+
+		default :
+
+
+		break;
+		
+
+
+
+
+
+
+	     }
+	
+	}
+
+
+
+}
 
 
 

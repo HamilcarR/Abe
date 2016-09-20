@@ -153,7 +153,42 @@ List* generate_all_boards(Node*,COLOR color);
 
 
 
-void print_tree(Tree* tree);
+
+
+
+
+/**
+ * \Brief  A function to travel across the tree... use 'z' to go up the hierarchy,
+ * 'q' to go left , 'd' to go right,and 's' to go down 
+ *
+ * \Param tree
+ */
+void browse_tree(Tree* tree);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * \Brief  printing the value of a node
+ *
+ * \Param node
+ */
+void print_node(Node* node);
+
+
+
 
 
 

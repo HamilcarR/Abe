@@ -155,12 +155,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 32) / 65)
+let s:l = 122 - ((64 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 023|
+122
+normal! 0
 tabedit Consts.c
 set splitbelow splitright
 set nosplitbelow
@@ -387,12 +387,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 32) / 65)
+let s:l = 10 - ((9 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 021|
+10
+normal! 029|
 tabedit main.c
 set splitbelow splitright
 set nosplitbelow
@@ -503,12 +503,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 32) / 65)
+let s:l = 34 - ((33 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 021|
+34
+normal! 0
 tabedit mmanager.c
 set splitbelow splitright
 set nosplitbelow
@@ -1083,11 +1083,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 32) / 65)
+let s:l = 140 - ((64 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+140
 normal! 0
 tabedit ../headers/IA.h
 set splitbelow splitright
@@ -1321,7 +1321,7 @@ exe s:l
 normal! zt
 1
 normal! 0
-tabnext 1
+tabnext 9
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif
