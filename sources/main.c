@@ -16,20 +16,15 @@ int main(int argv, char**argc)
        	print_board(game);	
 	Node* N = init_node(game,NULL,NULL,NULL,NULL, GAME) ; 
 	List * list = generate_all_boards(N,BLACK); 
-//	print_list(N->next_level);
-	Node* it = list->begin ; 
-
-	while(it!=NULL ){
-		generate_all_boards(it,BLACK); 
-		it=it->next;
-
+	Node* it = list->begin ;
+	while(it!=NULL){
+	generate_all_boards(it,BLACK); 
+	it=it->next; 
 	}
-
-
 	Tree* tree = init_tree(N);
 	
 
-//	browse_tree(tree); 
+	browse_tree(tree); 
 
 
 

@@ -3,7 +3,7 @@
 
 
 
-Node * init_node(void* data, Node* next, Node* prev,List* next_lvl,List* prev_lvl,N_DATA type){
+Node * init_node(void* data, Node* next, Node* prev,List* next_lvl,Node* prev_lvl,N_DATA type){
 	Node *node = calloc(1,sizeof(Node));
 	MEMALLOC_DEBUG_NODE++; 
 	node->data_type = type ; 
@@ -188,9 +188,7 @@ return list ;
 void add_node_to_list(List* list , Node* node) {
 			if(list->count == 0 ){
 				list->begin = node ; 
-				list->end = node ; 
-				node->next = NULL ; 
-				node->prev = NULL ; 
+				list->end = node ;
 				list->count++ ; 
 				return ;
 			}	
@@ -438,7 +436,7 @@ List* concatenate_list(List* L1,List* L2 ) {
 List * generate_all_boards(Node* node,COLOR color) {
 	
  	assert(node->data_type == GAME) ;	
-
+	
 	List* list = NULL; 
 	Game* game =(Game*) (node->value); 
 	for(size_t i = 0 ; i < game->pieces_size ; i ++ ){
@@ -448,6 +446,9 @@ List * generate_all_boards(Node* node,COLOR color) {
 		}	
 	}
 	node->next_level = list ; 
+	Node* iterator = NULL; 
+	for(iterator = list->begin ; iterator != NULL ; iterator = iterator->next)
+		iterator->prev_level =  node ; 
 	return list ; 
 
 }
@@ -540,7 +541,8 @@ void print_node(Node* node){
 	switch(node->data_type){
 		case GAME :
 			print_board((Game*) (node->value)) ; 
-						
+				
+			printf("Iterator position :\nWidth : %i    Depth : %i\n",WIDTH , DEPTH );		
 		break;
 
 		case STRING : 
@@ -579,7 +581,8 @@ void print_node(Node* node){
 
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 static char EXIT ='e'; 
-
+static uint32_t DEPTH = 0 ;
+static uint32_t WIDTH = 0 ;
 
 void browse_tree(Tree* tree){
 
@@ -594,11 +597,12 @@ void browse_tree(Tree* tree){
 	     switch(move){
 		case 'z' : 
 			if(iterator->prev_level != NULL){
-				assert((iterator->prev_level)->count > 0 ) ; 
-				iterator = (iterator->prev_level)->begin ; 
+				iterator = (iterator->prev_level) ; 
+				DEPTH--;
+				WIDTH=0 ; 
 			}
 
-
+			
 
 		break;
 
@@ -607,22 +611,28 @@ void browse_tree(Tree* tree){
 			if(iterator->next_level != NULL){
 				assert((iterator->next_level)->count>0);
 				iterator = (iterator->next_level)->begin ; 
+				DEPTH++;
+				WIDTH=0;
 					}
 			
 		break;
 
 
 		case 'q' :
-			if(iterator->prev != NULL)
-			iterator = iterator->prev ; 
+			if(iterator->prev != NULL){
+			iterator = iterator->prev ;
+			WIDTH-- ;
+			}	
 			
 
 		break;
 
 
 		case 'd' :
-			if(iterator->next != NULL)
-			iterator = iterator->next ; 
+			if(iterator->next != NULL){
+			iterator = iterator->next ;
+			WIDTH++; 
+			}	
 
 
 			
@@ -673,5 +683,75 @@ void browse_tree(Tree* tree){
 
 
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+
+Tree* generate_tree(Node* root, uint64_t depth , uint64_t width,COLOR begin){
+	assert(depth >=0 && width >= 0 && root != NULL) ; 
+	Tree* tree = init_tree(root);
+	//TODO : sort generated list , heuristic.
+	
+	int d = 0 , w = 0 ; //widht and depth
+	Node* iterator = root;
+	List* list=generate_all_boards(iterator,begin);
+	COLOR color = begin ;
+	//TODO : use list of lists
+	
+
+	
+
+
+
+	for(int i = 1 ; i < depth ; i ++){
+		iterator = list->begin ; 
+		if(color == BLACK)
+			color = WHITE ; 
+		else
+			color = BLACK ; 
+
+		while(iterator!=NULL){
+					
+			List* temp= generate_all_boards(iterator,color) ; 
+
+			iterator = iterator->next; 
+		}
+		
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

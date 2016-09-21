@@ -10,6 +10,11 @@
  * 
  */
 
+
+static uint32_t DEPTH  ; 
+static uint32_t WIDTH  ; 
+
+
  enum N_DATA {GAME = 0 , ALLOC_PTR = 1 ,STRING = 3 , FLOAT = 2 , INT = 4 , LONG = 5 , CHAR = 6};
 typedef enum N_DATA N_DATA ; 
 
@@ -41,7 +46,7 @@ typedef struct Node Node;
     N_DATA data_type;  
     Node *prev ;
     Node *next ;/* pointer to nodes of the same level */
-    struct List *prev_level; /*pointer to up level nodes*/
+    struct Node *prev_level; /*pointer to up level nodes*/
     struct List *next_level ;
 };
 
@@ -84,7 +89,7 @@ Tree * init_tree(Node* root); // initialize the search tree
  *
  * \Returns  Node* 
  */
-Node * init_node(void* data,Node* next,Node* previous,List * next_level , List * prev_level,N_DATA type) ;
+Node * init_node(void* data,Node* next,Node* previous,List * next_level ,Node * prev_level,N_DATA type) ;
 
 
 
@@ -171,7 +176,17 @@ void browse_tree(Tree* tree);
 
 
 
-
+/**
+ * \Brief  generate all combinations according to the parameters
+ *
+ * \Param root
+ * \Param depth
+ * \Param width
+ * \Param datatype
+ *
+ * \Returns  
+ */
+Tree* generate_tree(Node* root , uint64_t depth , uint64_t width,COLOR color); 
 
 
 
