@@ -123,17 +123,21 @@ static void free_tree_nodes(Node* root){
 }
 
 void free_tree(Tree* tree){
-	DEBUG_COUNTER = 0 ; 
+	DEBUG_COUNTER = 0 ;
+        
 	free_tree_nodes(tree->root) ;
 	MEMDEALLOC_DEBUG_TREE++;
 	free(tree);
-	
+
+
+
 }
 
 
 Tree* init_tree(Node* root){
 	Tree* tree = calloc(1,sizeof(Tree));
-	MEMALLOC_DEBUG_TREE++; 
+	MEMALLOC_DEBUG_TREE++;
+         	
 	tree->root = root; 
 
 	return tree ; 
@@ -684,43 +688,85 @@ void browse_tree(Tree* tree){
 
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 
-
+/*
 Tree* generate_tree(Node* root, uint64_t depth , uint64_t width,COLOR begin){
 	assert(depth >=0 && width >= 0 && root != NULL) ; 
 	Tree* tree = init_tree(root);
 	//TODO : sort generated list , heuristic.
 	
-	int d = 0 , w = 0 ; //widht and depth
+	int d = 1 , w = 0 ; //widht and depth
 	Node* iterator = root;
 	List* list=generate_all_boards(iterator,begin);
 	COLOR color = begin ;
 	//TODO : use list of lists
 	
 
+	Node* elem = init_node(list , NULL,NULL,NULL,NULL,ALLOC_PTR); 
+	List *list_array = init_list(elem);
+	Node* literator=list_array->begin; 
+
 	
+	while(literator!=NULL && d < depth){
+			
+			if(color == BLACK)
+				color = WHITE ; 
+			else
+				color = BLACK ; 
 
-
-
-	for(int i = 1 ; i < depth ; i ++){
-		iterator = list->begin ; 
-		if(color == BLACK)
-			color = WHITE ; 
-		else
-			color = BLACK ; 
-
-		while(iterator!=NULL){
+			iterator = pop_back((List*)literator->value);	
+			while(iterator!=NULL){
 					
-			List* temp= generate_all_boards(iterator,color) ; 
+				List* temp = generate_all_boards(iterator,color);
+				Node* ntemp = init_node(temp,NULL,NULL,NULL,NULL,ALLOC_PTR) ;
+				add_node_to_list(list_array ,ntemp);  
+				iterator = iterator->next;
+				
+			}
 
-			iterator = iterator->next; 
+		
+			d++;
+			literator=literator->next; 
 		}
 		
 
+	
+	return tree; 
+
+
+}
+
+*/
+
+static int cc = 0 ; 
+void generation(Node* iterator,int D,int W,int countD,int countW,COLOR color){
+	if(countD<D){
+		printf("%i\n",cc++); 
+		color = (color == BLACK) ? WHITE : BLACK ; 
+		List *list = generate_all_boards(iterator,color) ;
+		Node* it = list->begin ;
+		while(it != NULL ){
+			generation(it , D , W , countD+1 , countW+1 , color ) ; 
+
+		it = it->next; 
+		}
+
+
 	}
+
 
 }
 
 
+
+
+
+Tree* generate_tree(Node *root , uint32_t depth,uint32_t width,COLOR begin){
+	Tree* tree = init_tree(root); 
+	generation(root , depth , width , 0 , 0 , begin ) ; 
+	return tree; 
+
+
+}
 
 
 
@@ -739,8 +785,28 @@ Tree* generate_tree(Node* root, uint64_t depth , uint64_t width,COLOR begin){
 
 
 
+Node* pop_back(List* list){
+	
+	if(list->count == 1){
+		
+		Node* M = list->begin ; 
+		MEMDEALLOC_DEBUG_LIST++;
+		free(list); 
+		return M ; 
+	}
+	else if (list->count > 1 ){
+		Node *M = list->begin ; 
+		list->begin = list->begin->next;
+		list->begin->prev = NULL ; 
+		M->next=NULL ;
+		M->prev=NULL ; 
+		list->count--;
+		return M ; 
+
+	}
 
 
+}
 
 
 

@@ -15,16 +15,9 @@ int main(int argv, char**argc)
 	printf("INITIALIZATION\n");
        	print_board(game);	
 	Node* N = init_node(game,NULL,NULL,NULL,NULL, GAME) ; 
-	List * list = generate_all_boards(N,BLACK); 
-	Node* it = list->begin ;
-	while(it!=NULL){
-	generate_all_boards(it,BLACK); 
-	it=it->next; 
-	}
-	Tree* tree = init_tree(N);
-	
+	Tree* tree = generate_tree(N , 4 , 0 , WHITE); 
 
-	browse_tree(tree); 
+//	browse_tree(tree); 
 
 
 

@@ -65,7 +65,7 @@ struct List {
 typedef struct Tree Tree;
  struct Tree{
     Node *root;
-
+    
 };
 
 
@@ -186,7 +186,7 @@ void browse_tree(Tree* tree);
  *
  * \Returns  
  */
-Tree* generate_tree(Node* root , uint64_t depth , uint64_t width,COLOR color); 
+Tree* generate_tree(Node* root , uint32_t depth , uint32_t width,COLOR color); 
 
 
 
@@ -205,7 +205,7 @@ void print_node(Node* node);
 
 
 
-
+Node* pop_back(List*);
 
 
 #endif // ENGINE_H_INCLUDED
