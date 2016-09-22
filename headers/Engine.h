@@ -11,8 +11,8 @@
  */
 
 
-static uint32_t DEPTH  ; 
-static uint32_t WIDTH  ; 
+extern uint32_t DEPTH  ; 
+extern uint32_t WIDTH  ; 
 
 
  enum N_DATA {GAME = 0 , ALLOC_PTR = 1 ,STRING = 3 , FLOAT = 2 , INT = 4 , LONG = 5 , CHAR = 6};
@@ -131,7 +131,7 @@ void print_list(List* list);
  *
  * \Returns  List*
  */
-List* generate_boards(Node *root , size_t id) ;
+List* generate_boards(Node *root ,uint16_t width,  size_t id) ;
 
 
 /**
@@ -152,7 +152,7 @@ List* concatenate_list(List* , List*) ;
 
 
 
-List* generate_all_boards(Node*,COLOR color);
+List* generate_all_boards(Node*,uint16_t width , COLOR color);
 
 
 

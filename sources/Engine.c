@@ -313,7 +313,7 @@ static Node* new_piece_location(Position pos , Node * game , size_t pieceID){
 
 
 /*generate all combinations of pieceID and return them as a linked list */
-List* generate_boards(Node* game,size_t pieceID){
+List* generate_boards(Node* game,uint16_t width , size_t pieceID){
 	if(game->data_type != GAME){ 
 		
 		free_node(game);
@@ -330,8 +330,8 @@ List* generate_boards(Node* game,size_t pieceID){
 	Piece* p = &(data->pieces[pieceID]);
 	Piece** pp = &p ; 
 	Moves moves = generate_moves(data, pp);
-		
-	for(int i = 0 ; i < moves.number ; i ++ ){
+	int siz = (moves.number<=width) ? moves.number : width; 	
+	for(int i = 0 ; i < siz ; i ++ ){
 		Node* P = new_piece_location(moves.position[i] , game , pieceID);/*TODO complete */ 
 		add_node_to_list(list , P ) ; 
 		
@@ -437,7 +437,7 @@ List* concatenate_list(List* L1,List* L2 ) {
 
 
 
-List * generate_all_boards(Node* node,COLOR color) {
+List * generate_all_boards(Node* node,uint16_t width , COLOR color) {
 	
  	assert(node->data_type == GAME) ;	
 	
@@ -445,9 +445,10 @@ List * generate_all_boards(Node* node,COLOR color) {
 	Game* game =(Game*) (node->value); 
 	for(size_t i = 0 ; i < game->pieces_size ; i ++ ){
 		if(game->pieces[i].color == color){
-		List* temp = generate_boards(node , i ) ; 
+		List* temp = generate_boards(node ,width, i ) ; 
 		list = concatenate_list(list, temp ) ;
-		}	
+		}
+	
 	}
 	node->next_level = list ; 
 	Node* iterator = NULL; 
@@ -585,13 +586,14 @@ void print_node(Node* node){
 
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 static char EXIT ='e'; 
-static uint32_t DEPTH = 0 ;
-static uint32_t WIDTH = 0 ;
+ uint32_t DEPTH = 0 ;
+ uint32_t WIDTH = 0 ;
 
 void browse_tree(Tree* tree){
 
 	assert(tree != NULL) ;
-	
+	printf("INITIALIZATION\n");
+ 	print_board(tree->root->value);	
 	Node* iterator = tree->root ; 
 
 	char move = ' ' ; 
@@ -687,64 +689,17 @@ void browse_tree(Tree* tree){
 
 
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-
-/*
-Tree* generate_tree(Node* root, uint64_t depth , uint64_t width,COLOR begin){
-	assert(depth >=0 && width >= 0 && root != NULL) ; 
-	Tree* tree = init_tree(root);
-	//TODO : sort generated list , heuristic.
-	
-	int d = 1 , w = 0 ; //widht and depth
-	Node* iterator = root;
-	List* list=generate_all_boards(iterator,begin);
-	COLOR color = begin ;
-	//TODO : use list of lists
-	
-
-	Node* elem = init_node(list , NULL,NULL,NULL,NULL,ALLOC_PTR); 
-	List *list_array = init_list(elem);
-	Node* literator=list_array->begin; 
-
-	
-	while(literator!=NULL && d < depth){
-			
-			if(color == BLACK)
-				color = WHITE ; 
-			else
-				color = BLACK ; 
-
-			iterator = pop_back((List*)literator->value);	
-			while(iterator!=NULL){
-					
-				List* temp = generate_all_boards(iterator,color);
-				Node* ntemp = init_node(temp,NULL,NULL,NULL,NULL,ALLOC_PTR) ;
-				add_node_to_list(list_array ,ntemp);  
-				iterator = iterator->next;
-				
-			}
-
-		
-			d++;
-			literator=literator->next; 
-		}
-		
-
-	
-	return tree; 
-
-
-}
-
-*/
-
 static int cc = 0 ; 
 void generation(Node* iterator,int D,int W,int countD,int countW,COLOR color){
 	if(countD<D){
+		
 		printf("%i\n",cc++); 
 		color = (color == BLACK) ? WHITE : BLACK ; 
-		List *list = generate_all_boards(iterator,color) ;
+		List *list = generate_all_boards(iterator,W,color) ;
 		Node* it = list->begin ;
 		while(it != NULL ){
+		
+
 			generation(it , D , W , countD+1 , countW+1 , color ) ; 
 
 		it = it->next; 
