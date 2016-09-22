@@ -142,7 +142,7 @@ List* generate_boards(Node *root ,uint16_t width,  size_t id) ;
  *
  *  
  */
-List* concatenate_list(List* , List*) ;
+List* concatenate_list(List* , List* , uint16_t) ;
 
 
 

@@ -314,23 +314,16 @@ static Node* new_piece_location(Position pos , Node * game , size_t pieceID){
 
 /*generate all combinations of pieceID and return them as a linked list */
 List* generate_boards(Node* game,uint16_t width , size_t pieceID){
-	if(game->data_type != GAME){ 
-		
-		free_node(game);
-		return NULL ; 
-
-	}
+	assert(game->data_type == GAME);
 	List* list ; 
 	list = init_empty_list(GAME) ; 	
 	
 	Game * data =(Game*) game->value ;
 
-
-
 	Piece* p = &(data->pieces[pieceID]);
 	Piece** pp = &p ; 
 	Moves moves = generate_moves(data, pp);
-	int siz = (moves.number<=width) ? moves.number : width; 	
+	int siz = (moves.number<=width) ? moves.number : width;  	
 	for(int i = 0 ; i < siz ; i ++ ){
 		Node* P = new_piece_location(moves.position[i] , game , pieceID);/*TODO complete */ 
 		add_node_to_list(list , P ) ; 
@@ -355,7 +348,7 @@ List* generate_boards(Node* game,uint16_t width , size_t pieceID){
 
 
 
-List* concatenate_list(List* L1,List* L2 ) {
+List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 
 	if(L1 == NULL || L1->count == 0){
 		if(L2 == NULL || L2->count == 0){
@@ -365,9 +358,10 @@ List* concatenate_list(List* L1,List* L2 ) {
 			}
 			return NULL ;
 		}
-		else
+		else{
 			return L2 ; 
 
+		}
 	}
 
 	else if(L2 == NULL || L2->count == 0){
@@ -387,7 +381,7 @@ List* concatenate_list(List* L1,List* L2 ) {
 
 
 	else{
-	/*verify that both list have the right data type : */
+	/*check that both list have the right data type : */
 	
 	assert(L1->data_type == L2->data_type);
 
@@ -401,7 +395,26 @@ List* concatenate_list(List* L1,List* L2 ) {
 		concat->data_type = L1->data_type ;
 		free(L1); 
 		free(L2);
-	        MEMDEALLOC_DEBUG_LIST+=2 ; 	
+	        MEMDEALLOC_DEBUG_LIST+=2 ; 
+
+		if(concat->count > width){
+
+			Node* iterator = concat->end ; 
+			int count = concat->count ; 
+
+			while(count != width){
+			assert(iterator != NULL);
+			
+			Node* temp = iterator ; 
+			cfree(temp);
+			MEMDEALLOC_DEBUG_NODE++ ; 
+			count--;
+			iterator = iterator->prev;
+			}
+			concat->end = iterator; 
+			concat->end = NULL ; 	
+
+		}	
 	        return concat ; 	
 
 
@@ -446,7 +459,7 @@ List * generate_all_boards(Node* node,uint16_t width , COLOR color) {
 	for(size_t i = 0 ; i < game->pieces_size ; i ++ ){
 		if(game->pieces[i].color == color){
 		List* temp = generate_boards(node ,width, i ) ; 
-		list = concatenate_list(list, temp ) ;
+		list = concatenate_list(list,temp,width ) ;
 		}
 	
 	}
