@@ -711,7 +711,7 @@ void browse_tree(Tree* tree){
 
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 static int cc = 0 ; 
-void generation(Node* iterator,int D,int W,int countD,int countW,COLOR color){
+void generation(Node* iterator,uint8_t D,uint8_t W,uint8_t countD,uint8_t countW,COLOR color){
 	if(countD<D){
 		
 		printf("%i\n",cc++); 
@@ -737,7 +737,7 @@ void generation(Node* iterator,int D,int W,int countD,int countW,COLOR color){
 
 
 
-Tree* generate_tree(Node *root , uint32_t depth,uint32_t width,COLOR begin){
+Tree* generate_tree(Node *root , uint8_t depth,uint8_t width,COLOR begin){
 	Tree* tree = init_tree(root); 
 	generation(root , depth , width , 0 , 0 , begin ) ; 
 	return tree; 
