@@ -14,8 +14,7 @@ int main(int argv, char**argc)
 
 
 	Node* N = init_node(game,NULL,NULL,NULL,NULL, GAME) ; 
-//	auto width = atoi(argc[1]) , depth = atoi(argc[2]); 
-	Tree* tree = generate_tree(N ,  5  , 3 , WHITE); 
+	Tree* tree = generate_tree(N ,  10  , 3 , WHITE); 
 
 	browse_tree(tree); 
 

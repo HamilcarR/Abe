@@ -38,16 +38,17 @@ endif
 set shortmess=aoO
 badd +1 config.c
 badd +1 Consts.c
-badd +204 Engine.c
+badd +200 Engine.c
 badd +1 main.c
 badd +1 mmanager.c
 badd +1 Move.c
 badd +1 ../headers/Config.h
 badd +1 ../headers/Consts.h
-badd +1 ../headers/Engine.h
+badd +42 ../headers/Engine.h
 badd +1 ../headers/IA.h
 badd +1 ../headers/Move.h
 badd +1 /usr/include/blcr_common.h
+badd +0 Engine.c.html
 args config.c Consts.c Engine.c main.c mmanager.c Move.c
 edit config.c
 set splitbelow splitright
@@ -158,7 +159,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 122 - ((22 * winheight(0) + 11) / 23)
+let s:l = 122 - ((38 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -397,12 +398,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 189 - ((51 * winheight(0) + 32) / 64)
+let s:l = 127 - ((0 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-189
-normal! 076|
+127
+normal! 033|
 wincmd w
 argglobal
 3argu
@@ -508,14 +509,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 695 - ((11 * winheight(0) + 32) / 64)
+let s:l = 412 - ((41 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-695
-normal! 029|
+412
+normal! 033|
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 130 + 130) / 261)
 exe 'vert 2resize ' . ((&columns * 130 + 130) / 261)
 tabedit main.c
@@ -628,13 +628,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 22 - ((21 * winheight(0) + 32) / 65)
+let s:l = 17 - ((16 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-22
-normal! 0
-2wincmd w
+17
+normal! 042|
 tabedit mmanager.c
 set splitbelow splitright
 set nosplitbelow
@@ -745,13 +744,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 32) / 65)
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 021|
-2wincmd w
 tabedit Move.c
 set splitbelow splitright
 set nosplitbelow
@@ -862,13 +860,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 32) / 65)
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 021|
-2wincmd w
 tabedit ../headers/Config.h
 set splitbelow splitright
 set nosplitbelow
@@ -979,13 +976,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 11) / 22)
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
-2wincmd w
 tabedit ../headers/Consts.h
 set splitbelow splitright
 set nosplitbelow
@@ -1096,13 +1092,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 45 - ((15 * winheight(0) + 11) / 22)
+let s:l = 45 - ((27 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 45
 normal! 0
-2wincmd w
 tabedit Engine.c
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -1117,12 +1112,12 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 21 + 33) / 67)
-exe 'vert 1resize ' . ((&columns * 41 + 130) / 261)
-exe '2resize ' . ((&lines * 9 + 33) / 67)
-exe 'vert 2resize ' . ((&columns * 38 + 130) / 261)
-exe '3resize ' . ((&lines * 11 + 33) / 67)
-exe 'vert 3resize ' . ((&columns * 38 + 130) / 261)
+exe '1resize ' . ((&lines * 13 + 33) / 67)
+exe 'vert 1resize ' . ((&columns * 123 + 130) / 261)
+exe '2resize ' . ((&lines * 5 + 33) / 67)
+exe 'vert 2resize ' . ((&columns * 21 + 130) / 261)
+exe '3resize ' . ((&lines * 7 + 33) / 67)
+exe 'vert 3resize ' . ((&columns * 21 + 130) / 261)
 argglobal
 edit Engine.c
 setlocal keymap=
@@ -1227,7 +1222,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 200 - ((10 * winheight(0) + 10) / 21)
+let s:l = 200 - ((6 * winheight(0) + 6) / 13)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1338,7 +1333,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 222 - ((0 * winheight(0) + 4) / 9)
+let s:l = 222 - ((0 * winheight(0) + 2) / 5)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1449,20 +1444,19 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 42 - ((0 * winheight(0) + 5) / 11)
+let s:l = 42 - ((0 * winheight(0) + 3) / 7)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 42
 normal! 017|
 wincmd w
-2wincmd w
-exe '1resize ' . ((&lines * 21 + 33) / 67)
-exe 'vert 1resize ' . ((&columns * 41 + 130) / 261)
-exe '2resize ' . ((&lines * 9 + 33) / 67)
-exe 'vert 2resize ' . ((&columns * 38 + 130) / 261)
-exe '3resize ' . ((&lines * 11 + 33) / 67)
-exe 'vert 3resize ' . ((&columns * 38 + 130) / 261)
+exe '1resize ' . ((&lines * 13 + 33) / 67)
+exe 'vert 1resize ' . ((&columns * 123 + 130) / 261)
+exe '2resize ' . ((&lines * 5 + 33) / 67)
+exe 'vert 2resize ' . ((&columns * 21 + 130) / 261)
+exe '3resize ' . ((&lines * 7 + 33) / 67)
+exe 'vert 3resize ' . ((&columns * 21 + 130) / 261)
 tabedit ../headers/IA.h
 set splitbelow splitright
 set nosplitbelow
@@ -1573,13 +1567,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 11) / 22)
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
-2wincmd w
 tabedit ../headers/Move.h
 set splitbelow splitright
 set nosplitbelow
@@ -1690,14 +1683,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 11) / 22)
+let s:l = 1 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
-2wincmd w
-tabnext 3
+tabnext 4
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

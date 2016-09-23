@@ -402,17 +402,20 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 			Node* iterator = concat->end ; 
 			int count = concat->count ; 
 
-			while(count != width){
+			while(count != width)
+			{
 			assert(iterator != NULL);
 			
 			Node* temp = iterator ; 
-			cfree(temp);
-			MEMDEALLOC_DEBUG_NODE++ ; 
-			count--;
+
 			iterator = iterator->prev;
+			free_node(temp);
+			count--;
+			concat->count--; 
+
 			}
 			concat->end = iterator; 
-			concat->end = NULL ; 	
+			concat->end->next = NULL ; 	
 
 		}	
 	        return concat ; 	
@@ -568,7 +571,7 @@ void print_node(Node* node){
 
 		break;
 
-
+		//TODO : complete 
 
 
 
