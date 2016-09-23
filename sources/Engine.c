@@ -466,11 +466,16 @@ List * generate_all_boards(Node* node,uint16_t width , COLOR color) {
 		}
 	
 	}
+	if(list != NULL) {
 	node->next_level = list ; 
 	Node* iterator = NULL; 
 	for(iterator = list->begin ; iterator != NULL ; iterator = iterator->next)
 		iterator->prev_level =  node ; 
 	return list ; 
+	}
+	else
+		return NULL ; 
+		
 
 }
 
@@ -712,6 +717,7 @@ void generation(Node* iterator,int D,int W,int countD,int countW,COLOR color){
 		printf("%i\n",cc++); 
 		color = (color == BLACK) ? WHITE : BLACK ; 
 		List *list = generate_all_boards(iterator,W,color) ;
+		if(list!=NULL){
 		Node* it = list->begin ;
 		while(it != NULL ){
 		
@@ -720,9 +726,9 @@ void generation(Node* iterator,int D,int W,int countD,int countW,COLOR color){
 
 		it = it->next; 
 		}
-
-
 	}
+
+}
 
 
 }

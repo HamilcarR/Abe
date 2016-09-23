@@ -14,7 +14,7 @@ int main(int argv, char**argc)
 
 
 	Node* N = init_node(game,NULL,NULL,NULL,NULL, GAME) ; 
-	Tree* tree = generate_tree(N ,  10  , 3 , WHITE); 
+	Tree* tree = generate_tree(N ,  4  , 10 , WHITE); 
 
 	browse_tree(tree); 
 
