@@ -114,6 +114,12 @@ static void free_tree_nodes(Node* root){
 		free(root->next_level) ; 
 
 
+	
+	}
+	else if (root->next_level != NULL && root->next_level->begin == NULL){
+		free(root->next_level); 
+		MEMDEALLOC_DEBUG_LIST++;
+
 	}
 
 	
@@ -359,6 +365,13 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 			return NULL ;
 		}
 		else{
+			if(L1 != NULL)
+			{
+				free(L1);                                                      /*forgot these...*/
+				MEMDEALLOC_DEBUG_LIST++;
+
+
+			}
 			return L2 ; 
 
 		}
@@ -374,8 +387,14 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 			}
 			return NULL ;
 		}
-		else
+		else{
+			if(L2!=NULL){
+				free(L2);
+				MEMDEALLOC_DEBUG_LIST++;
+
+			}
 			return L1 ; 
+		}
 
 	}
 
@@ -395,7 +414,7 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 		concat->data_type = L1->data_type ;
 		free(L1); 
 		free(L2);
-	        MEMDEALLOC_DEBUG_LIST+=2 ; 
+	       MEMDEALLOC_DEBUG_LIST+=2 ; 
 
 		if(concat->count > width){
 

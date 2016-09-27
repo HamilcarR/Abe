@@ -120,15 +120,14 @@ typedef struct {
  void free_position(Position *position) ;
  void print_board(Game* game);
  void read_pieces(Game* game);
-
+Game* init_blank_game(); 
 Game * get_board_copy(Game* src); //get a cpy from src.
 Game * init_board(const char* filename); //initialize the board from a file, mid game ,or end game
-Game * init_board(); //initialize the board from the start
 void save_board(const char * filename); // save the current game on the file "filename"
 ERROR check_for_errors(); //check for misplaced pieces ,wrong initialization parameters etc ...
 uint8_t get_pieceID(Piece piece);//return a piece identifier from the type and color of the piece
 void add_to_array(Piece* piece, int size, Piece P);
-static int add_p = 0 ; /* for adding to array */
+
 bool check_valid_position(Position pos);
 void print_piece(Piece* p);
 

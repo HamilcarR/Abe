@@ -1,25 +1,31 @@
 #ifndef CONSTS_H_INCLUDED
 #define CONSTS_H_INCLUDED
 #include "mmanager.h"
-#define MAX_PIECES 12
-#define BOARD_SIZE 8
+ 
+
+
+
+
+
+ enum GLOBAL_CONSTS { MAX_PIECES = 12 , BOARD_SIZE = 8 } ; 
+typedef enum GLOBAL_CONSTS GLOBAL_CONSTS ; 
 
 
 /*pieces identifiers*/
-#define PAWN_WHITE 0
-#define KNIGHT_WHITE 1
-#define ROOK_WHITE 2
-#define BISHOP_WHITE 3
-#define KING_WHITE 4
-#define QUEEN_WHITE 5
-#define PAWN_BLACK 6
-#define KNIGHT_BLACK 7
-#define ROOK_BLACK 8
-#define BISHOP_BLACK 9
-#define KING_BLACK 10
-#define QUEEN_BLACK 11
-
-
+ enum PIECES_TYPE  { PAWN_WHITE = 0
+, KNIGHT_WHITE=1
+, ROOK_WHITE= 2
+, BISHOP_WHITE= 3
+, KING_WHITE= 4
+, QUEEN_WHITE= 5
+, PAWN_BLACK= 6
+, KNIGHT_BLACK= 7
+, ROOK_BLACK= 8
+, BISHOP_BLACK= 9
+, KING_BLACK= 10
+, QUEEN_BLACK= 11
+};
+typedef enum PIECES_TYPE PIECES_TYPE ; 
 
 
 /** \file Consts.h
@@ -40,12 +46,12 @@ enum bool {true = 1 , false = 0 };
 typedef enum bool bool ;
 
 
-static const uint8_t MAX_PAWN   =8 ;
-static const uint8_t MAX_KING   =1 ;
-static const uint8_t MAX_QUEEN  =1 ;
-static const uint8_t MAX_ROOK   =2 ;
-static const uint8_t MAX_KNIGHT =2 ;
-static const uint8_t MAX_BISHOP =2 ;
+extern const uint8_t MAX_PAWN    ;
+extern const uint8_t MAX_KING    ;
+extern const uint8_t MAX_QUEEN   ;
+extern const uint8_t MAX_ROOK    ;
+extern const uint8_t MAX_KNIGHT  ;
+extern const uint8_t MAX_BISHOP  ;
 
 
 /**

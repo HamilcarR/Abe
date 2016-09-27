@@ -6,6 +6,7 @@
 
 
 
+static int add_p = 0 ; 
 
 
      typedef struct{
@@ -517,7 +518,7 @@
 
         /*create an instance of Game by extracting it from a file */
         inline static Game* extract_pieces(char* board){
-            Game* chess_board =(Game*) calloc(1,sizeof(Game)); /* TODO (hamilcar #4#) : free memory ! */
+            Game* chess_board =(Game*) calloc(1,sizeof(Game));	 
 	    MEMALLOC_DEBUG_GAME++;
             if(chess_board == NULL){
                 printf("Problem allocation fct extract_pieces");
@@ -798,7 +799,13 @@
     }
     /*********************************************************************************************************************************************************************************************************************/
 
-    static Game* init_blank_game(Game* game){
+     Game* init_blank_game(){
+		
+	Game *game = calloc(1,sizeof(Game)); 	
+	MEMALLOC_DEBUG_GAME++; 
+
+
+	
         for(int i = 0 ;i < BOARD_SIZE ; i++){
             for(int j = 0 ;j < BOARD_SIZE ; j++){
                 if( i % 2 == 0 )
@@ -808,9 +815,154 @@
 
             }
         }
-        game->pieces = malloc(0);
+        game->pieces = calloc(32,sizeof(Piece)); /*We initialize all the pieces on the board*/
 	MEMALLOC_DEBUG_PIECE++;
-        game->pieces_size = 0 ;
+        game->pieces_size = 32;
+	Position pos ; 
+	Piece* ptr = game->pieces;
+	int offset = 0 ; 
+	for(int i = 0 ; i < MAX_PIECES ; i++){
+		 
+		pos.x = 0 ;
+		pos.y = 0 ; 
+		switch(i){
+		    case PAWN_WHITE :
+			for(int j = 0  ; j < MAX_PAWN ; j++){
+				
+				pos.x = BOARD_SIZE-2 ; 
+				pos.y = j ; 
+				ptr[offset].type = PAWN ; 
+				ptr[offset].color = WHITE ; 
+				ptr[offset].position = pos ; 	
+				offset++ ; 
+			}	
+                    break;
+
+		    case KNIGHT_WHITE :
+			for(int j = 0  ; j < MAX_KNIGHT ; j++){
+				  ; 
+				pos.x = BOARD_SIZE-1 ; 
+				pos.y = (j==0) ? 1 : BOARD_SIZE - 2 ; 
+				ptr[offset].type = KNIGHT ; 
+				ptr[offset].color = WHITE ; 
+				ptr[offset].position = pos ; 
+				offset++ ; 
+			}
+		    break;
+
+                    case ROOK_WHITE :
+		    	for(int j = 0 ; j < MAX_ROOK ; j ++){
+				  ;
+				pos.x = BOARD_SIZE-1 ; 
+				pos.y = (j==0) ? 0 : BOARD_SIZE-1 ;
+			      	ptr[offset].type = ROOK ; 
+				ptr[offset].color = WHITE ; 
+				ptr[offset].position = pos ; 	
+				offset++ ; 
+
+			}
+                    
+		    break;
+
+                    case BISHOP_WHITE :
+			for(int j = 0 ; j < MAX_BISHOP ; j++){
+				  
+				pos.x = BOARD_SIZE-1 ; 
+				pos.y = (j==0) ? 2 : BOARD_SIZE - 3 ; 
+				ptr[offset].type = BISHOP;
+				ptr[offset].color = WHITE ;
+				ptr[offset].position = pos ; 
+
+				offset++ ; 
+			}
+                    break;
+                    case KING_WHITE :
+			pos.x = BOARD_SIZE-1 ; 
+			pos.y = 4 ;
+			ptr[offset].type = KING; 
+			ptr[offset].color = WHITE ;
+			ptr[offset].position = pos ;
+		        offset++;	
+                    break;
+                    case QUEEN_WHITE :
+		    	pos.x = BOARD_SIZE-1 ; 
+			pos.y = 3 ; 
+			ptr[offset].type = QUEEN ; 
+			ptr[offset].color = WHITE ; 
+			ptr[offset].position = pos ;
+			offset++ ; 
+                    break;
+                    case PAWN_BLACK :
+		    	for(int j = 0 ; j < MAX_PAWN ; j++){
+				pos.x = 1 ; 
+				pos.y = j ; 
+				ptr[offset].type = PAWN ; 
+				ptr[offset].color = BLACK ; 
+				ptr[offset].position = pos ; 
+				offset++; 
+			}
+                    break;
+
+		    case KNIGHT_BLACK :
+			for(int j = 0  ; j < MAX_KNIGHT ; j++){
+				   
+				pos.x = 0 ; 
+				pos.y = (j==0) ? 1 : BOARD_SIZE - 2 ; 
+				ptr[offset].type = KNIGHT ; 
+				ptr[offset].color = BLACK ; 
+				ptr[offset].position = pos ; 
+				offset++; 
+			}
+		    break;
+
+                    case ROOK_BLACK :
+		    	for(int j = 0 ; j < MAX_ROOK ; j ++){
+				  
+				pos.x = 0 ; 
+				pos.y = (j==0) ? 0 : BOARD_SIZE-1 ;
+			      	ptr[offset].type = ROOK ; 
+				ptr[offset].color = BLACK ; 
+				ptr[offset].position = pos ; 	
+
+				offset++; 
+			}
+                    
+		    break;
+
+                    case BISHOP_BLACK :
+			for(int j = 0 ; j < MAX_BISHOP ; j++){
+				  
+				pos.x = 0 ; 
+				pos.y = (j==0) ? 2 : BOARD_SIZE - 3 ; 
+				ptr[offset].type = BISHOP;
+				ptr[offset].color = BLACK ;
+				ptr[offset].position = pos ; 
+				
+				offset++; 
+			}
+                    break;
+                    case KING_BLACK :
+			pos.x = 0 ; 
+			pos.y = 3 ;
+			ptr[offset].type = KING; 
+			ptr[offset].color = BLACK ;
+			ptr[offset].position = pos ;
+		        offset++;	
+                    break;
+                    case QUEEN_BLACK :
+		    	pos.x = 0 ; 
+			pos.y = 4 ; 
+			ptr[offset].type = QUEEN ; 
+			ptr[offset].color = BLACK ; 
+			ptr[offset].position = pos ;
+                    break;
+ 			
+
+		}
+		
+	}
+
+
         for(int i = 0 ; i < MAX_PIECES ; i++)
             game->stack[i] = (size_t) 0 ;
 
@@ -851,7 +1003,7 @@
     if(char_board != NULL)
         game=extract_pieces(char_board);
     else
-        game= init_blank_game(game);
+        game= init_blank_game();
 
 
     if(!isValid(game)){

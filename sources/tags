@@ -1,0 +1,90 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BUFFER0_SIZE	config.c	5;"	d	file:
+BUFFER_SIZE	config.c	4;"	d	file:
+DEBUG_COUNTER	Engine.c	/^static size_t DEBUG_COUNTER = 0 ; $/;"	v	file:
+DEPTH	Engine.c	/^ uint32_t DEPTH = 0 ;$/;"	v
+EXIT	Engine.c	/^static char EXIT ='e'; $/;"	v	file:
+MEMALLOC_DEBUG_GAME	mmanager.c	/^  uint_fast32_t MEMALLOC_DEBUG_GAME  = 0 ;$/;"	v
+MEMALLOC_DEBUG_LIST	mmanager.c	/^  uint_fast32_t MEMALLOC_DEBUG_LIST  = 0 ;$/;"	v
+MEMALLOC_DEBUG_NODE	mmanager.c	/^  uint_fast32_t MEMALLOC_DEBUG_NODE  = 0 ;$/;"	v
+MEMALLOC_DEBUG_PIECE	mmanager.c	/^  uint_fast32_t MEMALLOC_DEBUG_PIECE  = 0 ;$/;"	v
+MEMALLOC_DEBUG_PLAYER	mmanager.c	/^  uint_fast32_t MEMALLOC_DEBUG_PLAYER  = 0 ;$/;"	v
+MEMALLOC_DEBUG_POSITION	mmanager.c	/^  uint_fast32_t MEMALLOC_DEBUG_POSITION  = 0 ;$/;"	v
+MEMALLOC_DEBUG_TREE	mmanager.c	/^  uint_fast32_t MEMALLOC_DEBUG_TREE  = 0 ;$/;"	v
+MEMDEALLOC_DEBUG_GAME	mmanager.c	/^  uint_fast32_t MEMDEALLOC_DEBUG_GAME = 0 ;$/;"	v
+MEMDEALLOC_DEBUG_LIST	mmanager.c	/^  uint_fast32_t MEMDEALLOC_DEBUG_LIST = 0 ;$/;"	v
+MEMDEALLOC_DEBUG_NODE	mmanager.c	/^  uint_fast32_t MEMDEALLOC_DEBUG_NODE = 0 ;$/;"	v
+MEMDEALLOC_DEBUG_PIECE	mmanager.c	/^  uint_fast32_t MEMDEALLOC_DEBUG_PIECE = 0 ;$/;"	v
+MEMDEALLOC_DEBUG_PLAYER	mmanager.c	/^  uint_fast32_t MEMDEALLOC_DEBUG_PLAYER = 0 ;$/;"	v
+MEMDEALLOC_DEBUG_POSITION	mmanager.c	/^  uint_fast32_t MEMDEALLOC_DEBUG_POSITION = 0 ;$/;"	v
+MEMDEALLOC_DEBUG_TREE	mmanager.c	/^  uint_fast32_t MEMDEALLOC_DEBUG_TREE = 0 ;$/;"	v
+Piece_Array	config.c	/^    }Piece_Array ;$/;"	t	typeref:struct:__anon1	file:
+WIDTH	Engine.c	/^ uint32_t WIDTH = 0 ;$/;"	v
+add_node_to_list	Engine.c	/^void add_node_to_list(List* list , Node* node) {$/;"	f
+add_p	config.c	/^static int add_p = 0 ; $/;"	v	file:
+add_to_array	config.c	/^     void add_to_array(Piece* piece , int size ,Piece P ){$/;"	f
+browse_tree	Engine.c	/^void browse_tree(Tree* tree){$/;"	f
+cc	Engine.c	/^static int cc = 0 ; $/;"	v	file:
+check_enemy	Move.c	/^static bool check_enemy(COLOR color, Game * game,Position pos) {$/;"	f	file:
+check_friend	Move.c	/^static bool check_friend(COLOR color, Game* game, Position pos){$/;"	f	file:
+check_memleak	mmanager.c	/^ void check_memleak(){$/;"	f
+check_valid_position	config.c	/^    bool check_valid_position(Position pos){$/;"	f
+concatenate_list	Engine.c	/^List* concatenate_list(List* L1,List* L2,uint16_t width ) {$/;"	f
+equal_game	config.c	/^   bool equal_game(Game *g1 , Game *g2){$/;"	f
+equal_piece	config.c	/^  bool equal_piece(Piece* p1, Piece* p2){$/;"	f
+equal_pieces	Move.c	/^   bool equal_pieces(Piece* piece1, Piece* piece2){$/;"	f
+extract_pieces	config.c	/^        inline static Game* extract_pieces(char* board){$/;"	f	file:
+find_piece	config.c	/^  static bool find_piece(Game* g , Piece *p ){$/;"	f	file:
+free_game	config.c	/^     void free_game(Game * game){$/;"	f
+free_list	Engine.c	/^void free_list(List* list){$/;"	f
+free_node	Engine.c	/^void free_node(Node * node) {$/;"	f
+free_player	config.c	/^    extern  inline void free_player(Player *player) {$/;"	f
+free_position	config.c	/^    extern inline void free_position(Position *position) {$/;"	f
+free_tree	Engine.c	/^void free_tree(Tree* tree){$/;"	f
+free_tree_nodes	Engine.c	/^static void free_tree_nodes(Node* root){ $/;"	f	file:
+generate_all_boards	Engine.c	/^List * generate_all_boards(Node* node,uint16_t width , COLOR color) {$/;"	f
+generate_boards	Engine.c	/^List* generate_boards(Node* game,uint16_t width , size_t pieceID){$/;"	f
+generate_moves	Move.c	/^Moves generate_moves(Game* game, Piece** piece){$/;"	f
+generate_tree	Engine.c	/^Tree* generate_tree(Node *root , uint8_t depth,uint8_t width,COLOR begin){$/;"	f
+generation	Engine.c	/^void generation(Node* iterator,uint8_t D,uint8_t W,uint8_t countD,uint8_t countW,COLOR color){$/;"	f
+get_board_copy	config.c	/^   Game* get_board_copy(Game* src){$/;"	f
+get_pieceID	config.c	/^    uint8_t get_pieceID(Piece piece){$/;"	f
+init_blank_game	config.c	/^    static Game* init_blank_game(Game* game){$/;"	f	file:
+init_board	config.c	/^     Game * init_board(const char* filename){$/;"	f
+init_empty_list	Engine.c	/^List* init_empty_list(N_DATA data){$/;"	f
+init_list	Engine.c	/^List* init_list(Node* begin){$/;"	f
+init_node	Engine.c	/^Node * init_node(void* data, Node* next, Node* prev,List* next_lvl,Node* prev_lvl,N_DATA type){$/;"	f
+init_tree	Engine.c	/^Tree* init_tree(Node* root){$/;"	f
+isValid	config.c	/^    static bool isValid(Game *game){$/;"	f	file:
+kill	Move.c	/^    void kill(Piece** piece, Game * game , int k){$/;"	f
+main	main.c	/^int main(int argv, char**argc)$/;"	f
+move	Move.c	/^    static void move(Piece* p , Position pos){$/;"	f	file:
+move_bishop	Move.c	/^    Moves move_bishop(Game *game,Piece *piece){$/;"	f
+move_king	Move.c	/^    Moves move_king(Game *game,Piece *piece){$/;"	f
+move_knight	Move.c	/^    Moves move_knight(Game *game,Piece *piece){$/;"	f
+move_pawn	Move.c	/^    Moves move_pawn(Game *game,Piece *piece){$/;"	f
+move_piece	Move.c	/^ ERROR move_piece(Game* game, Piece** piece, Position pos){$/;"	f
+move_queen	Move.c	/^    Moves move_queen(Game *game,Piece *piece){$/;"	f
+move_rook	Move.c	/^    Moves move_rook(Game *game,Piece *piece){$/;"	f
+move_temp	Move.c	/^static  ERROR move_temp(Game * game , Piece** piece , Position pos){$/;"	f	file:
+new_piece_location	Engine.c	/^static Node* new_piece_location(Position pos , Node * game , size_t pieceID){$/;"	f	file:
+number	config.c	/^        size_t number;$/;"	m	struct:__anon1	file:
+pieces	config.c	/^        Piece ** pieces;$/;"	m	struct:__anon1	file:
+pop_back	Engine.c	/^Node* pop_back(List* list){$/;"	f
+present_move	Move.c	/^static bool present_move(Moves move,Position pos){$/;"	f	file:
+print_board	config.c	/^       extern inline  void print_board(Game* game){$/;"	f
+print_list	Engine.c	/^void print_list(List *list){$/;"	f
+print_node	Engine.c	/^void print_node(Node* node){$/;"	f
+print_piece	config.c	/^    extern inline void print_piece(Piece* piece){$/;"	f
+read_file	config.c	/^         static void* read_file(void* filename) {$/;"	f	file:
+read_pieces	config.c	/^    extern inline void read_pieces(Game* game){$/;"	f
+read_positions	config.c	/^     void read_positions(Position ** positions,size_t size){$/;"	f
+read_stack	config.c	/^     void read_stack(size_t * array , size_t size){$/;"	f
+select_piece	Move.c	/^ Piece* select_piece(Game* game,Position pos){$/;"	f
+string_debugs	mmanager.c	/^ const char* string_debugs[] = {$/;"	v
+unicode	config.c	/^    static const char* unicode[]={$/;"	v	file:

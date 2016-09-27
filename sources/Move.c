@@ -535,9 +535,10 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 	/*the queen has bishops's and rooks's moves*/
          Moves m1 = move_bishop(game,piece); 
         Position * ptr_free;
+	if(m1.number != 0 ){
         ptr_free = realloc(moves.position , (m1.number+moves.number) * sizeof(Position));
         if(ptr_free == NULL){
-            printf("ERROR REALLOC 1");
+            printf("ERROR REALLOC Move queen");
             free(moves.position);    
 	    MEMDEALLOC_DEBUG_POSITION++;
         }
@@ -550,14 +551,14 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
              moves.number += m1.number;
 
         }
-
+	}
 
 
         ptr_free = NULL;
 
 
 	     Moves m = move_rook(game,piece);
-
+	if(m.number != 0 ) {
         ptr_free = realloc(moves.position , (m.number+moves.number) * sizeof(Position));
         if(ptr_free == NULL){
             printf("ERROR REALLOC 2");
@@ -575,9 +576,16 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
         }
 
-		free(m.position); 
-		free(m1.position);
+
+
+	}
+			
+	
+		free(m1.position);	
+		free(m.position);
 		MEMDEALLOC_DEBUG_POSITION+=2;
+
+
 		return moves;
     }
 

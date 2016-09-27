@@ -187,7 +187,11 @@ void browse_tree(Tree* tree);
  * \Returns  
  */
 Tree* generate_tree(Node* root , uint8_t depth , uint8_t width,COLOR color); 
-/*easy overflow here...space taken = 0(width^depth)
+/*easy overflow here...
+ * 		space taken on RAM = 0(width^depth) x sizeof(Node)
+ *			
+ *
+ *
  *generate tree by step,on iterator position ? / 
  *
  *
