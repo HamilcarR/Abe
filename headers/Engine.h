@@ -42,12 +42,14 @@ struct Tree ;
 typedef struct Node Node;
 
  struct Node{
+	 
     void* value;
     N_DATA data_type;  
     Node *prev ;
     Node *next ;/* pointer to nodes of the same level */
     struct Node *prev_level; /*pointer to up level nodes*/
     struct List *next_level ;
+     
 };
 
 
@@ -168,7 +170,7 @@ List* generate_all_boards(Node*,uint16_t width , COLOR color);
  *
  * \Param tree
  */
-void browse_tree(Tree* tree);
+void browse_tree(Tree** tree);
 
 
 
@@ -188,7 +190,7 @@ void browse_tree(Tree* tree);
  */
 Tree* generate_tree(Node* root , uint8_t depth , uint8_t width,COLOR color); 
 /*easy overflow here...
- * 		space taken on RAM = 0(width^depth) x sizeof(Node)
+ * 		space taken on RAM = 0(width^depth) 
  *			
  *
  *
@@ -201,7 +203,14 @@ Tree* generate_tree(Node* root , uint8_t depth , uint8_t width,COLOR color);
 
 
 
-
+/**
+ * \Brief  Free previous tree structure,then generate the next nodes and store them back to tree pointer
+ *
+ * \Param tree
+ * \Param depth
+ * \Param width
+ */
+void clean_and_generate_tree(Tree** tree , uint8_t depth , uint8_t width) ;
 
 
 

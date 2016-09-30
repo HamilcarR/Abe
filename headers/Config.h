@@ -90,6 +90,7 @@ typedef struct {
     Piece * pieces; //array of Pieces
     size_t stack [MAX_PIECES] ; /*size 12*/
     size_t pieces_size ;
+    COLOR turn ; 
 }Game;
 
 

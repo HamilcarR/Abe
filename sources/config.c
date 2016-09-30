@@ -1099,6 +1099,8 @@ static int add_p = 0 ;
 		copy->stack[i] = src->stack[i] ;
 
 	
+	copy->turn = src->turn ; 
+
 	return copy ; 
 
    }

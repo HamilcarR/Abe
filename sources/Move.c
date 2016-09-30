@@ -1,4 +1,18 @@
 #include "../headers/Move.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*******************************************************************************************************************************************************************************************************/
 
 /*return a pointer on the piece located at pos*/
@@ -64,6 +78,31 @@ static bool present_move(Moves move,Position pos){
     return false;
 
 }
+
+
+
+
+
+/********************************************************************************************************************************************************************************************************/
+
+static bool present_piece(Game* game, Position pos ) {
+
+	return (check_enemy(WHITE , game , pos) || check_friend(WHITE , game , pos) ) ; 
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*******************************************************************************************************************************************************************************************************/
@@ -259,14 +298,14 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
 		Position * ptr_free = moves.position ;
 		if((ptr_free =realloc(moves.position , (moves.number+1)* sizeof(Position)))!=NULL){
-            moves.number++;
+          	        moves.number++;
 			moves.position = ptr_free;
 			moves.position[moves.number-1].x = enem_position.x ;
 			moves.position[moves.number-1].y = enem_position.y ;
 		}
 		else
 		{
-		free(ptr_free);
+		free(moves.position);
 		MEMDEALLOC_DEBUG_POSITION++;
 		printf("\n move_pawn problem realloc 1\n" ) ;
 		Moves m ;
@@ -288,7 +327,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		else
 		{
 		MEMDEALLOC_DEBUG_POSITION++;
-		free(ptr_free);
+		free(moves.position);
 		printf("\n move_pawn problem realloc 2\n" ) ;
 		Moves m ;
 		m.number= 0 ;
@@ -300,25 +339,51 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		}
 
 	    	if(piece->position.x == BOARD_SIZE-2){
-
+		  	    
 			Position * ptr_free = moves.position ;
-			if((ptr_free =realloc(moves.position , (moves.number+2) * sizeof(Position)))!=NULL){
+			Position p_pos,f_pos; 
+			p_pos.x = BOARD_SIZE-3 ; 
+		        p_pos.y = piece->position.y ; 
+			f_pos.x = BOARD_SIZE - 4 ; 
+			f_pos.y = p_pos.y ;
+		        int size1 = (check_enemy(WHITE,game,p_pos) || check_friend(WHITE,game,p_pos)) ? 1 : 0 ; 
+			int size2 = (check_enemy(WHITE,game,f_pos) || check_friend(WHITE,game,f_pos)) ? 1 : 0 ; 	
+			int sizei = (size1 == 1 ) ? 0 :(  (size2 == 1) ? 1 :  2  ) ;         //yes it's weird...yes I like it that way...no,I don't want to change it .
+			
+
+			if(moves.number+sizei>0){
+			if((ptr_free =realloc(moves.position , (sizei+moves.number) * sizeof(Position)))!=NULL){
+			
 			moves.position = ptr_free;
+			if(sizei == 2 )
+			{
+
 			moves.number++;
 			moves.position[moves.number-1].x = piece->position.x - 1 ;
 			moves.position[moves.number-1].y = piece->position.y ;
 			moves.number++;
 			moves.position[moves.number-1].x = piece->position.x - 2 ;
 			moves.position[moves.number-1].y = piece->position.y ;
+
+			}
+			else if(sizei == 1 && size2 == 1 ){
+			moves.number++ ;  
+			moves.position[moves.number-1].x = piece->position.x - 1  ;
+			moves.position[moves.number-1].y = piece->position.y ; 
+
+
+			}
 			}
 			else
 			{
 			MEMDEALLOC_DEBUG_POSITION++;
-			free(ptr_free);
+			free(moves.position);
 			printf("\n move_pawn problem realloc 3\n" ) ;
 			Moves m ;
 			m.number= 0 ;
 			return m;
+			}
+
 			}
 
 
@@ -326,20 +391,33 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
 	      	else {
 			Position * ptr_free = moves.position ;
-			if((ptr_free =realloc(moves.position ,(moves.number+1) *  sizeof(Position)))!=NULL){
-			moves.position = ptr_free;
-			moves.number++;
-			moves.position[moves.number-1].x = piece->position.x - 1 ;
-			moves.position[moves.number-1].y = piece->position.y ;
-			}
-			else
-			{
-			MEMDEALLOC_DEBUG_POSITION++;
-			free(ptr_free);
-			printf("\n move_pawn problem realloc 4\n" ) ;
-			Moves m ;
-			m.number= 0 ;
-			return m;
+			Position enem ;
+		        enem.x = piece->position.x - 1 ;
+			enem.y = piece->position.y ;
+			int a = (check_enemy(WHITE,game,enem) || check_friend(WHITE,game,enem) ) ? 0 : 1 ;
+
+			Position P1 = {.x = piece->position.x-1 , .y = piece->position.y };
+			bool valid_move_1M = check_valid_position(P1); 
+			
+			if(moves.number+a > 0  && valid_move_1M){
+
+				if((ptr_free =realloc(moves.position ,(moves.number+a) *  sizeof(Position)))!=NULL){
+				moves.position = ptr_free;
+					if(a != 0 ){
+						moves.number++;
+						moves.position[moves.number-1].x = piece->position.x - 1 ;
+						moves.position[moves.number-1].y = piece->position.y ;
+					}
+				}
+				else
+				{
+				MEMDEALLOC_DEBUG_POSITION++;
+				free(moves.position);
+				printf("\n move_pawn problem realloc 4\n" ) ;
+				Moves m ;
+				m.number= 0 ;
+				return m;
+				}
 			}
 	       	}
 
@@ -364,7 +442,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		else
 		{
 		MEMDEALLOC_DEBUG_POSITION++;
-		free(ptr_free);
+		free(moves.position);
 		printf("\n move_pawn problem realloc 5\n" ) ;
 		Moves m ;
 		m.number= 0 ;
@@ -385,7 +463,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		else
 		{
 		MEMDEALLOC_DEBUG_POSITION++;
-		free(ptr_free);
+		free(moves.position);
 		printf("\n move_pawn problem realloc 6\n" ) ;
 		Moves m ;
 		m.number= 0 ;
@@ -398,47 +476,82 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		}
 
 	    	if(piece->position.x == 1){
+			Position p_pos,f_pos; 
+			p_pos.x = 2 ; 
+		        p_pos.y = piece->position.y ; 
+			f_pos.x = 3 ; 
+			f_pos.y = p_pos.y ;
+		        int size1 = (check_enemy(BLACK,game,p_pos) || check_friend(BLACK,game,p_pos)) ? 1 : 0 ; 
+			int size2 = (check_enemy(BLACK,game,f_pos) || check_friend(BLACK,game,f_pos)) ? 1 : 0 ; 	
+			
 
+			int sizei = (size1 == 1 ) ? 0 :(  (size2 == 1) ? 1 :  2  ) ;         //yes it's weird...yes I like it that way...no,I don't want to change it .
+		
 			Position * ptr_free = moves.position ;
-			if((ptr_free =realloc(moves.position , (moves.number+2)*sizeof(Position)))!=NULL){
-			moves.position = ptr_free;
-			moves.number++;
-			moves.position[moves.number-1].x = piece->position.x + 1 ;
-			moves.position[moves.number-1].y = piece->position.y ;
-			moves.number++;
-			moves.position[moves.number-1].x = piece->position.x + 2 ;
-			moves.position[moves.number-1].y = piece->position.y ;
-			}
-			else
-			{
-			MEMDEALLOC_DEBUG_POSITION++;
-			free(ptr_free);
-			printf("\n move_pawn problem realloc 7\n" ) ;
-			Moves m ;
-			m.number= 0 ;
-		       	return m;
+			if(moves.number+sizei > 0 ){
+				if((ptr_free =realloc(moves.position , (moves.number+sizei)*sizeof(Position)))!=NULL){
+					moves.position = ptr_free;
+					if(sizei == 2 )
+					{
+					moves.number++;
+					moves.position[moves.number-1].x = piece->position.x + 1 ;
+					moves.position[moves.number-1].y = piece->position.y ;
+					moves.number++;
+					moves.position[moves.number-1].x = piece->position.x + 2 ;
+					moves.position[moves.number-1].y = piece->position.y ;
+
+					}
+					else if(sizei == 1 && size2 == 1 ){
+					moves.number++ ;  
+					moves.position[moves.number-1].x = piece->position.x + 1  ;
+					moves.position[moves.number-1].y = piece->position.y ; 
+
+
+					}
+				}	
+				else
+				{
+				MEMDEALLOC_DEBUG_POSITION++;
+				free(moves.position);
+				printf("\n move_pawn problem realloc 7\n" ) ;
+				Moves m ;
+				m.number= 0 ;
+		       		return m;
+				}
 			}
 
 
 		}
 
 	      	else {
-			Position * ptr_free = moves.position ;
-			if((ptr_free =realloc(moves.position , (moves.number+1)*sizeof(Position)))!=NULL){
-			moves.position = ptr_free;
-         	        moves.number++;
-			moves.position[moves.number-1].x = piece->position.x + 1 ;
-			moves.position[moves.number-1].y = piece->position.y ;
+			Position enem ;
+		        enem.x = piece->position.x + 1 ;
+			enem.y = piece->position.y ;
+			int a = (check_enemy(BLACK,game,enem) || check_friend(BLACK,game,enem) ) ? 0 : 1 ; 
+			Position* ptr_free = moves.position ;
+			Position P1 = {.x = piece->position.x+1 , .y = piece->position.y };
+			bool valid_move_1M = check_valid_position(P1); 
+			
+			if(moves.number+a > 0 && valid_move_1M) {
+				if((ptr_free =realloc(moves.position ,(moves.number+a) *  sizeof(Position)))!=NULL){
+					moves.position = ptr_free;
+						if(a != 0 ){
+							moves.number++;
+							moves.position[moves.number-1].x = piece->position.x + 1 ;
+							moves.position[moves.number-1].y = piece->position.y ;
+						}
+				}	
+				else
+				{
+				MEMDEALLOC_DEBUG_POSITION++;
+				free(moves.position);
+				printf("\n move_pawn problem realloc 8\n" ) ;
+				Moves m ;
+				m.number= 0 ;
+				return m;
+				}
 			}
-			else
-			{
-			MEMDEALLOC_DEBUG_POSITION++;
-			free(ptr_free);
-			printf("\n move_pawn problem realloc 8\n" ) ;
-			Moves m ;
-			m.number= 0 ;
-			return m;
-			}
+			
 	       	}
 
 		return moves;
@@ -686,7 +799,8 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
 		bool friend = check_friend(piece->color,game,pos);
 		bool enemy = check_enemy(piece->color,game,pos);
-		if(!friend && !enemy){
+		bool valid = check_valid_position(pos); 
+		if(!friend && !enemy && valid){
                 Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position)))!=NULL ){
 
@@ -705,7 +819,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
 
 		}
-		else if (enemy ) {
+		else if (enemy && valid) {
                  Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -740,9 +854,10 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		pos.x = piece->position.x + i + 1 ;
 		pos.y = piece->position.y ;
 
+		bool valid = check_valid_position(pos); 
 		bool friend = check_friend(piece->color,game,pos);
 		bool enemy = check_enemy(piece->color,game,pos);
-		if(!friend && !enemy){
+		if(!friend && !enemy && valid){
                 Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -761,7 +876,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
 
 		}
-		else if (enemy ) {
+		else if (enemy && valid) {
                  Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -798,10 +913,11 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		Position pos ;
 		pos.x = piece->position.x ;
 		pos.y = piece->position.y + i + 1 ;
-
+	
+		bool valid = check_valid_position(pos); 
 		bool friend = check_friend(piece->color,game,pos);
 		bool enemy = check_enemy(piece->color,game,pos);
-		if(!friend && !enemy){
+		if(!friend && !enemy && valid){
                 Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -819,7 +935,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
 
 		}
-		else if (enemy ) {
+		else if (enemy && valid) {
                  Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -853,9 +969,10 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		pos.x = piece->position.x ;
 		pos.y = piece->position.y - i - 1 ;
 
+		bool valid = check_valid_position(pos); 
 		bool friend = check_friend(piece->color,game,pos);
 		bool enemy = check_enemy(piece->color,game,pos);
-		if(!friend && !enemy){
+		if(!friend && !enemy && valid){
                 Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -873,7 +990,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
 
 		}
-		else if (enemy ) {
+		else if (enemy && valid) {
                  Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -921,9 +1038,10 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		pos.x = piece->position.x + i + 1 ;
 		pos.y = piece->position.y + i + 1 ;
 
+		bool valid = check_valid_position(pos); 
 		bool friend = check_friend(piece->color,game,pos);
 		bool enemy = check_enemy(piece->color,game,pos);
-		if(!friend && !enemy){
+		if(!friend && !enemy && valid){
                 Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -941,7 +1059,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
 
 		}
-		else if (enemy ) {
+		else if (enemy && valid) {
                  Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -977,9 +1095,10 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		pos.x = piece->position.x - i - 1 ;
 		pos.y = piece->position.y + i + 1 ;
 
+		bool valid = check_valid_position(pos); 
 		bool friend = check_friend(piece->color,game,pos);
 		bool enemy = check_enemy(piece->color,game,pos);
-		if(!friend && !enemy){
+		if(!friend && !enemy && valid){
                 Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -997,7 +1116,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
 
 		}
-		else if (enemy ) {
+		else if (enemy && valid) {
                  Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -1030,9 +1149,10 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		pos.x = piece->position.x - i - 1 ;
 		pos.y = piece->position.y - i - 1 ;
 
+		bool valid = check_valid_position(pos); 
 		bool friend = check_friend(piece->color,game,pos);
 		bool enemy = check_enemy(piece->color,game,pos);
-		if(!friend && !enemy){
+		if(!friend && !enemy && valid){
                 Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -1050,7 +1170,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
 
 		}
-		else if (enemy ) {
+		else if (enemy && valid) {
                  Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -1084,9 +1204,10 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		pos.x = piece->position.x + i + 1 ;
 		pos.y = piece->position.y - i - 1 ;
 
+		bool valid = check_valid_position(pos); 
 		bool friend = check_friend(piece->color,game,pos);
 		bool enemy = check_enemy(piece->color,game,pos);
-		if(!friend && !enemy){
+		if(!friend && !enemy && valid){
                 Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 
@@ -1104,7 +1225,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
 
 		}
-		else if (enemy ) {
+		else if (enemy && valid ) {
                  Position * ptr_free = moves.position;
                 if((ptr_free = realloc(moves.position ,(moves.number+1) * sizeof(Position) ) )!=NULL ){
 

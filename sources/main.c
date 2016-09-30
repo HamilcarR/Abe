@@ -6,6 +6,10 @@
 
 //TODO : rename project
 
+
+ const uint8_t D = 4 ; 
+ const uint8_t W = 250 ; 
+
 int main(int argv, char**argc)
 {
 
@@ -15,9 +19,9 @@ int main(int argv, char**argc)
         game= init_blank_game() ; 
 
 	Node* N = init_node(game,NULL,NULL,NULL,NULL, GAME) ; 
-	Tree* tree = generate_tree(N ,  4 , 20 , WHITE); 
-
-	browse_tree(tree); 
+	Tree* tree = generate_tree(N , D ,W, WHITE); 
+	Tree **ptr_tree = &tree; 
+	browse_tree(ptr_tree); 
 
 
 	
@@ -25,7 +29,7 @@ int main(int argv, char**argc)
 
 
 
-	free_tree(tree); 
+	free_tree(*ptr_tree); 
 
  	 
 
@@ -36,9 +40,6 @@ int main(int argv, char**argc)
 
 	
 	check_memleak(); 
-
-
-
 
 
 

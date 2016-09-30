@@ -97,7 +97,7 @@ static void free_tree_nodes(Node* root){
 
 	
 
-	//IMPORTANT : I HATE RECURSION.
+	//TODO : multi threading free.
 	if(root->next_level != NULL && root->next_level->begin != NULL){
 		Node* iterator = root->next_level->begin ; 
 			
@@ -318,7 +318,7 @@ static Node* new_piece_location(Position pos , Node * game , size_t pieceID){
 }
 
 
-/*generate all combinations of pieceID and return them as a linked list */
+/*generate all combinations of moves for pieceID and return them as a linked list */
 List* generate_boards(Node* game,uint16_t width , size_t pieceID){
 	assert(game->data_type == GAME);
 	List* list ; 
@@ -329,12 +329,19 @@ List* generate_boards(Node* game,uint16_t width , size_t pieceID){
 	Piece* p = &(data->pieces[pieceID]);
 	Piece** pp = &p ; 
 	Moves moves = generate_moves(data, pp);
-	int siz = (moves.number<=width) ? moves.number : width;  	
-	for(int i = 0 ; i < siz ; i ++ ){
-		Node* P = new_piece_location(moves.position[i] , game , pieceID);/*TODO complete */ 
-		add_node_to_list(list , P ) ; 
+	int siz = (moves.number<=width) ? moves.number : width; 
+		for(int i = 0 ; i < siz ; i ++ ){
+			assert(check_valid_position(moves.position[i]) == true) ; 
+			Node* P = new_piece_location(moves.position[i] , game , pieceID);
+			Game *g1 = data;
+			Game *g2 = (Game*)(P->value);
+			if(!equal_game(g1,g2))
+				add_node_to_list(list , P ) ;
+			else
+				free_node(P); 	
 		
 
+		
 	}
 	MEMDEALLOC_DEBUG_POSITION++;
         free(moves.position) ; 	
@@ -488,8 +495,14 @@ List * generate_all_boards(Node* node,uint16_t width , COLOR color) {
 	if(list != NULL) {
 	node->next_level = list ; 
 	Node* iterator = NULL; 
-	for(iterator = list->begin ; iterator != NULL ; iterator = iterator->next)
+	for(iterator = list->begin ; iterator != NULL ; iterator = iterator->next){
+				
 		iterator->prev_level =  node ; 
+		((Game*)(iterator->value))->turn = color ;			
+
+
+		
+	}
 	return list ; 
 	}
 	else
@@ -585,17 +598,38 @@ List * generate_all_boards(Node* node,uint16_t width , COLOR color) {
 void print_node(Node* node){
 	switch(node->data_type){
 		case GAME :
-			print_board((Game*) (node->value)) ; 
-				
 			printf("Iterator position :\nWidth : %i    Depth : %i\n",WIDTH , DEPTH );		
+			
+			print_board((Game*) (node->value)) ; 
+			printf("Iterator color : %s\n", (((Game*) (node->value))->turn ) == BLACK ? "BLACK" : "WHITE" ) ; 
+				
 		break;
 
 		case STRING : 
 		printf("%s \n" ,(char*) (node->value)); 
 
 		break;
+		
+		case FLOAT :
+	       			
+			printf("%f \n" ,*((float*) (node->value)));
+		break; 
 
-		//TODO : complete 
+
+		case INT : 
+
+			printf("%i \n" ,* (int*)(node->value));
+		break; 
+
+		case LONG : 
+			
+		//	printf("%i \n" , *(long*)(node->value));
+		break ; 
+		
+		case CHAR :
+
+			printf("%c \n" , *(char*)(node->value));
+		break ; 
 
 
 
@@ -629,12 +663,12 @@ static char EXIT ='e';
  uint32_t DEPTH = 0 ;
  uint32_t WIDTH = 0 ;
 
-void browse_tree(Tree* tree){
+void browse_tree(Tree** tree){
 
-	assert(tree != NULL) ;
+	assert(*tree != NULL) ;
 	printf("INITIALIZATION\n");
- 	print_board(tree->root->value);	
-	Node* iterator = tree->root ; 
+ 	print_board((*(tree))->root->value);	
+	Node* iterator = (*(tree))->root ; 
 
 	char move = ' ' ; 
 
@@ -684,6 +718,24 @@ void browse_tree(Tree* tree){
 			
 
 		break;
+		
+		case 'g' :
+	       	;	//to get rid of the stupid "a label can only be part of a statement" error
+			Game* game = get_board_copy((Game*)iterator->value); 
+			COLOR color = game->turn ; 
+			free_tree(*tree); 
+			 
+			int depth = 4 , width = 250 ; 
+			//TODO : generate tree using threads			
+			Node* N = init_node(game,NULL,NULL,NULL,NULL,GAME); 
+			*tree = generate_tree(N , depth , width , color ) ;  
+			iterator =(*tree)->root ; 	
+
+		
+		break ; 
+
+		
+
 
 		default :
 		//	printf("unknown action %c \n " , move); 
@@ -734,14 +786,17 @@ void generation(Node* iterator,uint8_t D,uint8_t W,uint8_t countD,uint8_t countW
 	if(countD<D){
 		
 		printf("%i\n",cc++); 
-		color = (color == BLACK) ? WHITE : BLACK ; 
-		List *list = generate_all_boards(iterator,W,color) ;
+
+		 	
+		COLOR temp =  (color == BLACK) ? WHITE : BLACK ;  
+		List *list = generate_all_boards(iterator,W,temp);
 		if(list!=NULL){
 		Node* it = list->begin ;
 		while(it != NULL ){
-		
-
-			generation(it , D , W , countD+1 , countW+1 , color ) ; 
+				
+			
+			
+			generation(it , D , W , countD+1 , countW+1 , temp ) ; 
 
 		it = it->next; 
 		}
@@ -757,7 +812,8 @@ void generation(Node* iterator,uint8_t D,uint8_t W,uint8_t countD,uint8_t countW
 
 
 Tree* generate_tree(Node *root , uint8_t depth,uint8_t width,COLOR begin){
-	Tree* tree = init_tree(root); 
+	Tree* tree = init_tree(root);
+
 	generation(root , depth , width , 0 , 0 , begin ) ; 
 	return tree; 
 
