@@ -3,18 +3,26 @@
 
 #include "Config.h"
 #include "Move.h"
+#include <pthread.h>
+
+
+
+extern uint32_t DEPTH  ;  //Depth of search tree 
+extern uint32_t WIDTH  ;  //Width of search tree
+
+
+
+enum ADD_MODE {FULL_LINKED = 1 , DOUBLE_LINKED_ONE_LVL = 1 , ONE_LINK_ONE_LVL = 2 };
+typedef enum ADD_MODE ADD_MODE ; 
+
+
+
 /*Node data...trying to use some generic data:
  *
  * GAME for an instance of a game
  * ALLOC_PTR for an allocation
  * 
  */
-
-
-extern uint32_t DEPTH  ; 
-extern uint32_t WIDTH  ; 
-
-
  enum N_DATA {GAME = 0 , ALLOC_PTR = 1 ,STRING = 3 , FLOAT = 2 , INT = 4 , LONG = 5 , CHAR = 6};
 typedef enum N_DATA N_DATA ; 
 
@@ -106,7 +114,7 @@ Node * init_node(void* data,Node* next,Node* previous,List * next_level ,Node * 
 List* init_list(Node* begin);
 List* init_empty_list(N_DATA data);
 
-void add_node_to_list(List* list , Node* node) ; 
+void add_node_to_list(List* list , Node* node,ADD_MODE add_mode) ; 
 void delete_node(List* list , Node* node);
 
 char* toString(List *list); 

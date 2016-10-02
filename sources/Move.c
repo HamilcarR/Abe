@@ -1,8 +1,26 @@
 #include "../headers/Move.h"
 
+/*******************************************************************************************************************************************************************************************************/
 
 
 
+bool finished_game(Game* g){
+	uint_fast8_t number_of_kings =  0 ; 
+	
+	for(size_t i = 0 ; i < g->pieces_size ; i++){
+		if(g->pieces[i].type == KING)
+			number_of_kings++ ; 
+
+
+	}
+	if(number_of_kings < 2 )
+		return true; 
+	else
+		return false; 	
+
+
+
+}
 
 
 
@@ -136,7 +154,7 @@ static bool present_piece(Game* game, Position pos ) {
     void kill(Piece** piece, Game * game , int k){
         Piece *target=&(game->pieces[k]);
         Piece *pieces = calloc(game->pieces_size - 1 ,sizeof(Piece));
-	MEMALLOC_DEBUG_PIECE++;
+	mem_debug_increment(ALLOC_PIECE);
         uint8_t id = get_pieceID(*target);
         game->stack[id]++;
         int x =target->position.x;
@@ -163,7 +181,7 @@ static bool present_piece(Game* game, Position pos ) {
        
 	(*piece) = select_piece(game,(*piece)->position);
 	free(temp_p); 
-	MEMDEALLOC_DEBUG_PIECE++;
+	mem_debug_increment(DEALLOC_PIECE);
 
     }
 
@@ -241,14 +259,14 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                             if(((*piece)->color == BLACK && game->pieces[j] .color == WHITE) || ((*piece)->color == WHITE && game->pieces[j] .color == BLACK)){
 
                                 kill(piece,game,j);
-				MEMDEALLOC_DEBUG_POSITION++;
+				mem_debug_increment(DEALLOC_POSITION);
                                 free(temp.position);
                                 return OKAY;
 
                             }
                             else if (((*piece)->color == BLACK && game ->pieces[j].color == BLACK) || ((*piece)->color == WHITE && game ->pieces[j].color == WHITE)){
                                
-				MEMDEALLOC_DEBUG_POSITION++;	
+				mem_debug_increment(DEALLOC_POSITION);	
                                 free(temp.position);
 				    return NOT_ENEMY;
 
@@ -262,7 +280,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
              move((*piece),pos);
 	  //  piece = select_piece(game,piece->position);
-	     MEMDEALLOC_DEBUG_POSITION++;
+	     mem_debug_increment(DEALLOC_POSITION);
    	     free(temp.position);
              return OKAY;
 
@@ -270,7 +288,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
         }
 
     }
-    MEMDEALLOC_DEBUG_POSITION++; 
+    mem_debug_increment(DEALLOC_POSITION); 
     free(temp.position);
     return WRONG_MOVE;
     }
@@ -289,7 +307,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 	Moves moves;
 	moves.number = 0 ;
 	moves.position = calloc(moves.number , sizeof(Position)); //TODO : free
-	MEMALLOC_DEBUG_POSITION++;
+	mem_debug_increment(ALLOC_POSITION);
         if(piece->color == WHITE){
 		Position enem_position ;
 		enem_position.x = piece->position.x-1;
@@ -306,7 +324,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		else
 		{
 		free(moves.position);
-		MEMDEALLOC_DEBUG_POSITION++;
+		mem_debug_increment(DEALLOC_POSITION);
 		printf("\n move_pawn problem realloc 1\n" ) ;
 		Moves m ;
 		m.number= 0 ;
@@ -326,7 +344,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		}
 		else
 		{
-		MEMDEALLOC_DEBUG_POSITION++;
+		mem_debug_increment(DEALLOC_POSITION);
 		free(moves.position);
 		printf("\n move_pawn problem realloc 2\n" ) ;
 		Moves m ;
@@ -376,7 +394,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 			}
 			else
 			{
-			MEMDEALLOC_DEBUG_POSITION++;
+			mem_debug_increment(DEALLOC_POSITION);
 			free(moves.position);
 			printf("\n move_pawn problem realloc 3\n" ) ;
 			Moves m ;
@@ -411,7 +429,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 				}
 				else
 				{
-				MEMDEALLOC_DEBUG_POSITION++;
+				mem_debug_increment(DEALLOC_POSITION);
 				free(moves.position);
 				printf("\n move_pawn problem realloc 4\n" ) ;
 				Moves m ;
@@ -441,7 +459,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		}
 		else
 		{
-		MEMDEALLOC_DEBUG_POSITION++;
+		mem_debug_increment(DEALLOC_POSITION);
 		free(moves.position);
 		printf("\n move_pawn problem realloc 5\n" ) ;
 		Moves m ;
@@ -462,7 +480,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 		}
 		else
 		{
-		MEMDEALLOC_DEBUG_POSITION++;
+		mem_debug_increment(DEALLOC_POSITION);
 		free(moves.position);
 		printf("\n move_pawn problem realloc 6\n" ) ;
 		Moves m ;
@@ -511,7 +529,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 				}	
 				else
 				{
-				MEMDEALLOC_DEBUG_POSITION++;
+				mem_debug_increment(DEALLOC_POSITION);
 				free(moves.position);
 				printf("\n move_pawn problem realloc 7\n" ) ;
 				Moves m ;
@@ -543,7 +561,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 				}	
 				else
 				{
-				MEMDEALLOC_DEBUG_POSITION++;
+				mem_debug_increment(DEALLOC_POSITION);
 				free(moves.position);
 				printf("\n move_pawn problem realloc 8\n" ) ;
 				Moves m ;
@@ -568,7 +586,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 	Moves moves;
 	moves.number = 0 ;
 	moves.position = calloc(moves.number , sizeof(Position));	
-	MEMALLOC_DEBUG_POSITION++;
+	mem_debug_increment(ALLOC_POSITION);
     	Position var = piece->position;
 	Position up ;
         Position down ;
@@ -615,7 +633,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 			moves.position[moves.number-1] = position[i] ;
 		  }
 		   else{
-			MEMDEALLOC_DEBUG_POSITION++;
+			mem_debug_increment(DEALLOC_POSITION);
 			printf("realloc failed , move_king()") ;
 			free(moves.position) ;
 			break ; 
@@ -644,7 +662,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 	Moves moves ;
 	moves.number = 0 ;
 	moves.position = calloc(moves.number,sizeof(Position));
-	MEMALLOC_DEBUG_POSITION++;
+	mem_debug_increment(ALLOC_POSITION);
 	/*the queen has bishops's and rooks's moves*/
          Moves m1 = move_bishop(game,piece); 
         Position * ptr_free;
@@ -653,7 +671,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
         if(ptr_free == NULL){
             printf("ERROR REALLOC Move queen");
             free(moves.position);    
-	    MEMDEALLOC_DEBUG_POSITION++;
+	    mem_debug_increment(DEALLOC_POSITION);
         }
         else{
             moves.position = ptr_free;
@@ -675,7 +693,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
         ptr_free = realloc(moves.position , (m.number+moves.number) * sizeof(Position));
         if(ptr_free == NULL){
             printf("ERROR REALLOC 2");
-	    MEMDEALLOC_DEBUG_POSITION++; 
+	    mem_debug_increment(DEALLOC_POSITION); 
             free(moves.position);
 
         }
@@ -708,7 +726,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
           Moves moves;
         moves.number = 0 ;
         moves.position = calloc(moves.number , sizeof(Position));
-	MEMALLOC_DEBUG_POSITION++;
+	mem_debug_increment(ALLOC_POSITION);
 	Position origin = piece->position; 
 	Position dest1;
 	Position dest2;
@@ -761,7 +779,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 			else{
 			     printf("REALLOC PROBLEM MOVE KNIGHT") ;
 
-			     MEMDEALLOC_DEBUG_POSITION++;
+			     mem_debug_increment(DEALLOC_POSITION);
 			     free(moves.position ) ; 
 
 			}
@@ -785,7 +803,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
         moves.number = 0 ;
         moves.position = calloc(moves.number , sizeof(Position));
 
-	MEMALLOC_DEBUG_POSITION++;
+	mem_debug_increment(ALLOC_POSITION);
 
 
     /*UP*/
@@ -812,7 +830,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 else{
                     printf("move rook problem realloc \n");
 
-		    MEMDEALLOC_DEBUG_POSITION++;
+		    mem_debug_increment(DEALLOC_POSITION);
                     cfree(moves.position);
                     break;
 
@@ -832,7 +850,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 else{
                     printf("move rook problem realloc 2 \n");
                     
-		    MEMDEALLOC_DEBUG_POSITION++;
+		    mem_debug_increment(DEALLOC_POSITION);
 		    cfree(moves.position);
                     break;
 
@@ -868,7 +886,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
                 else{
 		    
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move rook problem realloc \n");
                     cfree(moves.position);
                     break;
@@ -888,7 +906,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
                 }
                 else{
 
-		    MEMDEALLOC_DEBUG_POSITION++;
+		    mem_debug_increment(DEALLOC_POSITION);
                     printf("move rook problem realloc 2 \n");
                     cfree(moves.position);
                     break;
@@ -927,7 +945,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move rook problem realloc \n");
                     cfree(moves.position);
                     break;
@@ -946,7 +964,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move rook problem realloc 2 \n");
                     cfree(moves.position);
                     break;
@@ -982,7 +1000,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move rook problem realloc \n");
                     cfree(moves.position);
                     break;
@@ -1001,7 +1019,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move rook problem realloc 2 \n");
                     cfree(moves.position);
                     break;
@@ -1029,7 +1047,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
         moves.number = 0 ;
         moves.position = calloc(moves.number , sizeof(Position));
 
-	MEMALLOC_DEBUG_POSITION++;
+	mem_debug_increment(ALLOC_POSITION);
         /*diagonal down right*/
 		for(int i = 0 ; piece->position.x + i < BOARD_SIZE-1 &&
                         piece->position.y + i < BOARD_SIZE-1 ; i++){
@@ -1051,7 +1069,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move bishop problem realloc \n");
                     cfree(moves.position);
                     break;
@@ -1070,7 +1088,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move bishop problem realloc 2 \n");
                     cfree(moves.position);
                     break;
@@ -1108,7 +1126,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move bishop problem realloc \n");
                     cfree(moves.position);
                     break;
@@ -1127,7 +1145,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move bishop problem realloc 2 \n");
                     cfree(moves.position);
                     break;
@@ -1162,7 +1180,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move bishop problem realloc \n");
                     cfree(moves.position);
                     break;
@@ -1181,7 +1199,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move bishop problem realloc 2 \n");
                     cfree(moves.position);
                     break;
@@ -1217,7 +1235,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move bishop problem realloc \n");
                     cfree(moves.position);
                     break;
@@ -1236,7 +1254,7 @@ static  ERROR move_temp(Game * game , Piece** piece , Position pos){
 
                 }
                 else{
-		   MEMDEALLOC_DEBUG_POSITION++;
+		   mem_debug_increment(DEALLOC_POSITION);
                     printf("move bishop problem realloc 2 \n");
                     cfree(moves.position);
                     break;

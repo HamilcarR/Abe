@@ -3,12 +3,13 @@
 #include "../headers/Config.h"
 #include "../headers/Move.h"
 #include "../headers/Engine.h"
-
+#include <pthread.h>
 //TODO : rename project
 
 
  const uint8_t D = 4 ; 
  const uint8_t W = 250 ; 
+
 
 int main(int argv, char**argc)
 {
@@ -24,24 +25,13 @@ int main(int argv, char**argc)
 	browse_tree(ptr_tree); 
 
 
-	
-
 
 
 
 	free_tree(*ptr_tree); 
-
- 	 
-
-
-
-
-
-
-	
 	check_memleak(); 
-
-
+	destroy_mutex(); 
+	pthread_exit(NULL);
 
 	return EXIT_SUCCESS;
 }

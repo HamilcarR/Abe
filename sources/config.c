@@ -1,6 +1,6 @@
     #include "../headers/Config.h"
+    #include <malloc.h> 
     #include <pthread.h>
-    #include <malloc.h>
     #define BUFFER_SIZE 1024
     #define BUFFER0_SIZE 8
 
@@ -152,9 +152,9 @@ static int add_p = 0 ;
 
 
      void free_game(Game * game){
-	MEMDEALLOC_DEBUG_PIECE++;	
+	mem_debug_increment(DEALLOC_PIECE);	
         free(game->pieces);
-	MEMDEALLOC_DEBUG_GAME++;
+	mem_debug_increment(DEALLOC_GAME);
         free(game);
     }
     /*********************************************************************************************************************************************************************************************************************/
@@ -162,15 +162,15 @@ static int add_p = 0 ;
     extern  inline void free_player(Player *player) {
 
         free(player->pieces);
-	MEMDEALLOC_DEBUG_PIECE++;
-	MEMDEALLOC_DEBUG_PLAYER++;
+	mem_debug_increment(DEALLOC_PIECE);
+	mem_debug_increment(DEALLOC_PLAYER);
         cfree(player);
 
     }
     /*********************************************************************************************************************************************************************************************************************/
 
     extern inline void free_position(Position *position) {
-	MEMDEALLOC_DEBUG_POSITION++;
+	mem_debug_increment(DEALLOC_POSITION);
         free(position) ;
 
     }
@@ -519,7 +519,7 @@ static int add_p = 0 ;
         /*create an instance of Game by extracting it from a file */
         inline static Game* extract_pieces(char* board){
             Game* chess_board =(Game*) calloc(1,sizeof(Game));	 
-	    MEMALLOC_DEBUG_GAME++;
+	    mem_debug_increment(ALLOC_GAME);
             if(chess_board == NULL){
                 printf("Problem allocation fct extract_pieces");
             	
@@ -529,7 +529,7 @@ static int add_p = 0 ;
             size_t stack [MAX_PIECES]={0};
             size_t number_of_pieces = 0 ;
             Piece  *temp_pieces = calloc(1,sizeof(Piece)) ;
-	    MEMALLOC_DEBUG_PIECE++;
+	    mem_debug_increment(ALLOC_PIECE);
             bool error = false;
             size_t i = 0 ;
 
@@ -674,7 +674,7 @@ static int add_p = 0 ;
                             else{
                                 printf("An error has occured while reallocating memory \n.");
 
-				MEMDEALLOC_DEBUG_PIECE++; 
+				mem_debug_increment(DEALLOC_PIECE); 
                                 free(temp_pieces);
                             }
 
@@ -754,7 +754,7 @@ static int add_p = 0 ;
                             }
                             else{
                                 printf("An error has occured while reallocating memory \n.");
-				MEMDEALLOC_DEBUG_PIECE++;
+				mem_debug_increment(DEALLOC_PIECE);
 
                                 free(temp_pieces);
                             }
@@ -802,7 +802,7 @@ static int add_p = 0 ;
      Game* init_blank_game(){
 		
 	Game *game = calloc(1,sizeof(Game)); 	
-	MEMALLOC_DEBUG_GAME++; 
+	mem_debug_increment(ALLOC_GAME); 
 
 
 	
@@ -816,7 +816,7 @@ static int add_p = 0 ;
             }
         }
         game->pieces = calloc(32,sizeof(Piece)); /*We initialize all the pieces on the board*/
-	MEMALLOC_DEBUG_PIECE++;
+	mem_debug_increment(ALLOC_PIECE);
         game->pieces_size = 32;
 	Position pos ; 
 	Piece* ptr = game->pieces;
@@ -1009,7 +1009,7 @@ static int add_p = 0 ;
     if(!isValid(game)){
         printf("\nChess without kings...?\nyou don't believe in monarchy,do you ? \u2639  \n");
         free_game(game) ;
-	MEMDEALLOC_DEBUG_GAME++ ; 
+	mem_debug_increment(DEALLOC_GAME) ; 
         return NULL;
     }
 
@@ -1079,14 +1079,14 @@ static int add_p = 0 ;
 
    Game* get_board_copy(Game* src){
 	Game* copy = calloc(1,sizeof(Game));
-        MEMALLOC_DEBUG_GAME++;	
+        mem_debug_increment(ALLOC_GAME);	
 	copy->pieces_size = src->pieces_size; 
 	for(int i = 0 ; i < BOARD_SIZE ; i++){
 		for(int j = 0 ; j < BOARD_SIZE ; j++)
 			copy->color_distrib[i][j] = src->color_distrib[i][j];
 	}		
 	Piece* array = calloc(copy->pieces_size,sizeof(Piece));  	
-	MEMALLOC_DEBUG_PIECE++;
+	mem_debug_increment(ALLOC_PIECE);
 	copy->pieces = array ; 
 	assert(copy->pieces != NULL);
 	for(int i = 0 ; i < src->pieces_size ; i ++ ){

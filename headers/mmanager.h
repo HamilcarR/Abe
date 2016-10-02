@@ -7,13 +7,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-
+#include  <pthread.h> 
 
 
 #define MAX_DEBUG_VAR 14 
 
 
-
+extern pthread_t f_thread ; 
+extern pthread_mutex_t f_mutex; 
 
 
 
@@ -59,7 +60,9 @@ extern const char* string_debugs[];
 
 extern void check_memleak();
 
+extern void mem_debug_increment(const uint8_t ID); //allocate or desallocate ressources 
 
+extern void destroy_mutex(); 
 #endif
 
 

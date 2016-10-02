@@ -23,5 +23,5 @@ ERROR move_piece(Game* ,Piece**,Position);
 /*if two pieces are the same*/
 bool equal_pieces(Piece *piece1 , Piece * piece2);
 Moves generate_moves(Game* , Piece**) ; 
-
+extern bool finished_game(Game* g) ; 
 #endif // MOVE_H_INCLUDED

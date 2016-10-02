@@ -1,5 +1,4 @@
 #!/bin/zsh
 
-
-
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --tool=memcheck --show-reachable=yes $1
+valgrind --leak-check=full --tool=memcheck --show-leak-kinds=all --track-origins=yes --show-reachable=yes $1
+ 

@@ -51,7 +51,6 @@ typedef struct {
     Type type ;
     COLOR color ;
     Position position ;
-
 }Piece;
 
 /**

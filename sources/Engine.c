@@ -1,11 +1,47 @@
 #include "../headers/Engine.h"
+#include <pthread.h>
+
+
+
+/********************-- VARS DEFINE --*********************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 
 
 
 Node * init_node(void* data, Node* next, Node* prev,List* next_lvl,Node* prev_lvl,N_DATA type){
 	Node *node = calloc(1,sizeof(Node));
-	MEMALLOC_DEBUG_NODE++; 
+	mem_debug_increment(ALLOC_NODE); 
 	node->data_type = type ; 
 	node->value = data ; 
 	node->next = next ; 
@@ -54,7 +90,7 @@ void free_node(Node * node) {
 		}
 
 
-	MEMDEALLOC_DEBUG_NODE++; 	
+	mem_debug_increment(DEALLOC_NODE); 	
 	free(node) ; 
 
 
@@ -73,7 +109,7 @@ while(i!=NULL){
 	free_node(temp);
 	
 }
-MEMDEALLOC_DEBUG_LIST++ ; 
+mem_debug_increment(DEALLOC_LIST) ; 
 free(list) ; 
 
 }
@@ -110,7 +146,7 @@ static void free_tree_nodes(Node* root){
 			
 		
 		}
-		MEMDEALLOC_DEBUG_LIST++; 
+		mem_debug_increment(DEALLOC_LIST); 
 		free(root->next_level) ; 
 
 
@@ -118,7 +154,7 @@ static void free_tree_nodes(Node* root){
 	}
 	else if (root->next_level != NULL && root->next_level->begin == NULL){
 		free(root->next_level); 
-		MEMDEALLOC_DEBUG_LIST++;
+		mem_debug_increment(DEALLOC_LIST);
 
 	}
 
@@ -132,7 +168,7 @@ void free_tree(Tree* tree){
 	DEBUG_COUNTER = 0 ;
         
 	free_tree_nodes(tree->root) ;
-	MEMDEALLOC_DEBUG_TREE++;
+	mem_debug_increment(DEALLOC_TREE);
 	free(tree);
 
 
@@ -142,7 +178,7 @@ void free_tree(Tree* tree){
 
 Tree* init_tree(Node* root){
 	Tree* tree = calloc(1,sizeof(Tree));
-	MEMALLOC_DEBUG_TREE++;
+	mem_debug_increment(ALLOC_TREE);
          	
 	tree->root = root; 
 
@@ -174,7 +210,7 @@ List* init_list(Node* begin){
 
 List* list ; 
 list = malloc(sizeof(List)) ;
-MEMALLOC_DEBUG_LIST++;
+mem_debug_increment(ALLOC_LIST);
 list->count = 1 ; 
 list->data_type=begin->data_type;
 list->begin = begin ; 
@@ -195,7 +231,8 @@ return list ;
 
 
 
-void add_node_to_list(List* list , Node* node) {
+void add_node_to_list(List* list , Node* node , ADD_MODE add_mode) {
+	if(add_mode == FULL_LINKED){
 			if(list->count == 0 ){
 				list->begin = node ; 
 				list->end = node ;
@@ -209,6 +246,15 @@ void add_node_to_list(List* list , Node* node) {
 	  	  	list->end = node ; 	  
 		  	node->next = NULL ;
 		  	list->count++;
+	}
+
+	else if (add_mode == DOUBLE_LINKED_ONE_LVL) {
+
+
+
+
+
+	}
 		
 }
 
@@ -285,7 +331,7 @@ void print_list(List *list){
 
 List* init_empty_list(N_DATA data){
 	List* liste = calloc( 1 , sizeof(List));
-	MEMALLOC_DEBUG_LIST++ ; 
+	mem_debug_increment(ALLOC_LIST) ; 
 	liste->count = 0 ; 
 	liste->begin = NULL ; 
 	liste->end = NULL ;
@@ -336,14 +382,14 @@ List* generate_boards(Node* game,uint16_t width , size_t pieceID){
 			Game *g1 = data;
 			Game *g2 = (Game*)(P->value);
 			if(!equal_game(g1,g2))
-				add_node_to_list(list , P ) ;
+				add_node_to_list(list , P,FULL_LINKED ) ;
 			else
 				free_node(P); 	
 		
 
 		
 	}
-	MEMDEALLOC_DEBUG_POSITION++;
+	mem_debug_increment(DEALLOC_POSITION);
         free(moves.position) ; 	
 	return list ; 
 
@@ -367,7 +413,7 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 		if(L2 == NULL || L2->count == 0){
 			if(L2!=NULL){
 				free(L2);
-				MEMDEALLOC_DEBUG_LIST++;
+				mem_debug_increment(DEALLOC_LIST);
 			}
 			return NULL ;
 		}
@@ -375,7 +421,7 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 			if(L1 != NULL)
 			{
 				free(L1);                                                      /*forgot these...*/
-				MEMDEALLOC_DEBUG_LIST++;
+				mem_debug_increment(DEALLOC_LIST);
 
 
 			}
@@ -389,7 +435,7 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 		{
 			if(L1!=NULL)
 			{
-				MEMDEALLOC_DEBUG_LIST++;
+				mem_debug_increment(DEALLOC_LIST);
 				free(L1);
 			}
 			return NULL ;
@@ -397,7 +443,7 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 		else{
 			if(L2!=NULL){
 				free(L2);
-				MEMDEALLOC_DEBUG_LIST++;
+				mem_debug_increment(DEALLOC_LIST);
 
 			}
 			return L1 ; 
@@ -421,8 +467,8 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 		concat->data_type = L1->data_type ;
 		free(L1); 
 		free(L2);
-	       MEMDEALLOC_DEBUG_LIST+=2 ; 
-
+	        mem_debug_increment(DEALLOC_LIST); 
+		mem_debug_increment(DEALLOC_LIST); 
 		if(concat->count > width){
 
 			Node* iterator = concat->end ; 
@@ -671,7 +717,9 @@ void browse_tree(Tree** tree){
 	Node* iterator = (*(tree))->root ; 
 
 	char move = ' ' ; 
+	
 
+	void* (*fct_ptr)(void*) =(void*) &free_tree;
 	while(move != EXIT ) {
 	     scanf("%c",&move); 
 	     switch(move){
@@ -722,14 +770,19 @@ void browse_tree(Tree** tree){
 		case 'g' :
 	       	;	//to get rid of the stupid "a label can only be part of a statement" error
 			Game* game = get_board_copy((Game*)iterator->value); 
-			COLOR color = game->turn ; 
-			free_tree(*tree); 
+			COLOR color = game->turn ;
+
+
+			pthread_create(&f_thread , NULL ,(void*)fct_ptr,(void*)*tree);  	
+		//	free_tree(*tree); 
 			 
 			int depth = 4 , width = 250 ; 
 			//TODO : generate tree using threads			
 			Node* N = init_node(game,NULL,NULL,NULL,NULL,GAME); 
 			*tree = generate_tree(N , depth , width , color ) ;  
-			iterator =(*tree)->root ; 	
+			iterator =(*tree)->root ; 
+			
+
 
 		
 		break ; 
@@ -749,7 +802,10 @@ void browse_tree(Tree** tree){
 
 
 	     }
-	print_node(iterator);	
+	print_node(iterator);
+	
+	pthread_join(f_thread , NULL) ; 
+
 	}
 
 
@@ -842,7 +898,7 @@ Node* pop_back(List* list){
 	if(list->count == 1){
 		
 		Node* M = list->begin ; 
-		MEMDEALLOC_DEBUG_LIST++;
+		mem_debug_increment(DEALLOC_LIST);
 		free(list); 
 		return M ; 
 	}
