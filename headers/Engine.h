@@ -11,8 +11,26 @@ extern uint32_t DEPTH  ;  //Depth of search tree
 extern uint32_t WIDTH  ;  //Width of search tree
 
 
-
-enum ADD_MODE {FULL_LINKED = 1 , DOUBLE_LINKED_ONE_LVL = 1 , ONE_LINK_ONE_LVL = 2 };
+/* Determines how the linked list can be iterated. 
+ *
+ * FULL_LINKED = every pointers are used:
+ * 			-prev
+ * 			-next
+ * 			-next_level
+ * 			-prev_level
+ *
+ * DOUBLE_LINKED_ONE_LVL = only two pointers used:
+ * 			-next
+ * 			-prev
+ *
+ * ONE_LINK_ONE_LVL_NEXT = only one pointer used :
+ * 			-next 
+ *
+ *
+ *
+ *
+ */
+enum ADD_MODE {FULL_LINKED = 1 , DOUBLE_LINKED_ONE_LVL = 1 , ONE_LINK_ONE_LVL_NEXT = 2 };
 typedef enum ADD_MODE ADD_MODE ; 
 
 
@@ -21,37 +39,24 @@ typedef enum ADD_MODE ADD_MODE ;
  *
  * GAME for an instance of a game
  * ALLOC_PTR for an allocation
- * 
+ * STRING for char* 
+ * NODE for a Nodeception
+ * etc..
  */
- enum N_DATA {GAME = 0 , ALLOC_PTR = 1 ,STRING = 3 , FLOAT = 2 , INT = 4 , LONG = 5 , CHAR = 6};
+ enum N_DATA {GAME = 0 , ALLOC_PTR = 1 ,STRING = 3 , FLOAT = 2 , INT = 4 , LONG = 5 , CHAR = 6, NODE = 7,PTR_ON_NODE= 8};
 typedef enum N_DATA N_DATA ; 
 
 struct Node ;
 struct List ;
 struct Tree ;
-
-
-/*
- *	Nodes are as such : 
- *		
- *	       	N
- *	       		
- *	    NL01-NL02-NL03-NL04....	
- *	      		
- *	NL11-NL12-NL13-NL14-NL15-NL16-NL17...
- *
- *
- *
- *
- *
- */
+struct Array ; 
 
 
 typedef struct Node Node;
-
  struct Node{
 	 
     void* value;
+    int score ; 
     N_DATA data_type;  
     Node *prev ;
     Node *next ;/* pointer to nodes of the same level */
@@ -62,42 +67,57 @@ typedef struct Node Node;
 
 
 
+
 typedef struct List List; 
 struct List {
     int count ;
     Node* begin ;
     Node* end   ;
-    N_DATA data_type ; 
+    N_DATA data_type ;
+    ADD_MODE add_mode; 
 
 };
-
-
 typedef struct Tree Tree;
  struct Tree{
     Node *root;
     
 };
 
+typedef struct Array Array ; 
 
+ struct Array{
+
+	enum N_DATA data_type ; 
+	void** array ;
+	size_t array_size ;
+	
+};
+
+
+
+
+/*free ressources...*/
  void free_tree(Tree* tree);
  void free_node(Node* node);
  void free_list(List* list);
+ void free_array(Array *array);
+/********************/
 
 
 
-
+/*Init ressources...*/
 
 Tree * init_tree(Node* root); // initialize the search tree
 /**
- * \Brief  
+ * @Brief  
  *
- * \Param data
- * \Param next
- * \Param previous
- * \Param next_level
- * \Param prev_level
+ * @Param data
+ * @Param next
+ * @Param previous
+ * @Param next_level
+ * @Param prev_level
  *
- * \Returns  Node* 
+ * @Returns  Node* 
  */
 Node * init_node(void* data,Node* next,Node* previous,List * next_level ,Node * prev_level,N_DATA type) ;
 
@@ -112,9 +132,37 @@ Node * init_node(void* data,Node* next,Node* previous,List * next_level ,Node * 
  * \Returns  List*
  */
 List* init_list(Node* begin);
-List* init_empty_list(N_DATA data);
 
-void add_node_to_list(List* list , Node* node,ADD_MODE add_mode) ; 
+
+/**
+ * \file Engine.h
+ * \Brief  initialize an empty list with a certain data type
+ *
+ * \Param data
+ *
+ * \Returns  List*
+ */
+List* init_empty_list(N_DATA data,ADD_MODE add);
+
+
+
+
+
+
+Array* init_array(N_DATA data);
+
+
+
+
+
+
+/********************/
+
+
+
+
+
+void add_node_to_list(List* list , Node* node) ; 
 void delete_node(List* list , Node* node);
 
 char* toString(List *list); 
@@ -128,7 +176,7 @@ char* toString(List *list);
 void print_list(List* list);
 
 
-
+void display_list(List* list);
 
 
 
@@ -174,7 +222,8 @@ List* generate_all_boards(Node*,uint16_t width , COLOR color);
 
 /**
  * \Brief  A function to travel across the tree... use 'z' to go up the hierarchy,
- * 'q' to go left , 'd' to go right,and 's' to go down 
+ * 'q' to go left , 'd' to go right,and 's' to go down.Use 'g' to generate a new tree from 
+ * the current iterator position.
  *
  * \Param tree
  */
@@ -233,6 +282,41 @@ void print_node(Node* node);
 
 
 Node* pop_back(List*);
+
+bool is_leaf_list(List* T , Node* N );
+bool is_leaf_tree(Tree* T , Node* N );
+
+
+
+
+
+
+List* get_leafs(Tree* tree);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #endif // ENGINE_H_INCLUDED

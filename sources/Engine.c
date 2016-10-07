@@ -7,7 +7,7 @@
 
 
 
-
+static Node* DEBUG_NODE = NULL ;
 
 
 
@@ -82,6 +82,9 @@ void free_node(Node * node) {
 		node->value = NULL ; 
 		break ; 
 		
+		case NODE :
+		free_node(node->value);
+		node->value = NULL ; 	
 		default :
 		node->value = NULL ; 
 
@@ -231,8 +234,9 @@ return list ;
 
 
 
-void add_node_to_list(List* list , Node* node , ADD_MODE add_mode) {
-	if(add_mode == FULL_LINKED){
+void add_node_to_list(List* list , Node* node )  {
+	assert(list!=NULL);
+	if(list->add_mode == FULL_LINKED){
 			if(list->count == 0 ){
 				list->begin = node ; 
 				list->end = node ;
@@ -248,15 +252,47 @@ void add_node_to_list(List* list , Node* node , ADD_MODE add_mode) {
 		  	list->count++;
 	}
 
-	else if (add_mode == DOUBLE_LINKED_ONE_LVL) {
+	else if (list->add_mode == DOUBLE_LINKED_ONE_LVL) {
+			if(list->count == 0 ){
+				list->begin = node ; 
+				list->end = node ;
+				list->count++ ; 
+				return ;
+			}
+			node->prev_level = NULL ; 
+			node->next_level = NULL ; 		
+		 	node->prev = list->end ; 
+		  	(list->end)->next = node;
+	  	  	list->end = node ; 	  
+		  	node->next = NULL ;
+		  	list->count++;
+	}
+	else if (list->add_mode == ONE_LINK_ONE_LVL_NEXT){
+			if(list->count == 0 ){
+				list->begin = node ; 
+				list->end = node ;
+				list->count++ ; 
+				return ;
+			}
+			node->prev_level = NULL ; 
+			node->next_level = NULL ; 		
+		 	node->prev = NULL; 
+		  	(list->end)->next = node;
+	  	  	list->end = node ; 	  
+		  	node->next = NULL ;
+		  	list->count++;
 
+
+
+
+	}
 
 
 
 
 	}
 		
-}
+
 
 
 
@@ -279,7 +315,7 @@ void add_node_to_list(List* list , Node* node , ADD_MODE add_mode) {
 
 void print_list(List *list){
 
-
+	assert(list!=NULL);
 	if(list->data_type == GAME){	
 		Node * it ;
 		for(it=list->begin; it != NULL ; it = it->next){
@@ -299,7 +335,17 @@ void print_list(List *list){
 		
 	}
 
-	
+	else if (list->data_type == PTR_ON_NODE){
+		Node* it ;
+		for(it = list->begin ; it!= NULL ; it=it->next)
+		{
+			printf("sdsdds\n");
+			print_node(  *  ((Node**)(it->value))   );
+
+		}
+
+
+	}
 	
 
 
@@ -314,7 +360,19 @@ void print_list(List *list){
 
 
 
+void display_list(List* list){
+	assert(list!=NULL);
+	Node* it = list->begin ; 
+	while(it!=NULL)
+	{	
+		print_node(it);
+		it=it->next;
 
+
+	}
+	printf("List size is :%i\n" ,list->count);
+
+}
 
 
 
@@ -329,10 +387,11 @@ void print_list(List *list){
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 
 
-List* init_empty_list(N_DATA data){
+List* init_empty_list(N_DATA data,ADD_MODE add){
 	List* liste = calloc( 1 , sizeof(List));
 	mem_debug_increment(ALLOC_LIST) ; 
 	liste->count = 0 ; 
+	liste->add_mode = add;
 	liste->begin = NULL ; 
 	liste->end = NULL ;
 	liste->data_type = data ; 
@@ -368,7 +427,7 @@ static Node* new_piece_location(Position pos , Node * game , size_t pieceID){
 List* generate_boards(Node* game,uint16_t width , size_t pieceID){
 	assert(game->data_type == GAME);
 	List* list ; 
-	list = init_empty_list(GAME) ; 	
+	list = init_empty_list(GAME,FULL_LINKED) ; 	
 	
 	Game * data =(Game*) game->value ;
 
@@ -382,7 +441,7 @@ List* generate_boards(Node* game,uint16_t width , size_t pieceID){
 			Game *g1 = data;
 			Game *g2 = (Game*)(P->value);
 			if(!equal_game(g1,g2))
-				add_node_to_list(list , P,FULL_LINKED ) ;
+				add_node_to_list(list , P ) ;
 			else
 				free_node(P); 	
 		
@@ -457,7 +516,7 @@ List* concatenate_list(List* L1,List* L2,uint16_t width ) {
 	
 	assert(L1->data_type == L2->data_type);
 
-		List* concat = init_empty_list(L1->data_type); 
+		List* concat = init_empty_list(L1->data_type,FULL_LINKED); 
 
 		L1->end->next = L2->begin;
 		L2->begin->prev = L1->end; 
@@ -669,15 +728,33 @@ void print_node(Node* node){
 
 		case LONG : 
 			
-		//	printf("%i \n" , *(long*)(node->value));
+			printf("%li \n" , *(long*)(node->value));
 		break ; 
 		
 		case CHAR :
 
 			printf("%c \n" , *(char*)(node->value));
 		break ; 
+		
+
+		case NODE :
+		;
+		
+			print_node((Node*)(node->value));
+
+		break;
 
 
+
+		case PTR_ON_NODE :
+		;
+		Node ** ptr = node->value ; 
+		Node * P = *ptr;
+			print_node(P);
+
+		break;
+			
+			
 
 
 
@@ -732,6 +809,7 @@ void browse_tree(Tree** tree){
 
 			
 
+		print_node(iterator);
 		break;
 
 
@@ -742,7 +820,8 @@ void browse_tree(Tree** tree){
 				DEPTH++;
 				WIDTH=0;
 					}
-			
+				
+		print_node(iterator);
 		break;
 
 
@@ -752,6 +831,7 @@ void browse_tree(Tree** tree){
 			WIDTH-- ;
 			}	
 			
+		print_node(iterator);
 
 		break;
 
@@ -763,6 +843,7 @@ void browse_tree(Tree** tree){
 			}	
 
 
+		print_node(iterator);
 			
 
 		break;
@@ -782,13 +863,27 @@ void browse_tree(Tree** tree){
 			*tree = generate_tree(N , depth , width , color ) ;  
 			iterator =(*tree)->root ; 
 			
-
+			
+			print_node(iterator);
 
 		
 		break ; 
 
 		
+		case 'b' :
+		;
+			const char* ca = is_leaf_tree(*tree , iterator) ? "yes" : "no";
+			
+			printf(" Is leaf : %s \n " ,ca) ;  
+			if (ca == "yes"){
+				printf("PREVIOUS :  \n" );
+				print_node(DEBUG_NODE->prev_level);
+			
+			}
 
+
+
+		break; 
 
 		default :
 		//	printf("unknown action %c \n " , move); 
@@ -802,7 +897,7 @@ void browse_tree(Tree** tree){
 
 
 	     }
-	print_node(iterator);
+
 	
 	pthread_join(f_thread , NULL) ; 
 
@@ -841,7 +936,6 @@ static int cc = 0 ;
 void generation(Node* iterator,uint8_t D,uint8_t W,uint8_t countD,uint8_t countW,COLOR color){
 	if(countD<D){
 		
-		printf("%i\n",cc++); 
 
 		 	
 		COLOR temp =  (color == BLACK) ? WHITE : BLACK ;  
@@ -869,7 +963,7 @@ void generation(Node* iterator,uint8_t D,uint8_t W,uint8_t countD,uint8_t countW
 
 Tree* generate_tree(Node *root , uint8_t depth,uint8_t width,COLOR begin){
 	Tree* tree = init_tree(root);
-
+	
 	generation(root , depth , width , 0 , 0 , begin ) ; 
 	return tree; 
 
@@ -920,12 +1014,102 @@ Node* pop_back(List* list){
 
 
 
+/***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+
+bool is_leaf_list(List* list, Node* node){
+//	assert(list->data_type == node->data_type && node->data_type == GAME);
+	Node* it = list->begin ; 
+	while(it != NULL){
+		Game *g1 = node->value;
+		Game *g2 = it->value ; 
+		if(equal_game(g1,g2) == true )
+			return true;
+	
+		it=it->next; 
+	}
+	return false;
+
+
+
+}
+
+static bool search_node(Node* iterator , Game* comparator ){
+
+	bool a = false;
+	if(iterator->next_level == NULL && equal_game(comparator ,(Game*) iterator->value)){
+		DEBUG_NODE = iterator ; 
+		return true ; 
+
+	}
+
+
+	else if(iterator->next_level != NULL && iterator->next_level->count!=0 ){
+		Node* it = iterator->next_level->begin ; 
+
+		while(it!=NULL){
+			
+		       a = a|| search_node(it , comparator) ;
+			it=it->next; 
+		}
+
+	return a ; 
+	}
+	else
+		return false; 
+
+
+}
+
+bool is_leaf_tree(Tree* T , Node* node){
+	Node* root = T->root ; 
+	assert(node->data_type == GAME) ;
+	return search_node(root ,(Game*) node->value);
+
+
+
+}
+
+
+static void seek_leafs(Node* node, List* list){
+	if(node->next_level==NULL || node->next_level->count == 0){
+		
+		Node *N = init_node((void*) node,NULL,NULL,NULL,NULL,NODE);
+		add_node_to_list(list,N);
+
+
+	}
+	else{
+		Node* iterator = node->next_level->begin;
+		while(iterator!=NULL){
+		seek_leafs(iterator,list);
+		iterator=iterator->next;
+		}
+
+	}
+	
+
+}
+
+
+
+List* get_leafs(Tree* tree){
+
+	List* list = init_empty_list(NODE,ONE_LINK_ONE_LVL_NEXT); 
+	
+	seek_leafs(tree->root,list);
+	return list ; 
+
+}
 
 
 
 
+	
 
 
+
+/***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 
 
 

@@ -120,7 +120,7 @@ typedef struct {
  void free_position(Position *position) ;
  void print_board(Game* game);
  void read_pieces(Game* game);
-Game* init_blank_game(); 
+Game* init_blank_game();//return an initialized game with pieces at their respective positions. 
 Game * get_board_copy(Game* src); //get a cpy from src.
 Game * init_board(const char* filename); //initialize the board from a file, mid game ,or end game
 void save_board(const char * filename); // save the current game on the file "filename"
@@ -133,7 +133,6 @@ void print_piece(Piece* p);
 
 bool equal_game(Game* g1 , Game* g2) ; 
 bool equal_piece(Piece *p1,Piece *p2) ; 
-
 
 
 

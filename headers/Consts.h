@@ -111,7 +111,4 @@ static const int8_t POSINIT= -2 ;
 
 
 
-
-
-
 #endif // CONSTS_H_INCLUDED
