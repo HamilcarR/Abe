@@ -1,0 +1,127 @@
+.TH "sources/config.c" 3 "Wed Oct 5 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/config.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./headers/Config\&.h'\fP
+.br
+\fC#include <malloc\&.h>\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPiece_Array\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBUFFER_SIZE\fP   1024"
+.br
+.ti -1c
+.RI "#define \fBBUFFER0_SIZE\fP   8"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprint_piece\fP (\fBPiece\fP *piece)"
+.br
+.ti -1c
+.RI "void \fBread_pieces\fP (\fBGame\fP *game)"
+.br
+.ti -1c
+.RI "uint8_t \fBget_pieceID\fP (\fBPiece\fP piece)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBcheck_valid_position\fP (\fBPosition\fP pos)"
+.br
+.ti -1c
+.RI "void \fBfree_game\fP (\fBGame\fP *game)"
+.br
+.ti -1c
+.RI "void \fBfree_player\fP (\fBPlayer\fP *player)"
+.br
+.ti -1c
+.RI "void \fBfree_position\fP (\fBPosition\fP *position)"
+.br
+.ti -1c
+.RI "void \fBread_stack\fP (size_t *array, size_t size)"
+.br
+.ti -1c
+.RI "void \fBread_positions\fP (\fBPosition\fP **positions, size_t size)"
+.br
+.ti -1c
+.RI "void \fBadd_to_array\fP (\fBPiece\fP *piece, int size, \fBPiece\fP P)"
+.br
+.ti -1c
+.RI "void \fBprint_board\fP (\fBGame\fP *game)"
+.br
+.ti -1c
+.RI "\fBGame\fP * \fBinit_blank_game\fP ()"
+.br
+.ti -1c
+.RI "\fBGame\fP * \fBinit_board\fP (const char *filename)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBequal_game\fP (\fBGame\fP *g1, \fBGame\fP *g2)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBequal_piece\fP (\fBPiece\fP *p1, \fBPiece\fP *p2)"
+.br
+.ti -1c
+.RI "\fBGame\fP * \fBget_board_copy\fP (\fBGame\fP *src)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define BUFFER0_SIZE   8"
+
+.SS "#define BUFFER_SIZE   1024"
+
+.SH "Function Documentation"
+.PP 
+.SS "void add_to_array (\fBPiece\fP *piece, intsize, \fBPiece\fPP)"
+
+.SS "\fBbool\fP check_valid_position (\fBPosition\fPpos)"
+
+.SS "\fBbool\fP equal_game (\fBGame\fP *g1, \fBGame\fP *g2)"
+
+.SS "\fBbool\fP equal_piece (\fBPiece\fP *p1, \fBPiece\fP *p2)"
+
+.SS "void free_game (\fBGame\fP *game)"
+
+.SS "void free_player (\fBPlayer\fP *player)\fC [inline]\fP"
+
+.SS "void free_position (\fBPosition\fP *position)\fC [inline]\fP"
+
+.SS "\fBGame\fP* get_board_copy (\fBGame\fP *src)"
+
+.SS "uint8_t get_pieceID (\fBPiece\fPpiece)"
+
+.SS "\fBGame\fP* init_blank_game ()"
+
+.SS "\fBGame\fP* init_board (const char *filename)"
+
+.SS "void print_board (\fBGame\fP *game)\fC [inline]\fP"
+
+.SS "void print_piece (\fBPiece\fP *piece)\fC [inline]\fP"
+
+.SS "void read_pieces (\fBGame\fP *game)\fC [inline]\fP"
+
+.SS "void read_positions (\fBPosition\fP **positions, size_tsize)"
+
+.SS "void read_stack (size_t *array, size_tsize)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['d',['D',['../main_8c.html#a2b401e7169d8be320e82f9edf9f66545',1,'main.c']]],
-  ['depth',['DEPTH',['../_engine_8c.html#a2dd8e860a2fdcbc258cb20b2f664fdeb',1,'Engine.c']]]
+  ['add_5fmode',['add_mode',['../struct_list.html#a57b34b7b68856688635e8824fa370206',1,'List']]],
+  ['array',['array',['../struct_array.html#a2d79efa09314aa9c70b607c8736dc05c',1,'Array']]],
+  ['array_5fsize',['array_size',['../struct_array.html#ae79741378b1094486dc2671c8bc861ef',1,'Array']]]
 ];

@@ -1,0 +1,12 @@
+<map id="free_game" name="free_game">
+<area shape="rect" id="node2" href="$config_8c.html#adc8c48fed3fc5c49b3801f009a208078" title="init_board" alt="" coords="462,5,541,32"/>
+<area shape="rect" id="node4" href="$_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="137,79,215,105"/>
+<area shape="rect" id="node3" href="$main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="920,37,971,64"/>
+<area shape="rect" id="node5" href="$_engine_8c.html#ae6c65244c9d393a37ce2a78ff1bd3125" title="free_list" alt="" coords="290,53,358,80"/>
+<area shape="rect" id="node6" href="$_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="265,104,383,131"/>
+<area shape="rect" id="node11" href="$_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="265,155,383,181"/>
+<area shape="rect" id="node7" href="$_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="432,104,571,131"/>
+<area shape="rect" id="node8" href="$_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="619,103,701,129"/>
+<area shape="rect" id="node9" href="$_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="749,91,851,117"/>
+<area shape="rect" id="node10" href="$_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="899,91,992,117"/>
+</map>

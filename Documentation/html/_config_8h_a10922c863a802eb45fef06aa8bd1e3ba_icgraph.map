@@ -1,0 +1,5 @@
+<map id="get_pieceID" name="get_pieceID">
+<area shape="rect" id="node2" href="$config_8c.html#a153d82bb577ed95ec174f7615a79e534" title="print_piece" alt="" coords="147,5,232,32"/>
+<area shape="rect" id="node4" href="$_move_8c.html#ac5e863bf0cc2aacd8c9e31e0a54f01a9" title="kill" alt="" coords="170,56,209,83"/>
+<area shape="rect" id="node3" href="$config_8c.html#a49e0c77a45c66b40a292a77761870059" title="read_pieces" alt="" coords="281,5,373,32"/>
+</map>

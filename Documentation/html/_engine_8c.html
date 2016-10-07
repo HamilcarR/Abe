@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Chess: sources/Engine.c File Reference</title>
+<title>My Project: sources/Engine.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Chess
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,44 +90,60 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Engine.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;../headers/Engine.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="_engine_8h_source.html">../headers/Engine.h</a>&quot;</code><br/>
+<code>#include &lt;pthread.h&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Engine.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c__incl.png" border="0" usemap="#sources_2_engine_8c" alt=""/></div>
+<map name="sources_2_engine_8c" id="sources_2_engine_8c">
+<area shape="rect" id="node2" href="_engine_8h.html" title="../headers/Engine.h" alt="" coords="413,80,547,107"/><area shape="rect" id="node3" href="_config_8h.html" title="structure of a player " alt="" coords="365,229,435,256"/><area shape="rect" id="node13" href="_move_8h.html" title="Move.h" alt="" coords="439,155,504,181"/><area shape="rect" id="node4" href="_consts_8h.html" title="all enums and constants " alt="" coords="363,304,436,331"/><area shape="rect" id="node5" href="mmanager_8h.html" title="mmanager.h" alt="" coords="314,379,408,405"/></map>
+</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad3eae2e978b309a4f27743ac8a2488d5"><td class="memItemLeft" align="right" valign="top">Node *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#ad3eae2e978b309a4f27743ac8a2488d5">init_node</a> (void *data, Node *next, Node *prev, List *next_lvl, Node *prev_lvl, N_DATA type)</td></tr>
+<tr class="memitem:ad3eae2e978b309a4f27743ac8a2488d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#ad3eae2e978b309a4f27743ac8a2488d5">init_node</a> (void *data, <a class="el" href="struct_node.html">Node</a> *next, <a class="el" href="struct_node.html">Node</a> *prev, <a class="el" href="struct_list.html">List</a> *next_lvl, <a class="el" href="struct_node.html">Node</a> *prev_lvl, <a class="el" href="_engine_8h.html#af392b9bb8bcb26866c5c89131532fa99">N_DATA</a> type)</td></tr>
 <tr class="separator:ad3eae2e978b309a4f27743ac8a2488d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aed6fd8e764732bb5533b022394c0eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb">free_node</a> (Node *node)</td></tr>
+<tr class="memitem:a0aed6fd8e764732bb5533b022394c0eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb">free_node</a> (<a class="el" href="struct_node.html">Node</a> *node)</td></tr>
 <tr class="separator:a0aed6fd8e764732bb5533b022394c0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6c65244c9d393a37ce2a78ff1bd3125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#ae6c65244c9d393a37ce2a78ff1bd3125">free_list</a> (List *list)</td></tr>
+<tr class="memitem:ae6c65244c9d393a37ce2a78ff1bd3125"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#ae6c65244c9d393a37ce2a78ff1bd3125">free_list</a> (<a class="el" href="struct_list.html">List</a> *list)</td></tr>
 <tr class="separator:ae6c65244c9d393a37ce2a78ff1bd3125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf12ec8ff08cd3da53aafe5f98209533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#abf12ec8ff08cd3da53aafe5f98209533">free_tree</a> (Tree *tree)</td></tr>
+<tr class="memitem:abf12ec8ff08cd3da53aafe5f98209533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#abf12ec8ff08cd3da53aafe5f98209533">free_tree</a> (<a class="el" href="struct_tree.html">Tree</a> *tree)</td></tr>
 <tr class="separator:abf12ec8ff08cd3da53aafe5f98209533"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d29a1464772d1d52a93b0e7e96c564e"><td class="memItemLeft" align="right" valign="top">Tree *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a1d29a1464772d1d52a93b0e7e96c564e">init_tree</a> (Node *root)</td></tr>
+<tr class="memitem:a1d29a1464772d1d52a93b0e7e96c564e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_tree.html">Tree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a1d29a1464772d1d52a93b0e7e96c564e">init_tree</a> (<a class="el" href="struct_node.html">Node</a> *root)</td></tr>
 <tr class="separator:a1d29a1464772d1d52a93b0e7e96c564e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79456c313193ae54d1b5657a5a0feb76"><td class="memItemLeft" align="right" valign="top">List *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a79456c313193ae54d1b5657a5a0feb76">init_list</a> (Node *begin)</td></tr>
+<tr class="memitem:a79456c313193ae54d1b5657a5a0feb76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a79456c313193ae54d1b5657a5a0feb76">init_list</a> (<a class="el" href="struct_node.html">Node</a> *begin)</td></tr>
 <tr class="separator:a79456c313193ae54d1b5657a5a0feb76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64d025c3ddc66cafd3bd9db6bbe62cbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a64d025c3ddc66cafd3bd9db6bbe62cbe">add_node_to_list</a> (List *list, Node *node, ADD_MODE add_mode)</td></tr>
-<tr class="separator:a64d025c3ddc66cafd3bd9db6bbe62cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a246b54d6d5f6c83bb59dfc8f24bbee49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a246b54d6d5f6c83bb59dfc8f24bbee49">print_list</a> (List *list)</td></tr>
+<tr class="memitem:a035edd67af6c1228c47af0c695a8d21b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a035edd67af6c1228c47af0c695a8d21b">add_node_to_list</a> (<a class="el" href="struct_list.html">List</a> *list, <a class="el" href="struct_node.html">Node</a> *node)</td></tr>
+<tr class="separator:a035edd67af6c1228c47af0c695a8d21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a246b54d6d5f6c83bb59dfc8f24bbee49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a246b54d6d5f6c83bb59dfc8f24bbee49">print_list</a> (<a class="el" href="struct_list.html">List</a> *list)</td></tr>
 <tr class="separator:a246b54d6d5f6c83bb59dfc8f24bbee49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49525c03ceadadc248f669935234ddc2"><td class="memItemLeft" align="right" valign="top">List *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a49525c03ceadadc248f669935234ddc2">init_empty_list</a> (N_DATA data)</td></tr>
-<tr class="separator:a49525c03ceadadc248f669935234ddc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac69ddea692e6ac7c1cbfc4c841e8e417"><td class="memItemLeft" align="right" valign="top">List *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417">generate_boards</a> (Node *game, uint16_t width, size_t pieceID)</td></tr>
+<tr class="memitem:a64ffdcc7b8eafc94e259975a15db222f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a64ffdcc7b8eafc94e259975a15db222f">display_list</a> (<a class="el" href="struct_list.html">List</a> *list)</td></tr>
+<tr class="separator:a64ffdcc7b8eafc94e259975a15db222f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade836f9fbab940568b0003951b63e721"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#ade836f9fbab940568b0003951b63e721">init_empty_list</a> (<a class="el" href="_engine_8h.html#af392b9bb8bcb26866c5c89131532fa99">N_DATA</a> data, <a class="el" href="_engine_8h.html#a7df300eb41e62a3bffd2c9cee7820052">ADD_MODE</a> add)</td></tr>
+<tr class="separator:ade836f9fbab940568b0003951b63e721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69ddea692e6ac7c1cbfc4c841e8e417"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417">generate_boards</a> (<a class="el" href="struct_node.html">Node</a> *game, uint16_t width, size_t pieceID)</td></tr>
 <tr class="separator:ac69ddea692e6ac7c1cbfc4c841e8e417"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cf198b80217d3787eb639ca321f7866"><td class="memItemLeft" align="right" valign="top">List *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a1cf198b80217d3787eb639ca321f7866">concatenate_list</a> (List *L1, List *L2, uint16_t width)</td></tr>
+<tr class="memitem:a1cf198b80217d3787eb639ca321f7866"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a1cf198b80217d3787eb639ca321f7866">concatenate_list</a> (<a class="el" href="struct_list.html">List</a> *L1, <a class="el" href="struct_list.html">List</a> *L2, uint16_t width)</td></tr>
 <tr class="separator:a1cf198b80217d3787eb639ca321f7866"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac7ecaff06b599d6f0439dd87f4d8b7c"><td class="memItemLeft" align="right" valign="top">List *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c">generate_all_boards</a> (Node *node, uint16_t width, COLOR color)</td></tr>
+<tr class="memitem:aac7ecaff06b599d6f0439dd87f4d8b7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c">generate_all_boards</a> (<a class="el" href="struct_node.html">Node</a> *node, uint16_t width, <a class="el" href="_consts_8h.html#af90824509586333cf45ce757d2711ce3">COLOR</a> color)</td></tr>
 <tr class="separator:aac7ecaff06b599d6f0439dd87f4d8b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a898f9f03f26c8b385a2b67d0ebad8932"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a898f9f03f26c8b385a2b67d0ebad8932">print_node</a> (Node *node)</td></tr>
+<tr class="memitem:a898f9f03f26c8b385a2b67d0ebad8932"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a898f9f03f26c8b385a2b67d0ebad8932">print_node</a> (<a class="el" href="struct_node.html">Node</a> *node)</td></tr>
 <tr class="separator:a898f9f03f26c8b385a2b67d0ebad8932"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada5e7b878010c1ef4052efa7e91d0fe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3">browse_tree</a> (Tree **tree)</td></tr>
+<tr class="memitem:ada5e7b878010c1ef4052efa7e91d0fe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3">browse_tree</a> (<a class="el" href="struct_tree.html">Tree</a> **tree)</td></tr>
 <tr class="separator:ada5e7b878010c1ef4052efa7e91d0fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47eba49aeda0f6a477fcea8f6c6ebe7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e">generation</a> (Node *iterator, uint8_t <a class="el" href="main_8c.html#a2b401e7169d8be320e82f9edf9f66545">D</a>, uint8_t <a class="el" href="main_8c.html#a51f2a3a1c55a291b60b96cee9692d569">W</a>, uint8_t countD, uint8_t countW, COLOR color)</td></tr>
+<tr class="memitem:a47eba49aeda0f6a477fcea8f6c6ebe7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e">generation</a> (<a class="el" href="struct_node.html">Node</a> *iterator, uint8_t <a class="el" href="main_8c.html#a2b401e7169d8be320e82f9edf9f66545">D</a>, uint8_t <a class="el" href="main_8c.html#a51f2a3a1c55a291b60b96cee9692d569">W</a>, uint8_t countD, uint8_t countW, <a class="el" href="_consts_8h.html#af90824509586333cf45ce757d2711ce3">COLOR</a> color)</td></tr>
 <tr class="separator:a47eba49aeda0f6a477fcea8f6c6ebe7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96c16dcb020e0b94b3f3ab645164b4d3"><td class="memItemLeft" align="right" valign="top">Tree *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3">generate_tree</a> (Node *root, uint8_t depth, uint8_t width, COLOR begin)</td></tr>
+<tr class="memitem:a96c16dcb020e0b94b3f3ab645164b4d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_tree.html">Tree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3">generate_tree</a> (<a class="el" href="struct_node.html">Node</a> *root, uint8_t depth, uint8_t width, <a class="el" href="_consts_8h.html#af90824509586333cf45ce757d2711ce3">COLOR</a> begin)</td></tr>
 <tr class="separator:a96c16dcb020e0b94b3f3ab645164b4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fbdd810f4ea6aca72e19531b0188dec"><td class="memItemLeft" align="right" valign="top">Node *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a9fbdd810f4ea6aca72e19531b0188dec">pop_back</a> (List *list)</td></tr>
+<tr class="memitem:a9fbdd810f4ea6aca72e19531b0188dec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a9fbdd810f4ea6aca72e19531b0188dec">pop_back</a> (<a class="el" href="struct_list.html">List</a> *list)</td></tr>
 <tr class="separator:a9fbdd810f4ea6aca72e19531b0188dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbefb165c85bfdfeb29f2004ffa7870f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_consts_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#acbefb165c85bfdfeb29f2004ffa7870f">is_leaf_list</a> (<a class="el" href="struct_list.html">List</a> *list, <a class="el" href="struct_node.html">Node</a> *node)</td></tr>
+<tr class="separator:acbefb165c85bfdfeb29f2004ffa7870f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c05ffb4c78af2a035dc6fd0d89ad6d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_consts_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a0c05ffb4c78af2a035dc6fd0d89ad6d4">is_leaf_tree</a> (<a class="el" href="struct_tree.html">Tree</a> *T, <a class="el" href="struct_node.html">Node</a> *node)</td></tr>
+<tr class="separator:a0c05ffb4c78af2a035dc6fd0d89ad6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b64dc99fe247a19022e0aa625e68e78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_list.html">List</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_8c.html#a8b64dc99fe247a19022e0aa625e68e78">get_leafs</a> (<a class="el" href="struct_tree.html">Tree</a> *tree)</td></tr>
+<tr class="separator:a8b64dc99fe247a19022e0aa625e68e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -137,27 +153,21 @@ Variables</h2></td></tr>
 <tr class="separator:ad53ffa351e279003b706f5149e47f2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a64d025c3ddc66cafd3bd9db6bbe62cbe"></a>
+<a class="anchor" id="a035edd67af6c1228c47af0c695a8d21b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void add_node_to_list </td>
           <td>(</td>
-          <td class="paramtype">List *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_list.html">List</a> *&#160;</td>
           <td class="paramname"><em>list</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Node *&#160;</td>
-          <td class="paramname"><em>node</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ADD_MODE&#160;</td>
-          <td class="paramname"><em>add_mode</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -166,6 +176,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a035edd67af6c1228c47af0c695a8d21b_icgraph.png" border="0" usemap="#_engine_8c_a035edd67af6c1228c47af0c695a8d21b_icgraph" alt=""/></div>
+<map name="_engine_8c_a035edd67af6c1228c47af0c695a8d21b_icgraph" id="_engine_8c_a035edd67af6c1228c47af0c695a8d21b_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="174,31,293,57"/><area shape="rect" id="node3" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="341,31,480,57"/><area shape="rect" id="node4" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="528,31,611,57"/><area shape="rect" id="node5" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="659,31,760,57"/><area shape="rect" id="node6" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="808,5,901,32"/><area shape="rect" id="node7" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="829,56,880,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -176,12 +195,23 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void browse_tree </td>
           <td>(</td>
-          <td class="paramtype">Tree **&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_tree.html">Tree</a> **&#160;</td>
           <td class="paramname"><em>tree</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A function to travel across the tree... use 'z' to go up the hierarchy, 'q' to go left , 'd' to go right,and 's' to go down.Use 'g' to generate a new tree from the current iterator position.</p>
+<p>tree </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_ada5e7b878010c1ef4052efa7e91d0fe3_cgraph.png" border="0" usemap="#_engine_8c_ada5e7b878010c1ef4052efa7e91d0fe3_cgraph" alt=""/></div>
+<map name="_engine_8c_ada5e7b878010c1ef4052efa7e91d0fe3_cgraph" id="_engine_8c_ada5e7b878010c1ef4052efa7e91d0fe3_cgraph">
+<area shape="rect" id="node2" href="_config_8h.html#a9a6c20ec423a195d78ff9a061309aaa3" title="print_board" alt="" coords="297,374,383,401"/><area shape="rect" id="node3" href="_engine_8c.html#abf12ec8ff08cd3da53aafe5f98209533" title="free_tree" alt="" coords="465,704,538,730"/><area shape="rect" id="node5" href="_engine_8c.html#a898f9f03f26c8b385a2b67d0ebad8932" title="print_node" alt="" coords="156,349,239,376"/><area shape="rect" id="node6" href="_config_8h.html#a82b577293c317d9656ce94187b664549" title="get_board_copy" alt="" coords="621,312,736,338"/><area shape="rect" id="node7" href="_engine_8c.html#ad3eae2e978b309a4f27743ac8a2488d5" title="init_node" alt="" coords="464,653,539,680"/><area shape="rect" id="node8" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="147,526,248,553"/><area shape="rect" id="node27" href="_engine_8c.html#a0c05ffb4c78af2a035dc6fd0d89ad6d4" title="is_leaf_tree" alt="" coords="153,704,242,730"/><area shape="rect" id="node4" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="1256,400,1413,426"/><area shape="rect" id="node9" href="_engine_8c.html#a1d29a1464772d1d52a93b0e7e96c564e" title="init_tree" alt="" coords="645,388,713,414"/><area shape="rect" id="node10" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="299,552,381,578"/><area shape="rect" id="node11" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="432,552,571,578"/><area shape="rect" id="node12" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="619,489,738,516"/><area shape="rect" id="node26" href="_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="788,653,905,680"/><area shape="rect" id="node13" href="_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="955,602,1061,629"/><area shape="rect" id="node14" href="_move_8h.html#a3967f637376b9d35de17ba8b62bf4fe7" title="generate_moves" alt="" coords="787,197,906,224"/><area shape="rect" id="node16" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="1263,121,1406,148"/><area shape="rect" id="node22" href="_config_8h.html#ae618c59996d5394bbc77817ad2176ce2" title="equal_game" alt="" coords="801,400,893,426"/><area shape="rect" id="node23" href="_engine_8c.html#a035edd67af6c1228c47af0c695a8d21b" title="add_node_to_list" alt="" coords="787,602,907,629"/><area shape="rect" id="node24" href="_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="969,526,1047,553"/><area shape="rect" id="node15" href="_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="1113,146,1205,173"/><area shape="rect" id="node17" href="_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="1109,248,1208,274"/><area shape="rect" id="node18" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="960,248,1056,274"/><area shape="rect" id="node19" href="_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="1115,197,1202,224"/><area shape="rect" id="node20" href="_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="1111,96,1207,122"/><area shape="rect" id="node21" href="_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="1116,45,1201,72"/><area shape="rect" id="node25" href="_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="1117,552,1200,578"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -190,22 +220,22 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">List* concatenate_list </td>
+          <td class="memname"><a class="el" href="struct_list.html">List</a>* concatenate_list </td>
           <td>(</td>
-          <td class="paramtype">List *&#160;</td>
-          <td class="paramname"><em>L1</em>, </td>
+          <td class="paramtype"><a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">List *&#160;</td>
-          <td class="paramname"><em>L2</em>, </td>
+          <td class="paramtype"><a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -214,6 +244,50 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a class="el" href="struct_list.html">List</a> </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a1cf198b80217d3787eb639ca321f7866_cgraph.png" border="0" usemap="#_engine_8c_a1cf198b80217d3787eb639ca321f7866_cgraph" alt=""/></div>
+<map name="_engine_8c_a1cf198b80217d3787eb639ca321f7866_cgraph" id="_engine_8c_a1cf198b80217d3787eb639ca321f7866_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="453,52,611,78"/><area shape="rect" id="node3" href="_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="299,26,405,53"/><area shape="rect" id="node4" href="_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="171,77,250,104"/><area shape="rect" id="node5" href="_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="311,128,393,154"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a1cf198b80217d3787eb639ca321f7866_icgraph.png" border="0" usemap="#_engine_8c_a1cf198b80217d3787eb639ca321f7866_icgraph" alt=""/></div>
+<map name="_engine_8c_a1cf198b80217d3787eb639ca321f7866_icgraph" id="_engine_8c_a1cf198b80217d3787eb639ca321f7866_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="171,31,309,57"/><area shape="rect" id="node3" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="357,31,440,57"/><area shape="rect" id="node4" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="488,31,589,57"/><area shape="rect" id="node5" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="637,5,731,32"/><area shape="rect" id="node6" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="659,56,709,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a64ffdcc7b8eafc94e259975a15db222f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void display_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a64ffdcc7b8eafc94e259975a15db222f_cgraph.png" border="0" usemap="#_engine_8c_a64ffdcc7b8eafc94e259975a15db222f_cgraph" alt=""/></div>
+<map name="_engine_8c_a64ffdcc7b8eafc94e259975a15db222f_cgraph" id="_engine_8c_a64ffdcc7b8eafc94e259975a15db222f_cgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#a898f9f03f26c8b385a2b67d0ebad8932" title="print_node" alt="" coords="141,5,224,32"/><area shape="rect" id="node3" href="_config_8h.html#a9a6c20ec423a195d78ff9a061309aaa3" title="print_board" alt="" coords="273,5,359,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -224,12 +298,21 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void free_list </td>
           <td>(</td>
-          <td class="paramtype">List *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_list.html">List</a> *&#160;</td>
           <td class="paramname"><em>list</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_ae6c65244c9d393a37ce2a78ff1bd3125_cgraph.png" border="0" usemap="#_engine_8c_ae6c65244c9d393a37ce2a78ff1bd3125_cgraph" alt=""/></div>
+<map name="_engine_8c_ae6c65244c9d393a37ce2a78ff1bd3125_cgraph" id="_engine_8c_ae6c65244c9d393a37ce2a78ff1bd3125_cgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="123,56,202,83"/><area shape="rect" id="node4" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="381,56,539,83"/><area shape="rect" id="node3" href="_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="251,5,333,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -240,12 +323,30 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void free_node </td>
           <td>(</td>
-          <td class="paramtype">Node *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a0aed6fd8e764732bb5533b022394c0eb_cgraph.png" border="0" usemap="#_engine_8c_a0aed6fd8e764732bb5533b022394c0eb_cgraph" alt=""/></div>
+<map name="_engine_8c_a0aed6fd8e764732bb5533b022394c0eb_cgraph" id="_engine_8c_a0aed6fd8e764732bb5533b022394c0eb_cgraph">
+<area shape="rect" id="node2" href="_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="133,5,216,32"/><area shape="rect" id="node3" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="264,31,421,57"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a0aed6fd8e764732bb5533b022394c0eb_icgraph.png" border="0" usemap="#_engine_8c_a0aed6fd8e764732bb5533b022394c0eb_icgraph" alt=""/></div>
+<map name="_engine_8c_a0aed6fd8e764732bb5533b022394c0eb_icgraph" id="_engine_8c_a0aed6fd8e764732bb5533b022394c0eb_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ae6c65244c9d393a37ce2a78ff1bd3125" title="free_list" alt="" coords="159,5,227,32"/><area shape="rect" id="node3" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="134,56,253,83"/><area shape="rect" id="node9" href="_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="135,107,252,133"/><area shape="rect" id="node4" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="301,81,440,108"/><area shape="rect" id="node5" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="488,81,571,108"/><area shape="rect" id="node6" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="619,81,720,108"/><area shape="rect" id="node7" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="768,56,861,83"/><area shape="rect" id="node8" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="789,107,840,133"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -256,12 +357,30 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void free_tree </td>
           <td>(</td>
-          <td class="paramtype">Tree *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_tree.html">Tree</a> *&#160;</td>
           <td class="paramname"><em>tree</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_abf12ec8ff08cd3da53aafe5f98209533_cgraph.png" border="0" usemap="#_engine_8c_abf12ec8ff08cd3da53aafe5f98209533_cgraph" alt=""/></div>
+<map name="_engine_8c_abf12ec8ff08cd3da53aafe5f98209533_cgraph" id="_engine_8c_abf12ec8ff08cd3da53aafe5f98209533_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="128,5,285,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_abf12ec8ff08cd3da53aafe5f98209533_icgraph.png" border="0" usemap="#_engine_8c_abf12ec8ff08cd3da53aafe5f98209533_icgraph" alt=""/></div>
+<map name="_engine_8c_abf12ec8ff08cd3da53aafe5f98209533_icgraph" id="_engine_8c_abf12ec8ff08cd3da53aafe5f98209533_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="128,5,221,32"/><area shape="rect" id="node3" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="149,56,200,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -270,9 +389,9 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">List* generate_all_boards </td>
+          <td class="memname"><a class="el" href="struct_list.html">List</a>* generate_all_boards </td>
           <td>(</td>
-          <td class="paramtype">Node *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
           <td class="paramname"><em>node</em>, </td>
         </tr>
         <tr>
@@ -284,7 +403,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">COLOR&#160;</td>
+          <td class="paramtype"><a class="el" href="_consts_8h.html#af90824509586333cf45ce757d2711ce3">COLOR</a>&#160;</td>
           <td class="paramname"><em>color</em>&#160;</td>
         </tr>
         <tr>
@@ -295,6 +414,24 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_aac7ecaff06b599d6f0439dd87f4d8b7c_cgraph.png" border="0" usemap="#_engine_8c_aac7ecaff06b599d6f0439dd87f4d8b7c_cgraph" alt=""/></div>
+<map name="_engine_8c_aac7ecaff06b599d6f0439dd87f4d8b7c_cgraph" id="_engine_8c_aac7ecaff06b599d6f0439dd87f4d8b7c_cgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="193,184,311,211"/><area shape="rect" id="node17" href="_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="361,57,479,84"/><area shape="rect" id="node3" href="_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="528,57,635,84"/><area shape="rect" id="node4" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="829,209,987,236"/><area shape="rect" id="node5" href="_move_8h.html#a3967f637376b9d35de17ba8b62bf4fe7" title="generate_moves" alt="" coords="361,311,479,337"/><area shape="rect" id="node7" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="837,387,979,413"/><area shape="rect" id="node13" href="_config_8h.html#ae618c59996d5394bbc77817ad2176ce2" title="equal_game" alt="" coords="374,564,466,591"/><area shape="rect" id="node14" href="_engine_8c.html#a035edd67af6c1228c47af0c695a8d21b" title="add_node_to_list" alt="" coords="360,209,480,236"/><area shape="rect" id="node15" href="_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="542,133,621,160"/><area shape="rect" id="node6" href="_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="686,463,778,489"/><area shape="rect" id="node8" href="_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="683,209,781,236"/><area shape="rect" id="node9" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="533,260,629,287"/><area shape="rect" id="node10" href="_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="689,311,775,337"/><area shape="rect" id="node11" href="_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="684,361,780,388"/><area shape="rect" id="node12" href="_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="689,412,775,439"/><area shape="rect" id="node16" href="_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="691,108,773,135"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_aac7ecaff06b599d6f0439dd87f4d8b7c_icgraph.png" border="0" usemap="#_engine_8c_aac7ecaff06b599d6f0439dd87f4d8b7c_icgraph" alt=""/></div>
+<map name="_engine_8c_aac7ecaff06b599d6f0439dd87f4d8b7c_icgraph" id="_engine_8c_aac7ecaff06b599d6f0439dd87f4d8b7c_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="192,31,275,57"/><area shape="rect" id="node3" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="323,31,424,57"/><area shape="rect" id="node4" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="472,5,565,32"/><area shape="rect" id="node5" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="493,56,544,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ac69ddea692e6ac7c1cbfc4c841e8e417"></a>
@@ -302,10 +439,10 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">List* generate_boards </td>
+          <td class="memname"><a class="el" href="struct_list.html">List</a>* generate_boards </td>
           <td>(</td>
-          <td class="paramtype">Node *&#160;</td>
-          <td class="paramname"><em>game</em>, </td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -317,7 +454,7 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>pieceID</em>&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -326,6 +463,27 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p><a class="el" href="_engine_8h.html">Engine.h</a>  Giving a certain board configuration and a piece,returns all moves possible in the form of multiple boards,in a list</p>
+<p>game The board to generate the next moves from  piece The id of the piece in the array ,we want to move</p>
+<p>List* </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_ac69ddea692e6ac7c1cbfc4c841e8e417_cgraph.png" border="0" usemap="#_engine_8c_ac69ddea692e6ac7c1cbfc4c841e8e417_cgraph" alt=""/></div>
+<map name="_engine_8c_ac69ddea692e6ac7c1cbfc4c841e8e417_cgraph" id="_engine_8c_ac69ddea692e6ac7c1cbfc4c841e8e417_cgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="341,41,448,67"/><area shape="rect" id="node3" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="643,193,800,219"/><area shape="rect" id="node4" href="_move_8h.html#a3967f637376b9d35de17ba8b62bf4fe7" title="generate_moves" alt="" coords="174,294,293,321"/><area shape="rect" id="node6" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="650,345,793,371"/><area shape="rect" id="node12" href="_config_8h.html#ae618c59996d5394bbc77817ad2176ce2" title="equal_game" alt="" coords="187,522,279,549"/><area shape="rect" id="node13" href="_engine_8c.html#a035edd67af6c1228c47af0c695a8d21b" title="add_node_to_list" alt="" coords="173,573,293,599"/><area shape="rect" id="node14" href="_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="355,117,434,143"/><area shape="rect" id="node5" href="_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="499,421,591,447"/><area shape="rect" id="node7" href="_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="496,319,595,346"/><area shape="rect" id="node8" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="347,218,443,245"/><area shape="rect" id="node9" href="_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="502,269,589,295"/><area shape="rect" id="node10" href="_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="497,370,593,397"/><area shape="rect" id="node11" href="_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="503,167,588,194"/><area shape="rect" id="node15" href="_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="504,117,587,143"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_ac69ddea692e6ac7c1cbfc4c841e8e417_icgraph.png" border="0" usemap="#_engine_8c_ac69ddea692e6ac7c1cbfc4c841e8e417_icgraph" alt=""/></div>
+<map name="_engine_8c_ac69ddea692e6ac7c1cbfc4c841e8e417_icgraph" id="_engine_8c_ac69ddea692e6ac7c1cbfc4c841e8e417_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="173,31,312,57"/><area shape="rect" id="node3" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="360,31,443,57"/><area shape="rect" id="node4" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="491,31,592,57"/><area shape="rect" id="node5" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="640,5,733,32"/><area shape="rect" id="node6" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="661,56,712,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -334,9 +492,9 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Tree* generate_tree </td>
+          <td class="memname"><a class="el" href="struct_tree.html">Tree</a>* generate_tree </td>
           <td>(</td>
-          <td class="paramtype">Node *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
           <td class="paramname"><em>root</em>, </td>
         </tr>
         <tr>
@@ -354,8 +512,8 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">COLOR&#160;</td>
-          <td class="paramname"><em>begin</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="_consts_8h.html#af90824509586333cf45ce757d2711ce3">COLOR</a>&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -364,6 +522,26 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>generate all combinations according to the parameters</p>
+<p>root  depth  width  datatype</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a96c16dcb020e0b94b3f3ab645164b4d3_cgraph.png" border="0" usemap="#_engine_8c_a96c16dcb020e0b94b3f3ab645164b4d3_cgraph" alt=""/></div>
+<map name="_engine_8c_a96c16dcb020e0b94b3f3ab645164b4d3_cgraph" id="_engine_8c_a96c16dcb020e0b94b3f3ab645164b4d3_cgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#a1d29a1464772d1d52a93b0e7e96c564e" title="init_tree" alt="" coords="321,589,389,615"/><area shape="rect" id="node4" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="155,538,237,565"/><area shape="rect" id="node3" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="1109,310,1267,337"/><area shape="rect" id="node5" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="285,538,424,565"/><area shape="rect" id="node6" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="473,361,591,387"/><area shape="rect" id="node20" href="_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="641,538,759,565"/><area shape="rect" id="node7" href="_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="808,487,915,514"/><area shape="rect" id="node8" href="_move_8h.html#a3967f637376b9d35de17ba8b62bf4fe7" title="generate_moves" alt="" coords="641,183,759,210"/><area shape="rect" id="node10" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="1117,107,1259,134"/><area shape="rect" id="node16" href="_config_8h.html#ae618c59996d5394bbc77817ad2176ce2" title="equal_game" alt="" coords="654,335,746,362"/><area shape="rect" id="node17" href="_engine_8c.html#a035edd67af6c1228c47af0c695a8d21b" title="add_node_to_list" alt="" coords="640,386,760,413"/><area shape="rect" id="node18" href="_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="822,437,901,463"/><area shape="rect" id="node9" href="_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="966,82,1058,109"/><area shape="rect" id="node11" href="_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="963,234,1061,261"/><area shape="rect" id="node12" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="813,285,909,311"/><area shape="rect" id="node13" href="_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="969,183,1055,210"/><area shape="rect" id="node14" href="_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="964,133,1060,159"/><area shape="rect" id="node15" href="_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="969,31,1055,58"/><area shape="rect" id="node19" href="_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="971,437,1053,463"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a96c16dcb020e0b94b3f3ab645164b4d3_icgraph.png" border="0" usemap="#_engine_8c_a96c16dcb020e0b94b3f3ab645164b4d3_icgraph" alt=""/></div>
+<map name="_engine_8c_a96c16dcb020e0b94b3f3ab645164b4d3_icgraph" id="_engine_8c_a96c16dcb020e0b94b3f3ab645164b4d3_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="155,5,248,32"/><area shape="rect" id="node3" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="176,56,227,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -374,7 +552,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void generation </td>
           <td>(</td>
-          <td class="paramtype">Node *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
           <td class="paramname"><em>iterator</em>, </td>
         </tr>
         <tr>
@@ -404,7 +582,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">COLOR&#160;</td>
+          <td class="paramtype"><a class="el" href="_consts_8h.html#af90824509586333cf45ce757d2711ce3">COLOR</a>&#160;</td>
           <td class="paramname"><em>color</em>&#160;</td>
         </tr>
         <tr>
@@ -415,79 +593,75 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a47eba49aeda0f6a477fcea8f6c6ebe7e_cgraph.png" border="0" usemap="#_engine_8c_a47eba49aeda0f6a477fcea8f6c6ebe7e_cgraph" alt=""/></div>
+<map name="_engine_8c_a47eba49aeda0f6a477fcea8f6c6ebe7e_cgraph" id="_engine_8c_a47eba49aeda0f6a477fcea8f6c6ebe7e_cgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="136,133,275,160"/><area shape="rect" id="node3" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="323,184,442,211"/><area shape="rect" id="node18" href="_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="492,57,609,84"/><area shape="rect" id="node4" href="_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="659,57,765,84"/><area shape="rect" id="node5" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="960,209,1117,236"/><area shape="rect" id="node6" href="_move_8h.html#a3967f637376b9d35de17ba8b62bf4fe7" title="generate_moves" alt="" coords="491,311,610,337"/><area shape="rect" id="node8" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="967,387,1110,413"/><area shape="rect" id="node14" href="_config_8h.html#ae618c59996d5394bbc77817ad2176ce2" title="equal_game" alt="" coords="505,564,597,591"/><area shape="rect" id="node15" href="_engine_8c.html#a035edd67af6c1228c47af0c695a8d21b" title="add_node_to_list" alt="" coords="491,209,611,236"/><area shape="rect" id="node16" href="_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="673,133,751,160"/><area shape="rect" id="node7" href="_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="817,463,909,489"/><area shape="rect" id="node9" href="_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="813,209,912,236"/><area shape="rect" id="node10" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="664,260,760,287"/><area shape="rect" id="node11" href="_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="819,311,906,337"/><area shape="rect" id="node12" href="_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="815,361,911,388"/><area shape="rect" id="node13" href="_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="820,412,905,439"/><area shape="rect" id="node17" href="_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="821,108,904,135"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a47eba49aeda0f6a477fcea8f6c6ebe7e_icgraph.png" border="0" usemap="#_engine_8c_a47eba49aeda0f6a477fcea8f6c6ebe7e_icgraph" alt=""/></div>
+<map name="_engine_8c_a47eba49aeda0f6a477fcea8f6c6ebe7e_icgraph" id="_engine_8c_a47eba49aeda0f6a477fcea8f6c6ebe7e_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="136,31,237,57"/><area shape="rect" id="node3" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="285,5,379,32"/><area shape="rect" id="node4" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="307,56,357,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a49525c03ceadadc248f669935234ddc2"></a>
+<a class="anchor" id="a8b64dc99fe247a19022e0aa625e68e78"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">List* init_empty_list </td>
+          <td class="memname"><a class="el" href="struct_list.html">List</a>* get_leafs </td>
           <td>(</td>
-          <td class="paramtype">N_DATA&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_tree.html">Tree</a> *&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a8b64dc99fe247a19022e0aa625e68e78_cgraph.png" border="0" usemap="#_engine_8c_a8b64dc99fe247a19022e0aa625e68e78_cgraph" alt=""/></div>
+<map name="_engine_8c_a8b64dc99fe247a19022e0aa625e68e78_cgraph" id="_engine_8c_a8b64dc99fe247a19022e0aa625e68e78_cgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="128,5,235,32"/><area shape="rect" id="node3" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="283,5,440,32"/></map>
 </div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a8b64dc99fe247a19022e0aa625e68e78_icgraph.png" border="0" usemap="#_engine_8c_a8b64dc99fe247a19022e0aa625e68e78_icgraph" alt=""/></div>
+<map name="_engine_8c_a8b64dc99fe247a19022e0aa625e68e78_icgraph" id="_engine_8c_a8b64dc99fe247a19022e0aa625e68e78_icgraph">
+<area shape="rect" id="node2" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="128,5,179,32"/></map>
 </div>
-<a class="anchor" id="a79456c313193ae54d1b5657a5a0feb76"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">List* init_list </td>
-          <td>(</td>
-          <td class="paramtype">Node *&#160;</td>
-          <td class="paramname"><em>begin</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+</p>
 
 </div>
 </div>
-<a class="anchor" id="ad3eae2e978b309a4f27743ac8a2488d5"></a>
+<a class="anchor" id="ade836f9fbab940568b0003951b63e721"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Node* init_node </td>
+          <td class="memname"><a class="el" href="struct_list.html">List</a>* init_empty_list </td>
           <td>(</td>
-          <td class="paramtype">void *&#160;</td>
+          <td class="paramtype"><a class="el" href="_engine_8h.html#af392b9bb8bcb26866c5c89131532fa99">N_DATA</a>&#160;</td>
           <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Node *&#160;</td>
-          <td class="paramname"><em>next</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Node *&#160;</td>
-          <td class="paramname"><em>prev</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">List *&#160;</td>
-          <td class="paramname"><em>next_lvl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Node *&#160;</td>
-          <td class="paramname"><em>prev_lvl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">N_DATA&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="_engine_8h.html#a7df300eb41e62a3bffd2c9cee7820052">ADD_MODE</a>&#160;</td>
+          <td class="paramname"><em>add</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -497,6 +671,123 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_ade836f9fbab940568b0003951b63e721_cgraph.png" border="0" usemap="#_engine_8c_ade836f9fbab940568b0003951b63e721_cgraph" alt=""/></div>
+<map name="_engine_8c_ade836f9fbab940568b0003951b63e721_cgraph" id="_engine_8c_ade836f9fbab940568b0003951b63e721_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="160,5,317,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_ade836f9fbab940568b0003951b63e721_icgraph.png" border="0" usemap="#_engine_8c_ade836f9fbab940568b0003951b63e721_icgraph" alt=""/></div>
+<map name="_engine_8c_ade836f9fbab940568b0003951b63e721_icgraph" id="_engine_8c_ade836f9fbab940568b0003951b63e721_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="161,5,279,32"/><area shape="rect" id="node8" href="_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="161,56,279,83"/><area shape="rect" id="node9" href="_engine_8c.html#a8b64dc99fe247a19022e0aa625e68e78" title="get_leafs" alt="" coords="360,107,435,133"/><area shape="rect" id="node3" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="328,56,467,83"/><area shape="rect" id="node4" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="515,56,597,83"/><area shape="rect" id="node5" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="645,56,747,83"/><area shape="rect" id="node6" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="795,56,888,83"/><area shape="rect" id="node7" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="816,107,867,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a79456c313193ae54d1b5657a5a0feb76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_list.html">List</a>* init_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>begin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>initialize a list</p>
+<p>begin  end</p>
+<p>List* </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a79456c313193ae54d1b5657a5a0feb76_cgraph.png" border="0" usemap="#_engine_8c_a79456c313193ae54d1b5657a5a0feb76_cgraph" alt=""/></div>
+<map name="_engine_8c_a79456c313193ae54d1b5657a5a0feb76_cgraph" id="_engine_8c_a79456c313193ae54d1b5657a5a0feb76_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="117,5,275,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad3eae2e978b309a4f27743ac8a2488d5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a>* init_node </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>next</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>previous</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>next_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>prev_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_engine_8h.html#af392b9bb8bcb26866c5c89131532fa99">N_DATA</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="_engine_8h.html">Engine.h</a> </p>
+<p>data  next  previous  next_level  prev_level</p>
+<p>Node* </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_ad3eae2e978b309a4f27743ac8a2488d5_cgraph.png" border="0" usemap="#_engine_8c_ad3eae2e978b309a4f27743ac8a2488d5_cgraph" alt=""/></div>
+<map name="_engine_8c_ad3eae2e978b309a4f27743ac8a2488d5_cgraph" id="_engine_8c_ad3eae2e978b309a4f27743ac8a2488d5_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="128,5,285,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_ad3eae2e978b309a4f27743ac8a2488d5_icgraph.png" border="0" usemap="#_engine_8c_ad3eae2e978b309a4f27743ac8a2488d5_icgraph" alt=""/></div>
+<map name="_engine_8c_ad3eae2e978b309a4f27743ac8a2488d5_icgraph" id="_engine_8c_ad3eae2e978b309a4f27743ac8a2488d5_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="128,5,221,32"/><area shape="rect" id="node3" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="149,56,200,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1d29a1464772d1d52a93b0e7e96c564e"></a>
@@ -504,14 +795,102 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Tree* init_tree </td>
+          <td class="memname"><a class="el" href="struct_tree.html">Tree</a>* init_tree </td>
           <td>(</td>
-          <td class="paramtype">Node *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
           <td class="paramname"><em>root</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a1d29a1464772d1d52a93b0e7e96c564e_cgraph.png" border="0" usemap="#_engine_8c_a1d29a1464772d1d52a93b0e7e96c564e_cgraph" alt=""/></div>
+<map name="_engine_8c_a1d29a1464772d1d52a93b0e7e96c564e_cgraph" id="_engine_8c_a1d29a1464772d1d52a93b0e7e96c564e_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="123,5,280,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a1d29a1464772d1d52a93b0e7e96c564e_icgraph.png" border="0" usemap="#_engine_8c_a1d29a1464772d1d52a93b0e7e96c564e_icgraph" alt=""/></div>
+<map name="_engine_8c_a1d29a1464772d1d52a93b0e7e96c564e_icgraph" id="_engine_8c_a1d29a1464772d1d52a93b0e7e96c564e_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="123,31,224,57"/><area shape="rect" id="node3" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="272,5,365,32"/><area shape="rect" id="node4" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="293,56,344,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acbefb165c85bfdfeb29f2004ffa7870f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_consts_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> is_leaf_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_list.html">List</a> *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_acbefb165c85bfdfeb29f2004ffa7870f_cgraph.png" border="0" usemap="#_engine_8c_acbefb165c85bfdfeb29f2004ffa7870f_cgraph" alt=""/></div>
+<map name="_engine_8c_acbefb165c85bfdfeb29f2004ffa7870f_cgraph" id="_engine_8c_acbefb165c85bfdfeb29f2004ffa7870f_cgraph">
+<area shape="rect" id="node2" href="_config_8h.html#ae618c59996d5394bbc77817ad2176ce2" title="equal_game" alt="" coords="139,5,231,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c05ffb4c78af2a035dc6fd0d89ad6d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_consts_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> is_leaf_tree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_tree.html">Tree</a> *&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a0c05ffb4c78af2a035dc6fd0d89ad6d4_icgraph.png" border="0" usemap="#_engine_8c_a0c05ffb4c78af2a035dc6fd0d89ad6d4_icgraph" alt=""/></div>
+<map name="_engine_8c_a0c05ffb4c78af2a035dc6fd0d89ad6d4_icgraph" id="_engine_8c_a0c05ffb4c78af2a035dc6fd0d89ad6d4_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="144,5,237,32"/><area shape="rect" id="node3" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="165,56,216,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -520,14 +899,23 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Node* pop_back </td>
+          <td class="memname"><a class="el" href="struct_node.html">Node</a>* pop_back </td>
           <td>(</td>
-          <td class="paramtype">List *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_list.html">List</a> *&#160;</td>
           <td class="paramname"><em>list</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a9fbdd810f4ea6aca72e19531b0188dec_cgraph.png" border="0" usemap="#_engine_8c_a9fbdd810f4ea6aca72e19531b0188dec_cgraph" alt=""/></div>
+<map name="_engine_8c_a9fbdd810f4ea6aca72e19531b0188dec_cgraph" id="_engine_8c_a9fbdd810f4ea6aca72e19531b0188dec_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="133,5,291,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -538,12 +926,21 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void print_list </td>
           <td>(</td>
-          <td class="paramtype">List *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_list.html">List</a> *&#160;</td>
           <td class="paramname"><em>list</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a246b54d6d5f6c83bb59dfc8f24bbee49_cgraph.png" border="0" usemap="#_engine_8c_a246b54d6d5f6c83bb59dfc8f24bbee49_cgraph" alt=""/></div>
+<map name="_engine_8c_a246b54d6d5f6c83bb59dfc8f24bbee49_cgraph" id="_engine_8c_a246b54d6d5f6c83bb59dfc8f24bbee49_cgraph">
+<area shape="rect" id="node2" href="_config_8h.html#a9a6c20ec423a195d78ff9a061309aaa3" title="print_board" alt="" coords="257,5,343,32"/><area shape="rect" id="node3" href="_engine_8c.html#a898f9f03f26c8b385a2b67d0ebad8932" title="print_node" alt="" coords="125,31,208,57"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -554,12 +951,32 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void print_node </td>
           <td>(</td>
-          <td class="paramtype">Node *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_node.html">Node</a> *&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>printing the value of a node</p>
+<p>node </p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a898f9f03f26c8b385a2b67d0ebad8932_cgraph.png" border="0" usemap="#_engine_8c_a898f9f03f26c8b385a2b67d0ebad8932_cgraph" alt=""/></div>
+<map name="_engine_8c_a898f9f03f26c8b385a2b67d0ebad8932_cgraph" id="_engine_8c_a898f9f03f26c8b385a2b67d0ebad8932_cgraph">
+<area shape="rect" id="node2" href="_config_8h.html#a9a6c20ec423a195d78ff9a061309aaa3" title="print_board" alt="" coords="137,5,223,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_8c_a898f9f03f26c8b385a2b67d0ebad8932_icgraph.png" border="0" usemap="#_engine_8c_a898f9f03f26c8b385a2b67d0ebad8932_icgraph" alt=""/></div>
+<map name="_engine_8c_a898f9f03f26c8b385a2b67d0ebad8932_icgraph" id="_engine_8c_a898f9f03f26c8b385a2b67d0ebad8932_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#a246b54d6d5f6c83bb59dfc8f24bbee49" title="print_list" alt="" coords="147,5,218,32"/><area shape="rect" id="node3" href="_engine_8c.html#a64ffdcc7b8eafc94e259975a15db222f" title="display_list" alt="" coords="139,56,226,83"/><area shape="rect" id="node4" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="136,107,229,133"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -591,7 +1008,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 3 2016 10:54:57 for Chess by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 5 2016 18:53:40 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

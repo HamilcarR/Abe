@@ -1,0 +1,89 @@
+.TH "headers/Move.h" 3 "Wed Oct 5 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+headers/Move.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'Consts\&.h'\fP
+.br
+\fC#include 'Config\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMoves\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBkill\fP (\fBPiece\fP **piece, \fBGame\fP *game, int j)"
+.br
+.ti -1c
+.RI "\fBMoves\fP \fBmove_pawn\fP (\fBGame\fP *game, \fBPiece\fP *piece)"
+.br
+.ti -1c
+.RI "\fBMoves\fP \fBmove_king\fP (\fBGame\fP *game, \fBPiece\fP *piece)"
+.br
+.ti -1c
+.RI "\fBMoves\fP \fBmove_queen\fP (\fBGame\fP *game, \fBPiece\fP *piece)"
+.br
+.ti -1c
+.RI "\fBMoves\fP \fBmove_knight\fP (\fBGame\fP *game, \fBPiece\fP *piece)"
+.br
+.ti -1c
+.RI "\fBMoves\fP \fBmove_rook\fP (\fBGame\fP *game, \fBPiece\fP *piece)"
+.br
+.ti -1c
+.RI "\fBMoves\fP \fBmove_bishop\fP (\fBGame\fP *game, \fBPiece\fP *piece)"
+.br
+.ti -1c
+.RI "\fBPiece\fP * \fBselect_piece\fP (\fBGame\fP *game, \fBPosition\fP pos)"
+.br
+.ti -1c
+.RI "\fBERROR\fP \fBmove_piece\fP (\fBGame\fP *, \fBPiece\fP **, \fBPosition\fP)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBequal_pieces\fP (\fBPiece\fP *piece1, \fBPiece\fP *piece2)"
+.br
+.ti -1c
+.RI "\fBMoves\fP \fBgenerate_moves\fP (\fBGame\fP *, \fBPiece\fP **)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBfinished_game\fP (\fBGame\fP *g)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBbool\fP equal_pieces (\fBPiece\fP *piece1, \fBPiece\fP *piece2)"
+
+.SS "\fBbool\fP finished_game (\fBGame\fP *g)"
+
+.SS "\fBMoves\fP generate_moves (\fBGame\fP *, \fBPiece\fP **)"
+
+.SS "void kill (\fBPiece\fP **piece, \fBGame\fP *game, intj)"
+
+.SS "\fBMoves\fP move_bishop (\fBGame\fP *game, \fBPiece\fP *piece)"
+
+.SS "\fBMoves\fP move_king (\fBGame\fP *game, \fBPiece\fP *piece)"
+
+.SS "\fBMoves\fP move_knight (\fBGame\fP *game, \fBPiece\fP *piece)"
+
+.SS "\fBMoves\fP move_pawn (\fBGame\fP *game, \fBPiece\fP *piece)"
+
+.SS "\fBERROR\fP move_piece (\fBGame\fP *, \fBPiece\fP **, \fBPosition\fP)"
+
+.SS "\fBMoves\fP move_queen (\fBGame\fP *game, \fBPiece\fP *piece)"
+
+.SS "\fBMoves\fP move_rook (\fBGame\fP *game, \fBPiece\fP *piece)"
+
+.SS "\fBPiece\fP* select_piece (\fBGame\fP *game, \fBPosition\fPpos)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

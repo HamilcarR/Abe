@@ -1,0 +1,32 @@
+<map id="mem_debug_increment" name="mem_debug_increment">
+<area shape="rect" id="node2" href="$config_8c.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="228,107,311,133"/>
+<area shape="rect" id="node3" href="$config_8c.html#adc8c48fed3fc5c49b3801f009a208078" title="init_board" alt="" coords="390,69,469,96"/>
+<area shape="rect" id="node5" href="$_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="390,383,469,409"/>
+<area shape="rect" id="node6" href="$_engine_8c.html#ae6c65244c9d393a37ce2a78ff1bd3125" title="free_list" alt="" coords="557,459,625,485"/>
+<area shape="rect" id="node7" href="$_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="699,383,818,409"/>
+<area shape="rect" id="node12" href="$_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="532,328,649,355"/>
+<area shape="rect" id="node13" href="$config_8c.html#a8f9f3c7c48cb40be854651ca4d681d6b" title="free_player" alt="" coords="226,309,313,336"/>
+<area shape="rect" id="node14" href="$config_8c.html#af3842eaafd45829333634fc916687d54" title="free_position" alt="" coords="221,360,317,387"/>
+<area shape="rect" id="node15" href="$config_8c.html#aefb5ec35e4bdca7941e68fa57d74c653" title="init_blank_game" alt="" coords="211,5,327,32"/>
+<area shape="rect" id="node16" href="$config_8c.html#a82b577293c317d9656ce94187b664549" title="get_board_copy" alt="" coords="701,1120,816,1147"/>
+<area shape="rect" id="node17" href="$_engine_8c.html#ad3eae2e978b309a4f27743ac8a2488d5" title="init_node" alt="" coords="1197,157,1272,184"/>
+<area shape="rect" id="node18" href="$_engine_8c.html#abf12ec8ff08cd3da53aafe5f98209533" title="free_tree" alt="" coords="1198,407,1271,433"/>
+<area shape="rect" id="node19" href="$_engine_8c.html#a1d29a1464772d1d52a93b0e7e96c564e" title="init_tree" alt="" coords="1061,713,1129,740"/>
+<area shape="rect" id="node20" href="$_engine_8c.html#a79456c313193ae54d1b5657a5a0feb76" title="init_list" alt="" coords="238,664,301,691"/>
+<area shape="rect" id="node21" href="$_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="376,208,483,235"/>
+<area shape="rect" id="node23" href="$_engine_8c.html#a9fbdd810f4ea6aca72e19531b0188dec" title="pop_back" alt="" coords="230,765,309,792"/>
+<area shape="rect" id="node24" href="$_move_8c.html#ac5e863bf0cc2aacd8c9e31e0a54f01a9" title="kill" alt="" coords="250,816,289,843"/>
+<area shape="rect" id="node25" href="$_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="383,956,475,983"/>
+<area shape="rect" id="node27" href="$_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="387,588,472,615"/>
+<area shape="rect" id="node28" href="$_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="381,816,477,843"/>
+<area shape="rect" id="node29" href="$_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="381,639,477,665"/>
+<area shape="rect" id="node30" href="$_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="226,715,313,741"/>
+<area shape="rect" id="node31" href="$_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="220,917,319,944"/>
+<area shape="rect" id="node4" href="$main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="1355,183,1405,209"/>
+<area shape="rect" id="node8" href="$_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="867,356,1005,383"/>
+<area shape="rect" id="node9" href="$_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="1053,356,1136,383"/>
+<area shape="rect" id="node10" href="$_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="1184,356,1285,383"/>
+<area shape="rect" id="node11" href="$_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="1333,381,1427,408"/>
+<area shape="rect" id="node22" href="$_engine_8c.html#a8b64dc99fe247a19022e0aa625e68e78" title="get_leafs" alt="" coords="899,208,973,235"/>
+<area shape="rect" id="node26" href="$_move_8c.html#a2f9904cc7200fc100af032d8c4962b36" title="generate_moves" alt="" coords="531,715,650,741"/>
+</map>

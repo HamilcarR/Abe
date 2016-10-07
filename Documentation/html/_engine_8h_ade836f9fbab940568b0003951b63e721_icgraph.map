@@ -1,0 +1,10 @@
+<map id="init_empty_list" name="init_empty_list">
+<area shape="rect" id="node2" href="$_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="161,5,279,32"/>
+<area shape="rect" id="node8" href="$_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="161,56,279,83"/>
+<area shape="rect" id="node9" href="$_engine_8c.html#a8b64dc99fe247a19022e0aa625e68e78" title="get_leafs" alt="" coords="360,107,435,133"/>
+<area shape="rect" id="node3" href="$_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="328,56,467,83"/>
+<area shape="rect" id="node4" href="$_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="515,56,597,83"/>
+<area shape="rect" id="node5" href="$_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="645,56,747,83"/>
+<area shape="rect" id="node6" href="$_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="795,56,888,83"/>
+<area shape="rect" id="node7" href="$main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="816,107,867,133"/>
+</map>

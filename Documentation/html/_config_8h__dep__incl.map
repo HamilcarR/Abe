@@ -1,0 +1,9 @@
+<map id="headers/Config.h" name="headers/Config.h">
+<area shape="rect" id="node2" href="$_engine_8h.html" title="headers/Engine.h" alt="" coords="139,155,261,181"/>
+<area shape="rect" id="node5" href="$main_8c.html" title="sources/main.c" alt="" coords="273,229,383,256"/>
+<area shape="rect" id="node6" href="$_move_8h.html" title="headers/Move.h" alt="" coords="336,80,451,107"/>
+<area shape="rect" id="node8" href="$config_8c.html" title="sources/config.c" alt="" coords="475,80,593,107"/>
+<area shape="rect" id="node3" href="$_i_a_8h.html" title="headers/IA.h" alt="" coords="152,229,248,256"/>
+<area shape="rect" id="node4" href="$_engine_8c.html" title="sources/Engine.c" alt="" coords="5,229,128,256"/>
+<area shape="rect" id="node7" href="$_move_8c.html" title="sources/Move.c" alt="" coords="387,155,501,181"/>
+</map>

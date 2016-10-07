@@ -1,0 +1,172 @@
+.TH "sources/mmanager.c" 3 "Wed Oct 5 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/mmanager.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./headers/mmanager\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmem_debug_increment\fP (const uint8_t ID)"
+.br
+.ti -1c
+.RI "void \fBdestroy_mutex\fP ()"
+.br
+.ti -1c
+.RI "void \fBcheck_memleak\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "pthread_t \fBf_thread\fP"
+.br
+.ti -1c
+.RI "pthread_mutex_t \fBf_mutex\fP"
+.br
+.ti -1c
+.RI "const char * \fBstring_debugs\fP []"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_PIECE\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_GAME\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_POSITION\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_NODE\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_LIST\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_PLAYER\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_TREE\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_PIECE\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_GAME\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_POSITION\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_NODE\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_LIST\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_PLAYER\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_TREE\fP = 0"
+.br
+.ti -1c
+.RI "uint_fast32_t * \fBptr_on_res_ressources\fP [\fBMAX_DEBUG_VAR\fP]"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void check_memleak ()"
+
+.SS "void destroy_mutex ()"
+
+.SS "void mem_debug_increment (const uint8_tID)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "pthread_mutex_t f_mutex"
+
+.SS "pthread_t f_thread"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_GAME = 0"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_LIST = 0"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_NODE = 0"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_PIECE = 0"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_PLAYER = 0"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_POSITION = 0"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_TREE = 0"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_GAME = 0"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_LIST = 0"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_NODE = 0"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_PIECE = 0"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_PLAYER = 0"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_POSITION = 0"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_TREE = 0"
+
+.SS "uint_fast32_t* ptr_on_res_ressources[\fBMAX_DEBUG_VAR\fP]"
+\fBInitial value:\fP
+.PP
+.nf
+={
+        
+  &MEMALLOC_DEBUG_PIECE  ,
+  &MEMALLOC_DEBUG_GAME ,
+  &MEMALLOC_DEBUG_POSITION ,
+  &MEMALLOC_DEBUG_NODE ,
+  &MEMALLOC_DEBUG_LIST ,
+  &MEMALLOC_DEBUG_PLAYER ,
+  &MEMALLOC_DEBUG_TREE ,
+  &MEMDEALLOC_DEBUG_PIECE,
+  &MEMDEALLOC_DEBUG_GAME,
+  &MEMDEALLOC_DEBUG_POSITION,
+  &MEMDEALLOC_DEBUG_NODE,
+  &MEMDEALLOC_DEBUG_LIST,
+  &MEMDEALLOC_DEBUG_PLAYER,
+  &MEMDEALLOC_DEBUG_TREE
+    }
+.fi
+.SS "const char* string_debugs[]"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+"Allocation for struct PIECE",
+"Allocation for struct GAME",
+"Allocation for struct POSITION",
+"Allocation for struct NODE",
+"Allocation for struct LIST",
+"Allocation for struct PLAYER",
+"Allocation for struct TREE",
+
+"Deallocation for struct PIECE",
+"Deallocation for struct GAME",
+"Deallocation for struct POSITION",
+"Deallocation for struct NODE",
+"Deallocation for struct LIST",
+"Deallocation for struct PLAYER",
+"Deallocation for struct TREE"
+
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

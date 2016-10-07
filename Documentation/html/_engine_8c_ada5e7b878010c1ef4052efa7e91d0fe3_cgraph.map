@@ -1,0 +1,28 @@
+<map id="browse_tree" name="browse_tree">
+<area shape="rect" id="node2" href="$_config_8h.html#a9a6c20ec423a195d78ff9a061309aaa3" title="print_board" alt="" coords="297,374,383,401"/>
+<area shape="rect" id="node3" href="$_engine_8c.html#abf12ec8ff08cd3da53aafe5f98209533" title="free_tree" alt="" coords="465,704,538,730"/>
+<area shape="rect" id="node5" href="$_engine_8c.html#a898f9f03f26c8b385a2b67d0ebad8932" title="print_node" alt="" coords="156,349,239,376"/>
+<area shape="rect" id="node6" href="$_config_8h.html#a82b577293c317d9656ce94187b664549" title="get_board_copy" alt="" coords="621,312,736,338"/>
+<area shape="rect" id="node7" href="$_engine_8c.html#ad3eae2e978b309a4f27743ac8a2488d5" title="init_node" alt="" coords="464,653,539,680"/>
+<area shape="rect" id="node8" href="$_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="147,526,248,553"/>
+<area shape="rect" id="node27" href="$_engine_8c.html#a0c05ffb4c78af2a035dc6fd0d89ad6d4" title="is_leaf_tree" alt="" coords="153,704,242,730"/>
+<area shape="rect" id="node4" href="$mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="1256,400,1413,426"/>
+<area shape="rect" id="node9" href="$_engine_8c.html#a1d29a1464772d1d52a93b0e7e96c564e" title="init_tree" alt="" coords="645,388,713,414"/>
+<area shape="rect" id="node10" href="$_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="299,552,381,578"/>
+<area shape="rect" id="node11" href="$_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="432,552,571,578"/>
+<area shape="rect" id="node12" href="$_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="619,489,738,516"/>
+<area shape="rect" id="node26" href="$_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="788,653,905,680"/>
+<area shape="rect" id="node13" href="$_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="955,602,1061,629"/>
+<area shape="rect" id="node14" href="$_move_8h.html#a3967f637376b9d35de17ba8b62bf4fe7" title="generate_moves" alt="" coords="787,197,906,224"/>
+<area shape="rect" id="node16" href="$_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="1263,121,1406,148"/>
+<area shape="rect" id="node22" href="$_config_8h.html#ae618c59996d5394bbc77817ad2176ce2" title="equal_game" alt="" coords="801,400,893,426"/>
+<area shape="rect" id="node23" href="$_engine_8c.html#a035edd67af6c1228c47af0c695a8d21b" title="add_node_to_list" alt="" coords="787,602,907,629"/>
+<area shape="rect" id="node24" href="$_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="969,526,1047,553"/>
+<area shape="rect" id="node15" href="$_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="1113,146,1205,173"/>
+<area shape="rect" id="node17" href="$_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="1109,248,1208,274"/>
+<area shape="rect" id="node18" href="$_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="960,248,1056,274"/>
+<area shape="rect" id="node19" href="$_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="1115,197,1202,224"/>
+<area shape="rect" id="node20" href="$_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="1111,96,1207,122"/>
+<area shape="rect" id="node21" href="$_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="1116,45,1201,72"/>
+<area shape="rect" id="node25" href="$_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="1117,552,1200,578"/>
+</map>

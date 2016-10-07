@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['piece_5farray',['Piece_Array',['../struct_piece___array.html',1,'']]]
+  ['array',['Array',['../struct_array.html',1,'']]]
 ];

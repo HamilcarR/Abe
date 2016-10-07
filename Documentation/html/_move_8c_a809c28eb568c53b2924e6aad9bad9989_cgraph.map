@@ -1,0 +1,6 @@
+<map id="move_queen" name="move_queen">
+<area shape="rect" id="node2" href="$mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="296,21,453,48"/>
+<area shape="rect" id="node3" href="$_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="149,72,248,99"/>
+<area shape="rect" id="node5" href="$_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="155,21,242,48"/>
+<area shape="rect" id="node4" href="$_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="303,72,446,99"/>
+</map>

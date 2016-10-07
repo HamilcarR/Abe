@@ -1,0 +1,11 @@
+<map id="headers/Consts.h" name="headers/Consts.h">
+<area shape="rect" id="node2" href="$_config_8h.html" title="structure of a player " alt="" coords="234,80,355,107"/>
+<area shape="rect" id="node7" href="$_move_8h.html" title="headers/Move.h" alt="" coords="336,155,451,181"/>
+<area shape="rect" id="node10" href="$_consts_8c.html" title="sources/Consts.c" alt="" coords="431,80,556,107"/>
+<area shape="rect" id="node3" href="$_engine_8h.html" title="headers/Engine.h" alt="" coords="139,229,261,256"/>
+<area shape="rect" id="node6" href="$main_8c.html" title="sources/main.c" alt="" coords="273,304,383,331"/>
+<area shape="rect" id="node9" href="$config_8c.html" title="sources/config.c" alt="" coords="91,155,209,181"/>
+<area shape="rect" id="node4" href="$_i_a_8h.html" title="headers/IA.h" alt="" coords="152,304,248,331"/>
+<area shape="rect" id="node5" href="$_engine_8c.html" title="sources/Engine.c" alt="" coords="5,304,128,331"/>
+<area shape="rect" id="node8" href="$_move_8c.html" title="sources/Move.c" alt="" coords="336,229,451,256"/>
+</map>

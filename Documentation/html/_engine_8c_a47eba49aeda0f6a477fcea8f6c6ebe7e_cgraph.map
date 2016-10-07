@@ -1,0 +1,19 @@
+<map id="generation" name="generation">
+<area shape="rect" id="node2" href="$_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="136,133,275,160"/>
+<area shape="rect" id="node3" href="$_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="323,184,442,211"/>
+<area shape="rect" id="node18" href="$_engine_8c.html#a1cf198b80217d3787eb639ca321f7866" title="concatenate_list" alt="" coords="492,57,609,84"/>
+<area shape="rect" id="node4" href="$_engine_8c.html#ade836f9fbab940568b0003951b63e721" title="init_empty_list" alt="" coords="659,57,765,84"/>
+<area shape="rect" id="node5" href="$mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="960,209,1117,236"/>
+<area shape="rect" id="node6" href="$_move_8h.html#a3967f637376b9d35de17ba8b62bf4fe7" title="generate_moves" alt="" coords="491,311,610,337"/>
+<area shape="rect" id="node8" href="$_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="967,387,1110,413"/>
+<area shape="rect" id="node14" href="$_config_8h.html#ae618c59996d5394bbc77817ad2176ce2" title="equal_game" alt="" coords="505,564,597,591"/>
+<area shape="rect" id="node15" href="$_engine_8c.html#a035edd67af6c1228c47af0c695a8d21b" title="add_node_to_list" alt="" coords="491,209,611,236"/>
+<area shape="rect" id="node16" href="$_engine_8c.html#a0aed6fd8e764732bb5533b022394c0eb" title="free_node" alt="" coords="673,133,751,160"/>
+<area shape="rect" id="node7" href="$_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="817,463,909,489"/>
+<area shape="rect" id="node9" href="$_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="813,209,912,236"/>
+<area shape="rect" id="node10" href="$_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="664,260,760,287"/>
+<area shape="rect" id="node11" href="$_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="819,311,906,337"/>
+<area shape="rect" id="node12" href="$_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="815,361,911,388"/>
+<area shape="rect" id="node13" href="$_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="820,412,905,439"/>
+<area shape="rect" id="node17" href="$_config_8h.html#a98bb68f0ee0b77fbd9d7c56957190c9d" title="free_game" alt="" coords="821,108,904,135"/>
+</map>

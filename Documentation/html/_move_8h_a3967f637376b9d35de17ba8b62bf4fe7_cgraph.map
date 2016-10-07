@@ -1,0 +1,10 @@
+<map id="generate_moves" name="generate_moves">
+<area shape="rect" id="node2" href="$_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="321,56,413,83"/>
+<area shape="rect" id="node5" href="$_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="317,208,416,235"/>
+<area shape="rect" id="node6" href="$_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="173,259,269,285"/>
+<area shape="rect" id="node7" href="$_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="323,157,410,184"/>
+<area shape="rect" id="node8" href="$_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="319,107,415,133"/>
+<area shape="rect" id="node9" href="$_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="324,5,409,32"/>
+<area shape="rect" id="node3" href="$mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="464,157,621,184"/>
+<area shape="rect" id="node4" href="$_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="471,107,614,133"/>
+</map>

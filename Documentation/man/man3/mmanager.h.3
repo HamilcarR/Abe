@@ -1,0 +1,149 @@
+.TH "headers/mmanager.h" 3 "Wed Oct 5 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+headers/mmanager.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <uchar\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <inttypes\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_DEBUG_VAR\fP   14"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcheck_memleak\fP ()"
+.br
+.ti -1c
+.RI "void \fBmem_debug_increment\fP (const uint8_t ID)"
+.br
+.ti -1c
+.RI "void \fBdestroy_mutex\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "pthread_t \fBf_thread\fP"
+.br
+.ti -1c
+.RI "pthread_mutex_t \fBf_mutex\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_PIECE\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_GAME\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_POSITION\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_NODE\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_LIST\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_PLAYER\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMALLOC_DEBUG_TREE\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_PIECE\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_GAME\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_POSITION\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_NODE\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_LIST\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_PLAYER\fP"
+.br
+.ti -1c
+.RI "uint_fast32_t \fBMEMDEALLOC_DEBUG_TREE\fP"
+.br
+.ti -1c
+.RI "const char * \fBstring_debugs\fP []"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MAX_DEBUG_VAR   14"
+
+.SH "Function Documentation"
+.PP 
+.SS "void check_memleak ()"
+
+.SS "void destroy_mutex ()"
+
+.SS "void mem_debug_increment (const uint8_tID)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "pthread_mutex_t f_mutex"
+
+.SS "pthread_t f_thread"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_GAME"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_LIST"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_NODE"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_PIECE"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_PLAYER"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_POSITION"
+
+.SS "uint_fast32_t MEMALLOC_DEBUG_TREE"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_GAME"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_LIST"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_NODE"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_PIECE"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_PLAYER"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_POSITION"
+
+.SS "uint_fast32_t MEMDEALLOC_DEBUG_TREE"
+
+.SS "const char* string_debugs[]"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

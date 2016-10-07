@@ -56,7 +56,7 @@ typedef struct Node Node;
  struct Node{
 	 
     void* value;
-    int score ; 
+    int score ;   
     N_DATA data_type;  
     Node *prev ;
     Node *next ;/* pointer to nodes of the same level */
@@ -109,6 +109,7 @@ typedef struct Array Array ;
 
 Tree * init_tree(Node* root); // initialize the search tree
 /**
+ * @File Engine.h
  * @Brief  
  *
  * @Param data
@@ -124,12 +125,12 @@ Node * init_node(void* data,Node* next,Node* previous,List * next_level ,Node * 
 
 
 /**
- * \Brief  initialize a list
+ * @Brief  initialize a list
  *
- * \Param begin
- * \Param end
+ * @Param begin
+ * @Param end
  *
- * \Returns  List*
+ * @Returns  List*
  */
 List* init_list(Node* begin);
 
@@ -149,6 +150,13 @@ List* init_empty_list(N_DATA data,ADD_MODE add);
 
 
 
+/**
+ * @Brief  
+ *
+ * @Param data
+ *
+ * @Returns  
+ */
 Array* init_array(N_DATA data);
 
 

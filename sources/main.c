@@ -25,10 +25,7 @@ int main(int argv, char**argc)
 	Tree* tree = generate_tree(N , D ,W, WHITE); 
 	Tree **ptr_tree = &tree; 
 
-	List * l = get_leafs(tree); 
-	Node* P = l->begin->next->value;
 	 
-	printf("%s\n",is_leaf_tree(tree,P) ? "yes" : "no" ) ;	
 	//browse_tree(ptr_tree); 
 	free_tree(*ptr_tree); 
 	check_memleak(); 

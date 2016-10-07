@@ -1,0 +1,216 @@
+.TH "headers/Consts.h" 3 "Wed Oct 5 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+headers/Consts.h \- 
+.PP
+all enums and constants  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'mmanager\&.h'\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBGLOBAL_CONSTS\fP \fBGLOBAL_CONSTS\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBPIECES_TYPE\fP \fBPIECES_TYPE\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBbool\fP \fBbool\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBCOLOR\fP \fBCOLOR\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBType\fP \fBType\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBERROR\fP \fBERROR\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBGLOBAL_CONSTS\fP { \fBMAX_PIECES\fP = 12, \fBBOARD_SIZE\fP = 8 }"
+.br
+.ti -1c
+.RI "enum \fBPIECES_TYPE\fP { \fBPAWN_WHITE\fP = 0, \fBKNIGHT_WHITE\fP =1, \fBROOK_WHITE\fP = 2, \fBBISHOP_WHITE\fP = 3, \fBKING_WHITE\fP = 4, \fBQUEEN_WHITE\fP = 5, \fBPAWN_BLACK\fP = 6, \fBKNIGHT_BLACK\fP = 7, \fBROOK_BLACK\fP = 8, \fBBISHOP_BLACK\fP = 9, \fBKING_BLACK\fP = 10, \fBQUEEN_BLACK\fP = 11 }"
+.br
+.ti -1c
+.RI "enum \fBbool\fP { \fBtrue\fP = 1, \fBfalse\fP = 0 }"
+.br
+.ti -1c
+.RI "enum \fBCOLOR\fP { \fBWHITE\fP = 0, \fBBLACK\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBType\fP { \fBPAWN\fP = 0, \fBKING\fP = 1, \fBQUEEN\fP = 2, \fBROOK\fP = 3, \fBKNIGHT\fP =4, \fBBISHOP\fP = 5 }"
+.br
+.ti -1c
+.RI "enum \fBERROR\fP { \fBOKAY\fP = 0, \fBWRONG_SIZE_BOARD\fP = -1, \fBGAME_FINISHED\fP = -2, \fBPIECES_ON_SAME_POSITION\fP =-3, \fBBAD_PIECE_LOCATION\fP = -4, \fBWRONG_MOVE\fP = -5, \fBNOT_ENEMY\fP = -6 }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const uint8_t \fBMAX_PAWN\fP"
+.br
+.ti -1c
+.RI "const uint8_t \fBMAX_KING\fP"
+.br
+.ti -1c
+.RI "const uint8_t \fBMAX_QUEEN\fP"
+.br
+.ti -1c
+.RI "const uint8_t \fBMAX_ROOK\fP"
+.br
+.ti -1c
+.RI "const uint8_t \fBMAX_KNIGHT\fP"
+.br
+.ti -1c
+.RI "const uint8_t \fBMAX_BISHOP\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+all enums and constants 
+
+Chess pieces enumeration\&.
+.PP
+Color enumeration\&.
+.PP
+definition of a boolean
+.PP
+declare some useful constants
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBbool\fP \fBbool\fP"
+
+.SS "typedef enum \fBCOLOR\fP \fBCOLOR\fP"
+
+.SS "typedef enum \fBERROR\fP \fBERROR\fP"
+
+.SS "typedef enum \fBGLOBAL_CONSTS\fP \fBGLOBAL_CONSTS\fP"
+
+.SS "typedef enum \fBPIECES_TYPE\fP \fBPIECES_TYPE\fP"
+
+.SS "typedef enum \fBType\fP \fBType\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBbool\fP"
+true for 1 , false for 0 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fItrue \fP\fP
+.TP
+\fB\fIfalse \fP\fP
+.SS "enum \fBCOLOR\fP"
+Enumerate the two colors of the game\&. 0 for white , 1 for black 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWHITE \fP\fP
+.TP
+\fB\fIBLACK \fP\fP
+.SS "enum \fBERROR\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIOKAY \fP\fP
+.TP
+\fB\fIWRONG_SIZE_BOARD \fP\fP
+.TP
+\fB\fIGAME_FINISHED \fP\fP
+.TP
+\fB\fIPIECES_ON_SAME_POSITION \fP\fP
+.TP
+\fB\fIBAD_PIECE_LOCATION \fP\fP
+.TP
+\fB\fIWRONG_MOVE \fP\fP
+.TP
+\fB\fINOT_ENEMY \fP\fP
+.SS "enum \fBGLOBAL_CONSTS\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMAX_PIECES \fP\fP
+.TP
+\fB\fIBOARD_SIZE \fP\fP
+.SS "enum \fBPIECES_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPAWN_WHITE \fP\fP
+.TP
+\fB\fIKNIGHT_WHITE \fP\fP
+.TP
+\fB\fIROOK_WHITE \fP\fP
+.TP
+\fB\fIBISHOP_WHITE \fP\fP
+.TP
+\fB\fIKING_WHITE \fP\fP
+.TP
+\fB\fIQUEEN_WHITE \fP\fP
+.TP
+\fB\fIPAWN_BLACK \fP\fP
+.TP
+\fB\fIKNIGHT_BLACK \fP\fP
+.TP
+\fB\fIROOK_BLACK \fP\fP
+.TP
+\fB\fIBISHOP_BLACK \fP\fP
+.TP
+\fB\fIKING_BLACK \fP\fP
+.TP
+\fB\fIQUEEN_BLACK \fP\fP
+.SS "enum \fBType\fP"
+The differents pieces of a chess game 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPAWN \fP\fP
+.TP
+\fB\fIKING \fP\fP
+.TP
+\fB\fIQUEEN \fP\fP
+.TP
+\fB\fIROOK \fP\fP
+.TP
+\fB\fIKNIGHT \fP\fP
+.TP
+\fB\fIBISHOP \fP\fP
+.SH "Variable Documentation"
+.PP 
+.SS "const uint8_t MAX_BISHOP"
+
+.SS "const uint8_t MAX_KING"
+
+.SS "const uint8_t MAX_KNIGHT"
+
+.SS "const uint8_t MAX_PAWN"
+
+.SS "const uint8_t MAX_QUEEN"
+
+.SS "const uint8_t MAX_ROOK"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

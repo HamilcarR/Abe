@@ -1,0 +1,294 @@
+.TH "headers/Engine.h" 3 "Wed Oct 5 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+headers/Engine.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'Config\&.h'\fP
+.br
+\fC#include 'Move\&.h'\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBNode\fP"
+.br
+.ti -1c
+.RI "struct \fBList\fP"
+.br
+.ti -1c
+.RI "struct \fBTree\fP"
+.br
+.ti -1c
+.RI "struct \fBArray\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBADD_MODE\fP \fBADD_MODE\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBN_DATA\fP \fBN_DATA\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBNode\fP \fBNode\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBList\fP \fBList\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBTree\fP \fBTree\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBArray\fP \fBArray\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBADD_MODE\fP { \fBFULL_LINKED\fP = 1, \fBDOUBLE_LINKED_ONE_LVL\fP = 1, \fBONE_LINK_ONE_LVL_NEXT\fP = 2 }"
+.br
+.ti -1c
+.RI "enum \fBN_DATA\fP { \fBGAME\fP = 0, \fBALLOC_PTR\fP = 1, \fBSTRING\fP = 3, \fBFLOAT\fP = 2, \fBINT\fP = 4, \fBLONG\fP = 5, \fBCHAR\fP = 6, \fBNODE\fP = 7, \fBPTR_ON_NODE\fP = 8 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBfree_tree\fP (\fBTree\fP *tree)"
+.br
+.ti -1c
+.RI "void \fBfree_node\fP (\fBNode\fP *node)"
+.br
+.ti -1c
+.RI "void \fBfree_list\fP (\fBList\fP *list)"
+.br
+.ti -1c
+.RI "void \fBfree_array\fP (\fBArray\fP *array)"
+.br
+.ti -1c
+.RI "\fBTree\fP * \fBinit_tree\fP (\fBNode\fP *root)"
+.br
+.ti -1c
+.RI "\fBNode\fP * \fBinit_node\fP (void *data, \fBNode\fP *next, \fBNode\fP *previous, \fBList\fP *next_level, \fBNode\fP *prev_level, \fBN_DATA\fP type)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBinit_list\fP (\fBNode\fP *begin)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBinit_empty_list\fP (\fBN_DATA\fP data, \fBADD_MODE\fP add)"
+.br
+.ti -1c
+.RI "\fBArray\fP * \fBinit_array\fP (\fBN_DATA\fP data)"
+.br
+.ti -1c
+.RI "void \fBadd_node_to_list\fP (\fBList\fP *list, \fBNode\fP *node)"
+.br
+.ti -1c
+.RI "void \fBdelete_node\fP (\fBList\fP *list, \fBNode\fP *node)"
+.br
+.ti -1c
+.RI "char * \fBtoString\fP (\fBList\fP *list)"
+.br
+.ti -1c
+.RI "void \fBprint_list\fP (\fBList\fP *list)"
+.br
+.ti -1c
+.RI "void \fBdisplay_list\fP (\fBList\fP *list)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBgenerate_boards\fP (\fBNode\fP *root, uint16_t width, size_t id)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBconcatenate_list\fP (\fBList\fP *, \fBList\fP *, uint16_t)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBgenerate_all_boards\fP (\fBNode\fP *, uint16_t width, \fBCOLOR\fP color)"
+.br
+.ti -1c
+.RI "void \fBbrowse_tree\fP (\fBTree\fP **tree)"
+.br
+.ti -1c
+.RI "\fBTree\fP * \fBgenerate_tree\fP (\fBNode\fP *root, uint8_t depth, uint8_t width, \fBCOLOR\fP color)"
+.br
+.ti -1c
+.RI "void \fBclean_and_generate_tree\fP (\fBTree\fP **tree, uint8_t depth, uint8_t width)"
+.br
+.ti -1c
+.RI "void \fBprint_node\fP (\fBNode\fP *node)"
+.br
+.ti -1c
+.RI "\fBNode\fP * \fBpop_back\fP (\fBList\fP *)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBis_leaf_list\fP (\fBList\fP *T, \fBNode\fP *N)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBis_leaf_tree\fP (\fBTree\fP *T, \fBNode\fP *N)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBget_leafs\fP (\fBTree\fP *tree)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBDEPTH\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBWIDTH\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+initialize an empty list with a certain data type
+.PP
+data
+.PP
+List*
+.PP
+print the content of the list in terminal
+.PP
+list 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBADD_MODE\fP \fBADD_MODE\fP"
+
+.SS "typedef struct \fBArray\fP \fBArray\fP"
+
+.SS "typedef struct \fBList\fP \fBList\fP"
+
+.SS "typedef enum \fBN_DATA\fP \fBN_DATA\fP"
+
+.SS "typedef struct \fBNode\fP \fBNode\fP"
+
+.SS "typedef struct \fBTree\fP \fBTree\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBADD_MODE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIFULL_LINKED \fP\fP
+.TP
+\fB\fIDOUBLE_LINKED_ONE_LVL \fP\fP
+.TP
+\fB\fIONE_LINK_ONE_LVL_NEXT \fP\fP
+.SS "enum \fBN_DATA\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGAME \fP\fP
+.TP
+\fB\fIALLOC_PTR \fP\fP
+.TP
+\fB\fISTRING \fP\fP
+.TP
+\fB\fIFLOAT \fP\fP
+.TP
+\fB\fIINT \fP\fP
+.TP
+\fB\fILONG \fP\fP
+.TP
+\fB\fICHAR \fP\fP
+.TP
+\fB\fINODE \fP\fP
+.TP
+\fB\fIPTR_ON_NODE \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "void add_node_to_list (\fBList\fP *list, \fBNode\fP *node)"
+
+.SS "void browse_tree (\fBTree\fP **tree)"
+A function to travel across the tree\&.\&.\&. use 'z' to go up the hierarchy, 'q' to go left , 'd' to go right,and 's' to go down\&.Use 'g' to generate a new tree from the current iterator position\&.
+.PP
+tree 
+.SS "void clean_and_generate_tree (\fBTree\fP **tree, uint8_tdepth, uint8_twidth)"
+Free previous tree structure,then generate the next nodes and store them back to tree pointer
+.PP
+tree  depth  width 
+.SS "\fBList\fP* concatenate_list (\fBList\fP *, \fBList\fP *, uint16_t)"
+\fBList\fP 
+.SS "void delete_node (\fBList\fP *list, \fBNode\fP *node)"
+
+.SS "void display_list (\fBList\fP *list)"
+
+.SS "void free_array (\fBArray\fP *array)"
+
+.SS "void free_list (\fBList\fP *list)"
+
+.SS "void free_node (\fBNode\fP *node)"
+
+.SS "void free_tree (\fBTree\fP *tree)"
+
+.SS "\fBList\fP* generate_all_boards (\fBNode\fP *, uint16_twidth, \fBCOLOR\fPcolor)"
+
+.SS "\fBList\fP* generate_boards (\fBNode\fP *root, uint16_twidth, size_tid)"
+\fBEngine\&.h\fP  Giving a certain board configuration and a piece,returns all moves possible in the form of multiple boards,in a list
+.PP
+game The board to generate the next moves from  piece The id of the piece in the array ,we want to move
+.PP
+List* 
+.SS "\fBTree\fP* generate_tree (\fBNode\fP *root, uint8_tdepth, uint8_twidth, \fBCOLOR\fPcolor)"
+generate all combinations according to the parameters
+.PP
+root  depth  width  datatype
+.SS "\fBList\fP* get_leafs (\fBTree\fP *tree)"
+
+.SS "\fBArray\fP* init_array (\fBN_DATA\fPdata)"
+data
+.SS "\fBList\fP* init_empty_list (\fBN_DATA\fPdata, \fBADD_MODE\fPadd)"
+
+.SS "\fBList\fP* init_list (\fBNode\fP *begin)"
+initialize a list
+.PP
+begin  end
+.PP
+List* 
+.SS "\fBNode\fP* init_node (void *data, \fBNode\fP *next, \fBNode\fP *previous, \fBList\fP *next_level, \fBNode\fP *prev_level, \fBN_DATA\fPtype)"
+\fBEngine\&.h\fP 
+.PP
+data  next  previous  next_level  prev_level
+.PP
+Node* 
+.SS "\fBTree\fP* init_tree (\fBNode\fP *root)"
+
+.SS "\fBbool\fP is_leaf_list (\fBList\fP *T, \fBNode\fP *N)"
+
+.SS "\fBbool\fP is_leaf_tree (\fBTree\fP *T, \fBNode\fP *N)"
+
+.SS "\fBNode\fP* pop_back (\fBList\fP *)"
+
+.SS "void print_list (\fBList\fP *list)"
+
+.SS "void print_node (\fBNode\fP *node)"
+printing the value of a node
+.PP
+node 
+.SS "char* toString (\fBList\fP *list)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "uint32_t DEPTH"
+
+.SS "uint32_t WIDTH"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

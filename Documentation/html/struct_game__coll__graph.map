@@ -1,0 +1,4 @@
+<map id="Game" name="Game">
+<area shape="rect" id="node2" href="$struct_piece.html" title="Piece struct. " alt="" coords="13,96,67,123"/>
+<area shape="rect" id="node3" href="$struct_position.html" title="structure of positions x and y are clamped between 0 and 7,to represent to position of a piece on the..." alt="" coords="5,5,75,32"/>
+</map>

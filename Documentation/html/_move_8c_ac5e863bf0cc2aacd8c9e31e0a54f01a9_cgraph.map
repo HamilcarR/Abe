@@ -1,0 +1,6 @@
+<map id="kill" name="kill">
+<area shape="rect" id="node2" href="$mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="93,5,251,32"/>
+<area shape="rect" id="node3" href="$_config_8h.html#a10922c863a802eb45fef06aa8bd1e3ba" title="get_pieceID" alt="" coords="126,56,218,83"/>
+<area shape="rect" id="node4" href="$_move_8c.html#a3882c6a150567ba2973e765dd5592e9e" title="equal_pieces" alt="" coords="123,107,221,133"/>
+<area shape="rect" id="node5" href="$_move_8c.html#ac3b8740600ee69878040077b8e55745d" title="select_piece" alt="" coords="125,157,219,184"/>
+</map>

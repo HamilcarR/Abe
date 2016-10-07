@@ -1,0 +1,161 @@
+.TH "sources/Engine.c" 3 "Wed Oct 5 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sources/Engine.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./headers/Engine\&.h'\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNode\fP * \fBinit_node\fP (void *data, \fBNode\fP *next, \fBNode\fP *prev, \fBList\fP *next_lvl, \fBNode\fP *prev_lvl, \fBN_DATA\fP type)"
+.br
+.ti -1c
+.RI "void \fBfree_node\fP (\fBNode\fP *node)"
+.br
+.ti -1c
+.RI "void \fBfree_list\fP (\fBList\fP *list)"
+.br
+.ti -1c
+.RI "void \fBfree_tree\fP (\fBTree\fP *tree)"
+.br
+.ti -1c
+.RI "\fBTree\fP * \fBinit_tree\fP (\fBNode\fP *root)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBinit_list\fP (\fBNode\fP *begin)"
+.br
+.ti -1c
+.RI "void \fBadd_node_to_list\fP (\fBList\fP *list, \fBNode\fP *node)"
+.br
+.ti -1c
+.RI "void \fBprint_list\fP (\fBList\fP *list)"
+.br
+.ti -1c
+.RI "void \fBdisplay_list\fP (\fBList\fP *list)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBinit_empty_list\fP (\fBN_DATA\fP data, \fBADD_MODE\fP add)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBgenerate_boards\fP (\fBNode\fP *game, uint16_t width, size_t pieceID)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBconcatenate_list\fP (\fBList\fP *L1, \fBList\fP *L2, uint16_t width)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBgenerate_all_boards\fP (\fBNode\fP *node, uint16_t width, \fBCOLOR\fP color)"
+.br
+.ti -1c
+.RI "void \fBprint_node\fP (\fBNode\fP *node)"
+.br
+.ti -1c
+.RI "void \fBbrowse_tree\fP (\fBTree\fP **tree)"
+.br
+.ti -1c
+.RI "void \fBgeneration\fP (\fBNode\fP *iterator, uint8_t \fBD\fP, uint8_t \fBW\fP, uint8_t countD, uint8_t countW, \fBCOLOR\fP color)"
+.br
+.ti -1c
+.RI "\fBTree\fP * \fBgenerate_tree\fP (\fBNode\fP *root, uint8_t depth, uint8_t width, \fBCOLOR\fP begin)"
+.br
+.ti -1c
+.RI "\fBNode\fP * \fBpop_back\fP (\fBList\fP *list)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBis_leaf_list\fP (\fBList\fP *list, \fBNode\fP *node)"
+.br
+.ti -1c
+.RI "\fBbool\fP \fBis_leaf_tree\fP (\fBTree\fP *T, \fBNode\fP *node)"
+.br
+.ti -1c
+.RI "\fBList\fP * \fBget_leafs\fP (\fBTree\fP *tree)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBDEPTH\fP = 0"
+.br
+.ti -1c
+.RI "uint32_t \fBWIDTH\fP = 0"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void add_node_to_list (\fBList\fP *list, \fBNode\fP *node)"
+
+.SS "void browse_tree (\fBTree\fP **tree)"
+A function to travel across the tree\&.\&.\&. use 'z' to go up the hierarchy, 'q' to go left , 'd' to go right,and 's' to go down\&.Use 'g' to generate a new tree from the current iterator position\&.
+.PP
+tree 
+.SS "\fBList\fP* concatenate_list (\fBList\fP *, \fBList\fP *, uint16_t)"
+\fBList\fP 
+.SS "void display_list (\fBList\fP *list)"
+
+.SS "void free_list (\fBList\fP *list)"
+
+.SS "void free_node (\fBNode\fP *node)"
+
+.SS "void free_tree (\fBTree\fP *tree)"
+
+.SS "\fBList\fP* generate_all_boards (\fBNode\fP *node, uint16_twidth, \fBCOLOR\fPcolor)"
+
+.SS "\fBList\fP* generate_boards (\fBNode\fP *root, uint16_twidth, size_tid)"
+\fBEngine\&.h\fP  Giving a certain board configuration and a piece,returns all moves possible in the form of multiple boards,in a list
+.PP
+game The board to generate the next moves from  piece The id of the piece in the array ,we want to move
+.PP
+List* 
+.SS "\fBTree\fP* generate_tree (\fBNode\fP *root, uint8_tdepth, uint8_twidth, \fBCOLOR\fPcolor)"
+generate all combinations according to the parameters
+.PP
+root  depth  width  datatype
+.SS "void generation (\fBNode\fP *iterator, uint8_tD, uint8_tW, uint8_tcountD, uint8_tcountW, \fBCOLOR\fPcolor)"
+
+.SS "\fBList\fP* get_leafs (\fBTree\fP *tree)"
+
+.SS "\fBList\fP* init_empty_list (\fBN_DATA\fPdata, \fBADD_MODE\fPadd)"
+
+.SS "\fBList\fP* init_list (\fBNode\fP *begin)"
+initialize a list
+.PP
+begin  end
+.PP
+List* 
+.SS "\fBNode\fP* init_node (void *data, \fBNode\fP *next, \fBNode\fP *previous, \fBList\fP *next_level, \fBNode\fP *prev_level, \fBN_DATA\fPtype)"
+\fBEngine\&.h\fP 
+.PP
+data  next  previous  next_level  prev_level
+.PP
+Node* 
+.SS "\fBTree\fP* init_tree (\fBNode\fP *root)"
+
+.SS "\fBbool\fP is_leaf_list (\fBList\fP *list, \fBNode\fP *node)"
+
+.SS "\fBbool\fP is_leaf_tree (\fBTree\fP *T, \fBNode\fP *node)"
+
+.SS "\fBNode\fP* pop_back (\fBList\fP *list)"
+
+.SS "void print_list (\fBList\fP *list)"
+
+.SS "void print_node (\fBNode\fP *node)"
+printing the value of a node
+.PP
+node 
+.SH "Variable Documentation"
+.PP 
+.SS "uint32_t DEPTH = 0"
+
+.SS "uint32_t WIDTH = 0"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

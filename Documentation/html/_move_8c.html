@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Chess: sources/Move.c File Reference</title>
+<title>My Project: sources/Move.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Chess
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,33 +89,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Move.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;../headers/Move.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="_move_8h_source.html">../headers/Move.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Move.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c__incl.png" border="0" usemap="#sources_2_move_8c" alt=""/></div>
+<map name="sources_2_move_8c" id="sources_2_move_8c">
+<area shape="rect" id="node2" href="_move_8h.html" title="../headers/Move.h" alt="" coords="259,80,385,107"/><area shape="rect" id="node3" href="_consts_8h.html" title="all enums and constants " alt="" coords="285,229,359,256"/><area shape="rect" id="node12" href="_config_8h.html" title="structure of a player " alt="" coords="325,155,395,181"/><area shape="rect" id="node4" href="mmanager_8h.html" title="mmanager.h" alt="" coords="275,304,369,331"/></map>
+</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a55d66a51e13fc8fbf73068862fab8d83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a55d66a51e13fc8fbf73068862fab8d83">finished_game</a> (Game *g)</td></tr>
+<tr class="memitem:a55d66a51e13fc8fbf73068862fab8d83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_consts_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a55d66a51e13fc8fbf73068862fab8d83">finished_game</a> (<a class="el" href="struct_game.html">Game</a> *g)</td></tr>
 <tr class="separator:a55d66a51e13fc8fbf73068862fab8d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3b8740600ee69878040077b8e55745d"><td class="memItemLeft" align="right" valign="top">Piece *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#ac3b8740600ee69878040077b8e55745d">select_piece</a> (Game *game, Position pos)</td></tr>
+<tr class="memitem:ac3b8740600ee69878040077b8e55745d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_piece.html">Piece</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#ac3b8740600ee69878040077b8e55745d">select_piece</a> (<a class="el" href="struct_game.html">Game</a> *game, <a class="el" href="struct_position.html">Position</a> pos)</td></tr>
 <tr class="separator:ac3b8740600ee69878040077b8e55745d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3882c6a150567ba2973e765dd5592e9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a3882c6a150567ba2973e765dd5592e9e">equal_pieces</a> (Piece *piece1, Piece *piece2)</td></tr>
+<tr class="memitem:a3882c6a150567ba2973e765dd5592e9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_consts_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a3882c6a150567ba2973e765dd5592e9e">equal_pieces</a> (<a class="el" href="struct_piece.html">Piece</a> *piece1, <a class="el" href="struct_piece.html">Piece</a> *piece2)</td></tr>
 <tr class="separator:a3882c6a150567ba2973e765dd5592e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5e863bf0cc2aacd8c9e31e0a54f01a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#ac5e863bf0cc2aacd8c9e31e0a54f01a9">kill</a> (Piece **piece, Game *game, int k)</td></tr>
+<tr class="memitem:ac5e863bf0cc2aacd8c9e31e0a54f01a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#ac5e863bf0cc2aacd8c9e31e0a54f01a9">kill</a> (<a class="el" href="struct_piece.html">Piece</a> **piece, <a class="el" href="struct_game.html">Game</a> *game, int k)</td></tr>
 <tr class="separator:ac5e863bf0cc2aacd8c9e31e0a54f01a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f9904cc7200fc100af032d8c4962b36"><td class="memItemLeft" align="right" valign="top">Moves&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a2f9904cc7200fc100af032d8c4962b36">generate_moves</a> (Game *game, Piece **piece)</td></tr>
+<tr class="memitem:a2f9904cc7200fc100af032d8c4962b36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_moves.html">Moves</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a2f9904cc7200fc100af032d8c4962b36">generate_moves</a> (<a class="el" href="struct_game.html">Game</a> *game, <a class="el" href="struct_piece.html">Piece</a> **piece)</td></tr>
 <tr class="separator:a2f9904cc7200fc100af032d8c4962b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69a42773789ee72cbecb6427e5f847d1"><td class="memItemLeft" align="right" valign="top">Moves&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a69a42773789ee72cbecb6427e5f847d1">move_pawn</a> (Game *game, Piece *piece)</td></tr>
+<tr class="memitem:a69a42773789ee72cbecb6427e5f847d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_moves.html">Moves</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a69a42773789ee72cbecb6427e5f847d1">move_pawn</a> (<a class="el" href="struct_game.html">Game</a> *game, <a class="el" href="struct_piece.html">Piece</a> *piece)</td></tr>
 <tr class="separator:a69a42773789ee72cbecb6427e5f847d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcc4238f83bbdb6551bdfe1568f19a15"><td class="memItemLeft" align="right" valign="top">Moves&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15">move_king</a> (Game *game, Piece *piece)</td></tr>
+<tr class="memitem:adcc4238f83bbdb6551bdfe1568f19a15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_moves.html">Moves</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15">move_king</a> (<a class="el" href="struct_game.html">Game</a> *game, <a class="el" href="struct_piece.html">Piece</a> *piece)</td></tr>
 <tr class="separator:adcc4238f83bbdb6551bdfe1568f19a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a809c28eb568c53b2924e6aad9bad9989"><td class="memItemLeft" align="right" valign="top">Moves&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989">move_queen</a> (Game *game, Piece *piece)</td></tr>
+<tr class="memitem:a809c28eb568c53b2924e6aad9bad9989"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_moves.html">Moves</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989">move_queen</a> (<a class="el" href="struct_game.html">Game</a> *game, <a class="el" href="struct_piece.html">Piece</a> *piece)</td></tr>
 <tr class="separator:a809c28eb568c53b2924e6aad9bad9989"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e7043926841e4cfdd2ffb2a8ef32761"><td class="memItemLeft" align="right" valign="top">Moves&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761">move_knight</a> (Game *game, Piece *piece)</td></tr>
+<tr class="memitem:a5e7043926841e4cfdd2ffb2a8ef32761"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_moves.html">Moves</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761">move_knight</a> (<a class="el" href="struct_game.html">Game</a> *game, <a class="el" href="struct_piece.html">Piece</a> *piece)</td></tr>
 <tr class="separator:a5e7043926841e4cfdd2ffb2a8ef32761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa96222bcecc0032c648c658096a45cae"><td class="memItemLeft" align="right" valign="top">Moves&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#aa96222bcecc0032c648c658096a45cae">move_rook</a> (Game *game, Piece *piece)</td></tr>
+<tr class="memitem:aa96222bcecc0032c648c658096a45cae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_moves.html">Moves</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#aa96222bcecc0032c648c658096a45cae">move_rook</a> (<a class="el" href="struct_game.html">Game</a> *game, <a class="el" href="struct_piece.html">Piece</a> *piece)</td></tr>
 <tr class="separator:aa96222bcecc0032c648c658096a45cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1694c7572947f6510c2c7426f397076"><td class="memItemLeft" align="right" valign="top">Moves&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#ae1694c7572947f6510c2c7426f397076">move_bishop</a> (Game *game, Piece *piece)</td></tr>
+<tr class="memitem:ae1694c7572947f6510c2c7426f397076"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_moves.html">Moves</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#ae1694c7572947f6510c2c7426f397076">move_bishop</a> (<a class="el" href="struct_game.html">Game</a> *game, <a class="el" href="struct_piece.html">Piece</a> *piece)</td></tr>
 <tr class="separator:ae1694c7572947f6510c2c7426f397076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a704b583ee82a62342712546aca7458fc"><td class="memItemLeft" align="right" valign="top">ERROR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a704b583ee82a62342712546aca7458fc">move_piece</a> (Game *game, Piece **piece, Position pos)</td></tr>
+<tr class="memitem:a704b583ee82a62342712546aca7458fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_consts_8h.html#a9eaada089c4de774cfc8b7aea4b9379a">ERROR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_move_8c.html#a704b583ee82a62342712546aca7458fc">move_piece</a> (<a class="el" href="struct_game.html">Game</a> *game, <a class="el" href="struct_piece.html">Piece</a> **piece, <a class="el" href="struct_position.html">Position</a> pos)</td></tr>
 <tr class="separator:a704b583ee82a62342712546aca7458fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -124,15 +131,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool equal_pieces </td>
+          <td class="memname"><a class="el" href="_consts_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> equal_pieces </td>
           <td>(</td>
-          <td class="paramtype">Piece *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> *&#160;</td>
           <td class="paramname"><em>piece1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Piece *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> *&#160;</td>
           <td class="paramname"><em>piece2</em>&#160;</td>
         </tr>
         <tr>
@@ -143,6 +150,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_a3882c6a150567ba2973e765dd5592e9e_icgraph.png" border="0" usemap="#_move_8c_a3882c6a150567ba2973e765dd5592e9e_icgraph" alt=""/></div>
+<map name="_move_8c_a3882c6a150567ba2973e765dd5592e9e_icgraph" id="_move_8c_a3882c6a150567ba2973e765dd5592e9e_icgraph">
+<area shape="rect" id="node2" href="_move_8c.html#ac5e863bf0cc2aacd8c9e31e0a54f01a9" title="kill" alt="" coords="153,5,191,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a55d66a51e13fc8fbf73068862fab8d83"></a>
@@ -150,9 +166,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool finished_game </td>
+          <td class="memname"><a class="el" href="_consts_8h.html#af6a258d8f3ee5206d682d799316314b1">bool</a> finished_game </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>g</em></td><td>)</td>
           <td></td>
         </tr>
@@ -166,15 +182,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Moves generate_moves </td>
+          <td class="memname"><a class="el" href="struct_moves.html">Moves</a> generate_moves </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Piece **&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> **&#160;</td>
           <td class="paramname"><em>piece</em>&#160;</td>
         </tr>
         <tr>
@@ -185,6 +201,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_a2f9904cc7200fc100af032d8c4962b36_cgraph.png" border="0" usemap="#_move_8c_a2f9904cc7200fc100af032d8c4962b36_cgraph" alt=""/></div>
+<map name="_move_8c_a2f9904cc7200fc100af032d8c4962b36_cgraph" id="_move_8c_a2f9904cc7200fc100af032d8c4962b36_cgraph">
+<area shape="rect" id="node2" href="_move_8c.html#a69a42773789ee72cbecb6427e5f847d1" title="move_pawn" alt="" coords="321,56,413,83"/><area shape="rect" id="node5" href="_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="317,208,416,235"/><area shape="rect" id="node6" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="173,259,269,285"/><area shape="rect" id="node7" href="_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="323,157,410,184"/><area shape="rect" id="node8" href="_move_8c.html#a5e7043926841e4cfdd2ffb2a8ef32761" title="move_knight" alt="" coords="319,107,415,133"/><area shape="rect" id="node9" href="_move_8c.html#adcc4238f83bbdb6551bdfe1568f19a15" title="move_king" alt="" coords="324,5,409,32"/><area shape="rect" id="node3" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="464,157,621,184"/><area shape="rect" id="node4" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="471,107,614,133"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_a2f9904cc7200fc100af032d8c4962b36_icgraph.png" border="0" usemap="#_move_8c_a2f9904cc7200fc100af032d8c4962b36_icgraph" alt=""/></div>
+<map name="_move_8c_a2f9904cc7200fc100af032d8c4962b36_icgraph" id="_move_8c_a2f9904cc7200fc100af032d8c4962b36_icgraph">
+<area shape="rect" id="node2" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="174,31,293,57"/><area shape="rect" id="node3" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="341,31,480,57"/><area shape="rect" id="node4" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="528,31,611,57"/><area shape="rect" id="node5" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="659,31,760,57"/><area shape="rect" id="node6" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="808,5,901,32"/><area shape="rect" id="node7" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="829,56,880,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ac5e863bf0cc2aacd8c9e31e0a54f01a9"></a>
@@ -194,13 +228,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void kill </td>
           <td>(</td>
-          <td class="paramtype">Piece **&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> **&#160;</td>
           <td class="paramname"><em>piece</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
@@ -217,6 +251,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_ac5e863bf0cc2aacd8c9e31e0a54f01a9_cgraph.png" border="0" usemap="#_move_8c_ac5e863bf0cc2aacd8c9e31e0a54f01a9_cgraph" alt=""/></div>
+<map name="_move_8c_ac5e863bf0cc2aacd8c9e31e0a54f01a9_cgraph" id="_move_8c_ac5e863bf0cc2aacd8c9e31e0a54f01a9_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="93,5,251,32"/><area shape="rect" id="node3" href="_config_8h.html#a10922c863a802eb45fef06aa8bd1e3ba" title="get_pieceID" alt="" coords="126,56,218,83"/><area shape="rect" id="node4" href="_move_8c.html#a3882c6a150567ba2973e765dd5592e9e" title="equal_pieces" alt="" coords="123,107,221,133"/><area shape="rect" id="node5" href="_move_8c.html#ac3b8740600ee69878040077b8e55745d" title="select_piece" alt="" coords="125,157,219,184"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ae1694c7572947f6510c2c7426f397076"></a>
@@ -224,15 +267,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Moves move_bishop </td>
+          <td class="memname"><a class="el" href="struct_moves.html">Moves</a> move_bishop </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Piece *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> *&#160;</td>
           <td class="paramname"><em>piece</em>&#160;</td>
         </tr>
         <tr>
@@ -242,6 +285,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_ae1694c7572947f6510c2c7426f397076_cgraph.png" border="0" usemap="#_move_8c_ae1694c7572947f6510c2c7426f397076_cgraph" alt=""/></div>
+<map name="_move_8c_ae1694c7572947f6510c2c7426f397076_cgraph" id="_move_8c_ae1694c7572947f6510c2c7426f397076_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="152,5,309,32"/><area shape="rect" id="node3" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="159,56,302,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_ae1694c7572947f6510c2c7426f397076_icgraph.png" border="0" usemap="#_move_8c_ae1694c7572947f6510c2c7426f397076_icgraph" alt=""/></div>
+<map name="_move_8c_ae1694c7572947f6510c2c7426f397076_icgraph" id="_move_8c_ae1694c7572947f6510c2c7426f397076_icgraph">
+<area shape="rect" id="node2" href="_move_8c.html#a2f9904cc7200fc100af032d8c4962b36" title="generate_moves" alt="" coords="297,31,415,57"/><area shape="rect" id="node9" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="152,56,248,83"/><area shape="rect" id="node3" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="465,31,583,57"/><area shape="rect" id="node4" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="632,31,771,57"/><area shape="rect" id="node5" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="819,31,901,57"/><area shape="rect" id="node6" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="949,31,1051,57"/><area shape="rect" id="node7" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="1099,5,1192,32"/><area shape="rect" id="node8" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="1120,56,1171,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -250,15 +311,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Moves move_king </td>
+          <td class="memname"><a class="el" href="struct_moves.html">Moves</a> move_king </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Piece *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> *&#160;</td>
           <td class="paramname"><em>piece</em>&#160;</td>
         </tr>
         <tr>
@@ -268,6 +329,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_adcc4238f83bbdb6551bdfe1568f19a15_cgraph.png" border="0" usemap="#_move_8c_adcc4238f83bbdb6551bdfe1568f19a15_cgraph" alt=""/></div>
+<map name="_move_8c_adcc4238f83bbdb6551bdfe1568f19a15_cgraph" id="_move_8c_adcc4238f83bbdb6551bdfe1568f19a15_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="139,5,296,32"/><area shape="rect" id="node3" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="146,56,289,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_adcc4238f83bbdb6551bdfe1568f19a15_icgraph.png" border="0" usemap="#_move_8c_adcc4238f83bbdb6551bdfe1568f19a15_icgraph" alt=""/></div>
+<map name="_move_8c_adcc4238f83bbdb6551bdfe1568f19a15_icgraph" id="_move_8c_adcc4238f83bbdb6551bdfe1568f19a15_icgraph">
+<area shape="rect" id="node2" href="_move_8c.html#a2f9904cc7200fc100af032d8c4962b36" title="generate_moves" alt="" coords="139,31,258,57"/><area shape="rect" id="node3" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="307,31,426,57"/><area shape="rect" id="node4" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="475,31,613,57"/><area shape="rect" id="node5" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="661,31,744,57"/><area shape="rect" id="node6" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="792,31,893,57"/><area shape="rect" id="node7" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="941,5,1035,32"/><area shape="rect" id="node8" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="963,56,1013,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -276,15 +355,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Moves move_knight </td>
+          <td class="memname"><a class="el" href="struct_moves.html">Moves</a> move_knight </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Piece *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> *&#160;</td>
           <td class="paramname"><em>piece</em>&#160;</td>
         </tr>
         <tr>
@@ -294,6 +373,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_a5e7043926841e4cfdd2ffb2a8ef32761_cgraph.png" border="0" usemap="#_move_8c_a5e7043926841e4cfdd2ffb2a8ef32761_cgraph" alt=""/></div>
+<map name="_move_8c_a5e7043926841e4cfdd2ffb2a8ef32761_cgraph" id="_move_8c_a5e7043926841e4cfdd2ffb2a8ef32761_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="149,5,307,32"/><area shape="rect" id="node3" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="157,56,299,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_a5e7043926841e4cfdd2ffb2a8ef32761_icgraph.png" border="0" usemap="#_move_8c_a5e7043926841e4cfdd2ffb2a8ef32761_icgraph" alt=""/></div>
+<map name="_move_8c_a5e7043926841e4cfdd2ffb2a8ef32761_icgraph" id="_move_8c_a5e7043926841e4cfdd2ffb2a8ef32761_icgraph">
+<area shape="rect" id="node2" href="_move_8c.html#a2f9904cc7200fc100af032d8c4962b36" title="generate_moves" alt="" coords="150,31,269,57"/><area shape="rect" id="node3" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="318,31,437,57"/><area shape="rect" id="node4" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="485,31,624,57"/><area shape="rect" id="node5" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="672,31,755,57"/><area shape="rect" id="node6" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="803,31,904,57"/><area shape="rect" id="node7" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="952,5,1045,32"/><area shape="rect" id="node8" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="973,56,1024,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -302,15 +399,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Moves move_pawn </td>
+          <td class="memname"><a class="el" href="struct_moves.html">Moves</a> move_pawn </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Piece *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> *&#160;</td>
           <td class="paramname"><em>piece</em>&#160;</td>
         </tr>
         <tr>
@@ -321,6 +418,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_a69a42773789ee72cbecb6427e5f847d1_cgraph.png" border="0" usemap="#_move_8c_a69a42773789ee72cbecb6427e5f847d1_cgraph" alt=""/></div>
+<map name="_move_8c_a69a42773789ee72cbecb6427e5f847d1_cgraph" id="_move_8c_a69a42773789ee72cbecb6427e5f847d1_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="147,5,304,32"/><area shape="rect" id="node3" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="154,56,297,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_a69a42773789ee72cbecb6427e5f847d1_icgraph.png" border="0" usemap="#_move_8c_a69a42773789ee72cbecb6427e5f847d1_icgraph" alt=""/></div>
+<map name="_move_8c_a69a42773789ee72cbecb6427e5f847d1_icgraph" id="_move_8c_a69a42773789ee72cbecb6427e5f847d1_icgraph">
+<area shape="rect" id="node2" href="_move_8c.html#a2f9904cc7200fc100af032d8c4962b36" title="generate_moves" alt="" coords="147,31,266,57"/><area shape="rect" id="node3" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="315,31,434,57"/><area shape="rect" id="node4" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="483,31,621,57"/><area shape="rect" id="node5" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="669,31,752,57"/><area shape="rect" id="node6" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="800,31,901,57"/><area shape="rect" id="node7" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="949,5,1043,32"/><area shape="rect" id="node8" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="971,56,1021,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a704b583ee82a62342712546aca7458fc"></a>
@@ -328,21 +443,21 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ERROR move_piece </td>
+          <td class="memname"><a class="el" href="_consts_8h.html#a9eaada089c4de774cfc8b7aea4b9379a">ERROR</a> move_piece </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Piece **&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> **&#160;</td>
           <td class="paramname"><em>piece</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Position&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_position.html">Position</a>&#160;</td>
           <td class="paramname"><em>pos</em>&#160;</td>
         </tr>
         <tr>
@@ -360,15 +475,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Moves move_queen </td>
+          <td class="memname"><a class="el" href="struct_moves.html">Moves</a> move_queen </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Piece *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> *&#160;</td>
           <td class="paramname"><em>piece</em>&#160;</td>
         </tr>
         <tr>
@@ -378,6 +493,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_a809c28eb568c53b2924e6aad9bad9989_cgraph.png" border="0" usemap="#_move_8c_a809c28eb568c53b2924e6aad9bad9989_cgraph" alt=""/></div>
+<map name="_move_8c_a809c28eb568c53b2924e6aad9bad9989_cgraph" id="_move_8c_a809c28eb568c53b2924e6aad9bad9989_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="296,21,453,48"/><area shape="rect" id="node3" href="_move_8c.html#ae1694c7572947f6510c2c7426f397076" title="move_bishop" alt="" coords="149,72,248,99"/><area shape="rect" id="node5" href="_move_8c.html#aa96222bcecc0032c648c658096a45cae" title="move_rook" alt="" coords="155,21,242,48"/><area shape="rect" id="node4" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="303,72,446,99"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_a809c28eb568c53b2924e6aad9bad9989_icgraph.png" border="0" usemap="#_move_8c_a809c28eb568c53b2924e6aad9bad9989_icgraph" alt=""/></div>
+<map name="_move_8c_a809c28eb568c53b2924e6aad9bad9989_icgraph" id="_move_8c_a809c28eb568c53b2924e6aad9bad9989_icgraph">
+<area shape="rect" id="node2" href="_move_8c.html#a2f9904cc7200fc100af032d8c4962b36" title="generate_moves" alt="" coords="150,31,269,57"/><area shape="rect" id="node3" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="318,31,437,57"/><area shape="rect" id="node4" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="485,31,624,57"/><area shape="rect" id="node5" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="672,31,755,57"/><area shape="rect" id="node6" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="803,31,904,57"/><area shape="rect" id="node7" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="952,5,1045,32"/><area shape="rect" id="node8" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="973,56,1024,83"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -386,15 +519,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Moves move_rook </td>
+          <td class="memname"><a class="el" href="struct_moves.html">Moves</a> move_rook </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Piece *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_piece.html">Piece</a> *&#160;</td>
           <td class="paramname"><em>piece</em>&#160;</td>
         </tr>
         <tr>
@@ -405,6 +538,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_aa96222bcecc0032c648c658096a45cae_cgraph.png" border="0" usemap="#_move_8c_aa96222bcecc0032c648c658096a45cae_cgraph" alt=""/></div>
+<map name="_move_8c_aa96222bcecc0032c648c658096a45cae_cgraph" id="_move_8c_aa96222bcecc0032c648c658096a45cae_cgraph">
+<area shape="rect" id="node2" href="mmanager_8h.html#aa6f66e547a8ec6ebf8b76cb791bedc6f" title="mem_debug_increment" alt="" coords="141,5,299,32"/><area shape="rect" id="node3" href="_config_8h.html#a27f3e06746b206fa643710d694b67585" title="check_valid_position" alt="" coords="149,56,291,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_aa96222bcecc0032c648c658096a45cae_icgraph.png" border="0" usemap="#_move_8c_aa96222bcecc0032c648c658096a45cae_icgraph" alt=""/></div>
+<map name="_move_8c_aa96222bcecc0032c648c658096a45cae_icgraph" id="_move_8c_aa96222bcecc0032c648c658096a45cae_icgraph">
+<area shape="rect" id="node2" href="_move_8c.html#a2f9904cc7200fc100af032d8c4962b36" title="generate_moves" alt="" coords="286,31,405,57"/><area shape="rect" id="node9" href="_move_8c.html#a809c28eb568c53b2924e6aad9bad9989" title="move_queen" alt="" coords="141,56,237,83"/><area shape="rect" id="node3" href="_engine_8c.html#ac69ddea692e6ac7c1cbfc4c841e8e417" title="generate_boards" alt="" coords="454,31,573,57"/><area shape="rect" id="node4" href="_engine_8c.html#aac7ecaff06b599d6f0439dd87f4d8b7c" title="generate_all_boards" alt="" coords="621,31,760,57"/><area shape="rect" id="node5" href="_engine_8c.html#a47eba49aeda0f6a477fcea8f6c6ebe7e" title="generation" alt="" coords="808,31,891,57"/><area shape="rect" id="node6" href="_engine_8c.html#a96c16dcb020e0b94b3f3ab645164b4d3" title="generate_tree" alt="" coords="939,31,1040,57"/><area shape="rect" id="node7" href="_engine_8c.html#ada5e7b878010c1ef4052efa7e91d0fe3" title="browse_tree" alt="" coords="1088,5,1181,32"/><area shape="rect" id="node8" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72" title="main" alt="" coords="1109,56,1160,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ac3b8740600ee69878040077b8e55745d"></a>
@@ -412,15 +563,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Piece* select_piece </td>
+          <td class="memname"><a class="el" href="struct_piece.html">Piece</a>* select_piece </td>
           <td>(</td>
-          <td class="paramtype">Game *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_game.html">Game</a> *&#160;</td>
           <td class="paramname"><em>game</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Position&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_position.html">Position</a>&#160;</td>
           <td class="paramname"><em>pos</em>&#160;</td>
         </tr>
         <tr>
@@ -431,12 +582,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_move_8c_ac3b8740600ee69878040077b8e55745d_icgraph.png" border="0" usemap="#_move_8c_ac3b8740600ee69878040077b8e55745d_icgraph" alt=""/></div>
+<map name="_move_8c_ac3b8740600ee69878040077b8e55745d_icgraph" id="_move_8c_ac3b8740600ee69878040077b8e55745d_icgraph">
+<area shape="rect" id="node2" href="_move_8c.html#ac5e863bf0cc2aacd8c9e31e0a54f01a9" title="kill" alt="" coords="150,5,189,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 3 2016 10:54:57 for Chess by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 5 2016 18:53:40 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
