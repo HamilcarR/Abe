@@ -86,7 +86,6 @@ void free_node(Node * node) {
 		free_node(node->value);
 		node->value = NULL ; 	
 		default :
-		node->value = NULL ; 
 
 		break; 
 
@@ -171,7 +170,10 @@ void free_tree(Tree* tree){
 	DEBUG_COUNTER = 0 ;
         
 	free_tree_nodes(tree->root) ;
+	
 	mem_debug_increment(DEALLOC_TREE);
+
+
 	free(tree);
 
 
@@ -182,7 +184,6 @@ void free_tree(Tree* tree){
 Tree* init_tree(Node* root){
 	Tree* tree = calloc(1,sizeof(Tree));
 	mem_debug_increment(ALLOC_TREE);
-         	
 	tree->root = root; 
 
 	return tree ; 
@@ -440,8 +441,12 @@ List* generate_boards(Node* game,uint16_t width , size_t pieceID){
 			Node* P = new_piece_location(moves.position[i] , game , pieceID);
 			Game *g1 = data;
 			Game *g2 = (Game*)(P->value);
-			if(!equal_game(g1,g2))
+			if(!equal_game(g1,g2)){
+
+				calculate_score(P->value);
 				add_node_to_list(list , P ) ;
+
+			}
 			else
 				free_node(P); 	
 		
@@ -707,7 +712,7 @@ void print_node(Node* node){
 			
 			print_board((Game*) (node->value)) ; 
 			printf("Iterator color : %s\n", (((Game*) (node->value))->turn ) == BLACK ? "BLACK" : "WHITE" ) ; 
-				
+			printf("MIN-MAX value : %i\nGame score value :\nWHITE :%i   BLACK:%i\n",node->min_max , ( (Game*) (node->value))->score_white , ( (Game*)(node->value))->score_black );		
 		break;
 
 		case STRING : 
@@ -930,29 +935,27 @@ void browse_tree(Tree** tree){
 
 
 
-
 /***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 static int cc = 0 ; 
 void generation(Node* iterator,uint8_t D,uint8_t W,uint8_t countD,uint8_t countW,COLOR color){
-	if(countD<D){
+	if(countD<D && !finished_game(iterator->value)){
 		
 
 		 	
 		COLOR temp =  (color == BLACK) ? WHITE : BLACK ;  
 		List *list = generate_all_boards(iterator,W,temp);
+
 		if(list!=NULL){
 		Node* it = list->begin ;
-		while(it != NULL ){
-				
-			
-			
-			generation(it , D , W , countD+1 , countW+1 , temp ) ; 
-
-		it = it->next; 
+			while(it != NULL ){
+				generation(it , D , W , countD+1 , countW+1 , temp ) ; 
+				it = it->next; 
+			}
 		}
-	}
 
-}
+	}
+	
+
 
 
 }
@@ -1074,7 +1077,7 @@ bool is_leaf_tree(Tree* T , Node* node){
 static void seek_leafs(Node* node, List* list){
 	if(node->next_level==NULL || node->next_level->count == 0){
 		
-		Node *N = init_node((void*) node,NULL,NULL,NULL,NULL,NODE);
+		Node *N = init_node((void*) &node,NULL,NULL,NULL,NULL,PTR);
 		add_node_to_list(list,N);
 
 
@@ -1095,7 +1098,7 @@ static void seek_leafs(Node* node, List* list){
 
 List* get_leafs(Tree* tree){
 
-	List* list = init_empty_list(NODE,ONE_LINK_ONE_LVL_NEXT); 
+	List* list = init_empty_list(PTR,ONE_LINK_ONE_LVL_NEXT); 
 	
 	seek_leafs(tree->root,list);
 	return list ; 

@@ -57,8 +57,7 @@ typedef struct {
  \file config.h
  \struct Stack Config.h
  \brief Stack struct
- *The dead pieces.
-
+ *The dead pieces
  */
 
 typedef struct{
@@ -89,7 +88,9 @@ typedef struct {
     Piece * pieces; //array of Pieces
     size_t stack [MAX_PIECES] ; /*size 12*/
     size_t pieces_size ;
-    COLOR turn ; 
+    COLOR turn ;
+    int score_white ; 
+    int score_black ; 
 }Game;
 
 
@@ -118,6 +119,9 @@ typedef struct {
  void free_game(Game * game); //free the game struct
  void free_player(Player *player) ;
  void free_position(Position *position) ;
+
+
+
  void print_board(Game* game);
  void read_pieces(Game* game);
 Game* init_blank_game();//return an initialized game with pieces at their respective positions. 
@@ -135,7 +139,7 @@ bool equal_game(Game* g1 , Game* g2) ;
 bool equal_piece(Piece *p1,Piece *p2) ; 
 
 
-
+void calculate_score(Game* G ) ; 
 
 
 

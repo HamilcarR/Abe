@@ -4,8 +4,16 @@
  
 
 
+ enum SCORE {
+	SCORE_KING = 1000,
+	SCORE_QUEEN = 500,
+	SCORE_KNIGHT = 50,
+	SCORE_ROOK = 50 , 
+	SCORE_BISHOP = 50 , 
+	SCORE_PAWN = 10
+ };
 
-
+typedef enum SCORE SCORE ;
 
  enum GLOBAL_CONSTS { MAX_PIECES = 12 , BOARD_SIZE = 8 } ; 
 typedef enum GLOBAL_CONSTS GLOBAL_CONSTS ; 

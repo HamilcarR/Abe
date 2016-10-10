@@ -962,11 +962,13 @@ static int add_p = 0 ;
 		
 	}
 
-
+	
         for(int i = 0 ; i < MAX_PIECES ; i++)
             game->stack[i] = (size_t) 0 ;
-
-        return game;
+	
+	calculate_score(game);
+        
+	return game;
 
     }
 
@@ -1100,10 +1102,85 @@ static int add_p = 0 ;
 
 	
 	copy->turn = src->turn ; 
-
+	copy->score_white = src->score_white ;	
+	copy->score_black = src->score_black ; 
 	return copy ; 
 
    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*********************************************************************************************************************************************************************************************************************/
+
+
+
+static int get_points(Type type){
+	switch(type){
+		case KING :
+			return SCORE_KING;
+		break;
+
+		case QUEEN :
+			return SCORE_QUEEN;
+		break;
+
+		case BISHOP:
+			return SCORE_BISHOP;
+		break;
+
+		case ROOK:
+			return SCORE_ROOK;
+		break;
+
+		case KNIGHT:
+			return SCORE_KNIGHT;
+		break;
+
+		case PAWN:
+			return SCORE_PAWN;
+		break;	
+
+		
+	}
+
+}
+
+#include "../headers/Move.h"
+void calculate_score(Game* G){
+	G->score_black = 0 ; 
+	G->score_white = 0 ; 	
+	for(int i = 0 ; i < G->pieces_size ; i++){
+			switch(G->pieces[i].color){
+				case WHITE : 
+					G->score_white += get_points(G->pieces[i].type);
+				break;
+
+				case BLACK :
+					G->score_black += get_points(G->pieces[i].type);
+				break;
+			}	
+		}
+}
+
 
 
 

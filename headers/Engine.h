@@ -43,7 +43,7 @@ typedef enum ADD_MODE ADD_MODE ;
  * NODE for a Nodeception
  * etc..
  */
- enum N_DATA {GAME = 0 , ALLOC_PTR = 1 ,STRING = 3 , FLOAT = 2 , INT = 4 , LONG = 5 , CHAR = 6, NODE = 7,PTR_ON_NODE= 8};
+ enum N_DATA {GAME = 0 , ALLOC_PTR = 1 ,STRING = 3 , FLOAT = 2 , INT = 4 , LONG = 5 , CHAR = 6, NODE = 7,PTR_ON_NODE= 8,PTR = 	9};
 typedef enum N_DATA N_DATA ; 
 
 struct Node ;
@@ -56,7 +56,7 @@ typedef struct Node Node;
  struct Node{
 	 
     void* value;
-    int score ;   
+    int min_max ;   
     N_DATA data_type;  
     Node *prev ;
     Node *next ;/* pointer to nodes of the same level */
@@ -80,7 +80,6 @@ struct List {
 typedef struct Tree Tree;
  struct Tree{
     Node *root;
-    
 };
 
 typedef struct Array Array ; 
@@ -190,7 +189,7 @@ void display_list(List* list);
 
 /**
  * \File Engine.h
- * \Brief Giving a certain board configuration and a piece,returns all moves possible in the form of multiple boards,in a list
+ * \Brief Given a certain board configuration and a piece,returns all moves possible in the form of multiple boards,in a list
  *
  * \Param game The board to generate the next moves from 
  * \Param piece The id of the piece in the array ,we want to move

@@ -4,7 +4,7 @@
 
 
 
-bool finished_game(Game* g){
+extern bool finished_game(Game* g){
 	uint_fast8_t number_of_kings =  0 ; 
 	
 	for(size_t i = 0 ; i < g->pieces_size ; i++){

@@ -7,8 +7,8 @@
 //TODO : rename project
 
 
- const uint8_t D = 2 ; 
- const uint8_t W = 200 ; 
+ const uint8_t D = 4 ; 
+ const uint8_t W = 20 ; 
 
 
 
@@ -16,8 +16,6 @@ int main(int argv, char**argc)
 {
 
 
-	Game *games = init_board("chess.config");
-	Node *M = init_node(games , NULL , NULL , NULL,NULL,GAME); 
 	Game* game = NULL ; 
         game= init_blank_game() ; 
 
@@ -25,8 +23,9 @@ int main(int argv, char**argc)
 	Tree* tree = generate_tree(N , D ,W, WHITE); 
 	Tree **ptr_tree = &tree; 
 
-	 
-	//browse_tree(ptr_tree); 
+
+//	browse_tree(ptr_tree); 
+		
 	free_tree(*ptr_tree); 
 	check_memleak(); 
 	destroy_mutex(); 

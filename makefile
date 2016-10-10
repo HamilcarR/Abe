@@ -1,2 +1,9 @@
-all : 
-	gcc -pthread -g -Wall  -O0 -std=c11 sources/*.c -o program
+
+
+
+all :
+	cd sources/ ; make all
+
+
+clean :
+	cd sources/ ; make clean

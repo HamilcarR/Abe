@@ -15,6 +15,10 @@
 
 
 
+void initialize_minmax(Tree* t);
+
+
+
 
 
 
