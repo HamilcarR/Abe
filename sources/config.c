@@ -1131,6 +1131,37 @@ static int add_p = 0 ;
 
     /*********************************************************************************************************************************************************************************************************************/
 
+static int get_type(int i){
+	
+		 if (i==KING_WHITE || i == KING_BLACK ){
+			return SCORE_KING;
+		}
+
+		else if (i==QUEEN_WHITE || i == QUEEN_BLACK ){
+			return SCORE_QUEEN;
+		}
+
+		else if (i==BISHOP_WHITE || i == BISHOP_BLACK){
+			return SCORE_BISHOP;
+		}
+
+		else if (i==ROOK_WHITE || i == ROOK_BLACK){
+			return SCORE_ROOK;
+		}
+
+		else if (i==KNIGHT_WHITE || i == KNIGHT_BLACK){
+			return SCORE_KNIGHT;
+		}
+
+		else if (i==PAWN_WHITE || i == PAWN_BLACK){
+			return SCORE_PAWN;
+		}	
+
+		
+	}
+
+
+
 
 
 static int get_points(Type type){
@@ -1175,10 +1206,27 @@ void calculate_score(Game* G){
 				break;
 
 				case BLACK :
-					G->score_black += get_points(G->pieces[i].type);
+					G->score_black -= get_points(G->pieces[i].type);
 				break;
 			}	
 		}
+
+	for(int i = 0 ; i < MAX_PIECES ; i++){
+		if(G->stack[i] != 0 ){
+			if(i < MAX_PIECES/2){
+				G->score_white -= get_points(get_type(i));
+				G->score_black -= get_points(get_type(i)); 
+			}
+			else{
+				G->score_white += get_points(get_type(i));
+				G->score_black += get_points(get_type(i)); 
+	
+			}
+		}
+	
+
+
+	}		
 }
 
 

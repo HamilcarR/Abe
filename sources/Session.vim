@@ -43,7 +43,6 @@ set ttimeout
 set ttimeoutlen=100
 set updatetime=350
 set wildmenu
-set window=81
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -58,33 +57,33 @@ badd +985 Engine.c
 badd +12 main.c
 badd +53 mmanager.c
 badd +14 Move.c
-badd +121 ../headers/Engine.h
-badd +113 ../headers/Config.h
+badd +40 ../headers/Engine.h
+badd +79 ../headers/Config.h
 badd +110 ../headers/Consts.h
 badd +969 /usr/include/pthread.h
 badd +39 ../headers/mmanager.h
 badd +1 /MEMALLOC_DEBUG_LIST
-badd +14 ../headers/Move.h
+badd +10 ../headers/Move.h
 badd +1 pthread
 badd +1 Session.vim
 badd +1 chess2.config
 badd +26 tags
 badd +1 IA.c
-badd +8 ../headers/IA.h
+badd +20 ../headers/IA.h
 badd +198 /usr/include/curses.h
-badd +0 -TaskList_5-
+badd +1 -TaskList_5-
 argglobal
 silent! argdel *
 argadd /MEMALLOC_DEBUG_LIST
-argadd Consts.c
-argadd Engine.c
-argadd Move.c
-argadd Session.vim
-argadd chess2.config
-argadd config.c
-argadd main.c
-argadd mmanager.c
 argadd tags
+argadd mmanager.c
+argadd main.c
+argadd config.c
+argadd chess2.config
+argadd Session.vim
+argadd Move.c
+argadd Engine.c
+argadd Consts.c
 set stal=2
 edit ../headers/Consts.h
 set splitbelow splitright
@@ -204,7 +203,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 16 - ((15 * winheight(0) + 29) / 59)
+let s:l = 16 - ((15 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -220,10 +219,10 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 64 + 41) / 82)
-exe 'vert 1resize ' . ((&columns * 108 + 163) / 326)
-exe '2resize ' . ((&lines * 64 + 41) / 82)
-exe 'vert 2resize ' . ((&columns * 152 + 163) / 326)
+exe '1resize ' . ((&lines * 52 + 33) / 67)
+exe 'vert 1resize ' . ((&columns * 138 + 130) / 261)
+exe '2resize ' . ((&lines * 52 + 33) / 67)
+exe 'vert 2resize ' . ((&columns * 122 + 130) / 261)
 argglobal
 edit ../headers/Move.h
 setlocal keymap=
@@ -336,7 +335,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 14 - ((13 * winheight(0) + 32) / 64)
+let s:l = 14 - ((11 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -455,17 +454,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 7 - ((6 * winheight(0) + 32) / 64)
+let s:l = 7 - ((5 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 7
 normal! 0
 wincmd w
-exe '1resize ' . ((&lines * 64 + 41) / 82)
-exe 'vert 1resize ' . ((&columns * 108 + 163) / 326)
-exe '2resize ' . ((&lines * 64 + 41) / 82)
-exe 'vert 2resize ' . ((&columns * 152 + 163) / 326)
+exe '1resize ' . ((&lines * 52 + 33) / 67)
+exe 'vert 1resize ' . ((&columns * 138 + 130) / 261)
+exe '2resize ' . ((&lines * 52 + 33) / 67)
+exe 'vert 2resize ' . ((&columns * 122 + 130) / 261)
 tabedit ../headers/Engine.h
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -476,8 +475,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 162 + 163) / 326)
-exe 'vert 2resize ' . ((&columns * 163 + 163) / 326)
+exe 'vert 1resize ' . ((&columns * 129 + 130) / 261)
+exe 'vert 2resize ' . ((&columns * 131 + 130) / 261)
 argglobal
 edit ../headers/Engine.h
 setlocal keymap=
@@ -590,7 +589,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 18 - ((17 * winheight(0) + 39) / 79)
+let s:l = 18 - ((14 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -709,15 +708,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 732 - ((63 * winheight(0) + 39) / 79)
+let s:l = 732 - ((51 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 732
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 162 + 163) / 326)
-exe 'vert 2resize ' . ((&columns * 163 + 163) / 326)
+exe 'vert 1resize ' . ((&columns * 129 + 130) / 261)
+exe 'vert 2resize ' . ((&columns * 131 + 130) / 261)
 tabedit ../headers/IA.h
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -728,8 +727,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 108 + 163) / 326)
-exe 'vert 2resize ' . ((&columns * 217 + 163) / 326)
+exe 'vert 1resize ' . ((&columns * 86 + 130) / 261)
+exe 'vert 2resize ' . ((&columns * 174 + 130) / 261)
 argglobal
 edit ../headers/IA.h
 setlocal keymap=
@@ -842,7 +841,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 9 - ((8 * winheight(0) + 39) / 79)
+let s:l = 9 - ((6 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -961,15 +960,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 39) / 79)
+let s:l = 1 - ((0 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 108 + 163) / 326)
-exe 'vert 2resize ' . ((&columns * 217 + 163) / 326)
+exe 'vert 1resize ' . ((&columns * 86 + 130) / 261)
+exe 'vert 2resize ' . ((&columns * 174 + 130) / 261)
 tabedit ../headers/mmanager.h
 set splitbelow splitright
 set nosplitbelow
@@ -1088,7 +1087,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 6 - ((5 * winheight(0) + 40) / 80)
+let s:l = 6 - ((4 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1104,8 +1103,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 162 + 163) / 326)
-exe 'vert 2resize ' . ((&columns * 163 + 163) / 326)
+exe 'vert 1resize ' . ((&columns * 129 + 130) / 261)
+exe 'vert 2resize ' . ((&columns * 131 + 130) / 261)
 argglobal
 edit ../headers/Config.h
 setlocal keymap=
@@ -1218,7 +1217,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 59 - ((58 * winheight(0) + 39) / 79)
+let s:l = 59 - ((47 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1337,16 +1336,16 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1104 - ((37 * winheight(0) + 39) / 79)
+let s:l = 1124 - ((50 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1104
-normal! 047|
+1124
+normal! 0
 wincmd w
 2wincmd w
-exe 'vert 1resize ' . ((&columns * 162 + 163) / 326)
-exe 'vert 2resize ' . ((&columns * 163 + 163) / 326)
+exe 'vert 1resize ' . ((&columns * 129 + 130) / 261)
+exe 'vert 2resize ' . ((&columns * 131 + 130) / 261)
 tabedit main.c
 set splitbelow splitright
 set nosplitbelow
@@ -1465,7 +1464,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 27 - ((26 * winheight(0) + 40) / 80)
+let s:l = 27 - ((21 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1481,10 +1480,10 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 58 + 41) / 82)
-exe 'vert 1resize ' . ((&columns * 96 + 163) / 326)
-exe '2resize ' . ((&lines * 58 + 41) / 82)
-exe 'vert 2resize ' . ((&columns * 120 + 163) / 326)
+exe '1resize ' . ((&lines * 47 + 33) / 67)
+exe 'vert 1resize ' . ((&columns * 164 + 130) / 261)
+exe '2resize ' . ((&lines * 47 + 33) / 67)
+exe 'vert 2resize ' . ((&columns * 96 + 130) / 261)
 argglobal
 edit ../headers/Engine.h
 setlocal keymap=
@@ -1597,12 +1596,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 144 - ((35 * winheight(0) + 29) / 58)
+let s:l = 144 - ((28 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 144
-normal! 018|
+normal! 03|
 wincmd w
 argglobal
 edit main.c
@@ -1716,17 +1715,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 12 - ((1 * winheight(0) + 29) / 58)
+let s:l = 12 - ((1 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 12
 normal! 0
 wincmd w
-exe '1resize ' . ((&lines * 58 + 41) / 82)
-exe 'vert 1resize ' . ((&columns * 96 + 163) / 326)
-exe '2resize ' . ((&lines * 58 + 41) / 82)
-exe 'vert 2resize ' . ((&columns * 120 + 163) / 326)
+exe '1resize ' . ((&lines * 47 + 33) / 67)
+exe 'vert 1resize ' . ((&columns * 164 + 130) / 261)
+exe '2resize ' . ((&lines * 47 + 33) / 67)
+exe 'vert 2resize ' . ((&columns * 96 + 130) / 261)
 tabnext 6
 set stal=1
 if exists('s:wipebuf')

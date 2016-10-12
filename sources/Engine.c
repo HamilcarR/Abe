@@ -1,4 +1,4 @@
-#include "../headers/Engine.h"
+#include "../headers/IA.h"
 #include <pthread.h>
 
 
@@ -712,7 +712,7 @@ void print_node(Node* node){
 			
 			print_board((Game*) (node->value)) ; 
 			printf("Iterator color : %s\n", (((Game*) (node->value))->turn ) == BLACK ? "BLACK" : "WHITE" ) ; 
-			printf("MIN-MAX value : %i\nGame score value :\nWHITE :%i   BLACK:%i\n",node->min_max , ( (Game*) (node->value))->score_white , ( (Game*)(node->value))->score_black );		
+			printf("%s value : %i\nGame score value :\nWHITE :%i   BLACK:%i\n",((Game*)(node->value))->turn == BLACK ? "MIN" : "MAX"    ,node->min_max , ( (Game*) (node->value))->score_white , ( (Game*)(node->value))->score_black );		
 		break;
 
 		case STRING : 
@@ -791,11 +791,13 @@ static char EXIT ='e';
  uint32_t DEPTH = 0 ;
  uint32_t WIDTH = 0 ;
 
-void browse_tree(Tree** tree){
+void browse_tree(Tree** tree , int depth , int width){
 
 	assert(*tree != NULL) ;
 	printf("INITIALIZATION\n");
- 	print_board((*(tree))->root->value);	
+ 	print_board((*(tree))->root->value);
+		
+	initialize_minmax(*tree);
 	Node* iterator = (*(tree))->root ; 
 
 	char move = ' ' ; 
@@ -860,14 +862,13 @@ void browse_tree(Tree** tree){
 
 
 			pthread_create(&f_thread , NULL ,(void*)fct_ptr,(void*)*tree);  	
-		//	free_tree(*tree); 
 			 
-			int depth = 4 , width = 250 ; 
 			//TODO : generate tree using threads			
 			Node* N = init_node(game,NULL,NULL,NULL,NULL,GAME); 
 			*tree = generate_tree(N , depth , width , color ) ;  
 			iterator =(*tree)->root ; 
 			
+			initialize_minmax(*tree); 	
 			
 			print_node(iterator);
 
@@ -877,15 +878,8 @@ void browse_tree(Tree** tree){
 		
 		case 'b' :
 		;
-			const char* ca = is_leaf_tree(*tree , iterator) ? "yes" : "no";
-			
-			printf(" Is leaf : %s \n " ,ca) ;  
-			if (ca == "yes"){
-				printf("PREVIOUS :  \n" );
-				print_node(DEBUG_NODE->prev_level);
-			
-			}
-
+		iterator = get_opt_move(iterator) ;	
+		print_node(iterator); 
 
 
 		break; 

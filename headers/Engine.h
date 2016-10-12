@@ -234,7 +234,7 @@ List* generate_all_boards(Node*,uint16_t width , COLOR color);
  *
  * \Param tree
  */
-void browse_tree(Tree** tree);
+void browse_tree(Tree** tree ,int Depth , int Width);
 
 
 
